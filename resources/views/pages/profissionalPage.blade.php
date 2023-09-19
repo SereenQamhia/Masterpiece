@@ -1,0 +1,182 @@
+@extends('layout.master')
+
+@section('content')
+    <link href="css/choosepro.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <script src="https://kit.fontawesome.com/d6692547f6.js" crossorigin="anonymous"></script>
+
+ <!-- Page Header Start -->
+ <div class="container-fluid page-header2 py-5 mb-6">
+  <div class="container py-5 d-flex justify-content-center flex-column">
+    <h1 class="display-3 text-white mb-3 animated slideInDown" style="font-family: Georgia, 'Times New Roman', Times, serif">Profissional</h1>
+    <nav aria-label="breadcrumb animated slideInDown">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a class="text-white" href="#">Home</a>
+        </li>
+        <li class="breadcrumb-item text-white active" aria-current="page">
+          Painting service
+        </li>
+        <li class="breadcrumb-item text-white active" aria-current="page">
+          Profissional
+        </li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+
+<div style="margin: 0px 8%;">
+
+<br><br>
+    <div class="row" style=" color: black;">
+<div class="col-7 row"  style="text-align: left;font-size: 20px">
+    <div class="col-4">
+    <img style="border-radius: 500px; width: 200px;height: 200px;" src="./img/pro1.png" ></div>
+    <div  class="col-6" style="padding-top: 25px;"> 
+        <h2 style="font-size: 40px;">Omar M.</h2>
+        <div><i class="fa-solid fa-star " style="color: #f5ed05;"></i>
+            <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
+            <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
+            <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
+            <i class="fa-solid fa-star " style="color: #f5ed05;"></i></div> 
+            <img style=" width: 35px;" src="./img/complited.svg">55 job complited</img><br>
+        <i class="fa-solid fa-location-dot fa-lg" style="color: #ffba1a; padding: 10px;"></i>Irbid
+         </div> 
+         <!-- <div  class="col-2">
+            <button style="background-color: rgb(255, 214, 78); color: white;margin-top: 50px;" type="submit" class="btn btn-lg">Chat with Omar</button>
+
+         </div> -->
+         <center>
+         <p style="text-align: left; padding-right: 100px;"><br>"I'm a specialist in attention to detail in every aspect of my business, and believe in great customer service, and because I understand the adage "home is where the heart is" I strive to be careful, and I endeavor to afford my clients with a truly professional, competitive service."</p>
+         <ul style="text-align: left;">
+            <li>+13 Years of expert</li>
+            <li>5JD per meter</li>
+            <li>32 years old</li>
+            <li>Profession in wall painting and interior designing</li>
+        </ul>
+      
+          <br><br>
+          <h3>Images for Omar M. previous projects:</h3><br>
+          <div class="row ">
+          <img class="col-4" src="./img/image_png (3).png" alt="">
+          <img class="col-4" src="./img/image_png (4).png" alt="">
+          <img class="col-4" src="./img/image_png (5).png" alt=""> 
+          </div> <br>
+          <div class="row ">
+          <img class="col-4" src="./img/image_png (6).png" alt="">
+          <img class="col-4" src="./img/image_png (7).png" alt="">
+          <img class="col-4" src="./img/image_png (8).png" alt="">
+          
+          
+      </center>
+</div>
+
+<div class="col-5 schedule" style="text-align: left;font-size: 20px; padding: 20px;">
+    <h2 style="color: #ffba1a;">Schedule now</h2> <br>
+    <center> <h3>Tell us about the job </h3><br> 
+    <div>How many hours would you like to book?</div>
+    <select name="" id="" style="width: 90%; height: 40px;">
+        <option value="4hr">4 hr</option>
+    </select> <br> <br>
+    <div>When would you like him to come?</div>
+    <input style="width: 90%; height: 40px;" type="time"> <br> 
+    <input style="width: 90%; height: 40px;" type="date"> <br><br>
+    
+    <div>Will you provide tools eg:
+        a paintbrush?</div>
+        <select name="" id="" style="width: 90%; height: 40px;">
+            <option value="4hr">NO</option>
+        </select> <br>
+    <div style="text-align: left; padding-left: 30px;">You will provide the paint</div> <br>
+
+<div>Description:</div>
+<input style="width: 90%; height: 250px;" type="text" placeholder="Please describe the job in detail (optional)"> <br><br>
+<a href="checkout.html">
+<button style="background-color: rgb(171,116,66); color: white;" type="submit" class="btn btn-lg mt-4">Complete booking</button></a>
+</center>
+
+
+</div>
+
+
+
+
+</div>
+
+<hr class="mt-5" style="color: rgb(0, 0, 0); height: 3px;">
+<br><br>
+
+  <div class="tab-pane fade show" id="pills-reviews" role="tabpanel"
+  aria-labelledby="pills-reviews-tab">
+  <div class="row ">
+    <div class=" col-lg-6  comment_form_area">
+      <form >
+        <h3 class="title_text">Add New Comment</h3>
+        <input type="hidden" name="rating" id="ratingInput" value="0" required>
+        <div class="rating_input">
+        <span class="rating_title" style="font-size:30px;">Rating:</span>
+        <ul class="rating_stars " style="color:Green ; ">
+           <a href="#" data-rating="1"><i class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
+            <a href="#" data-rating="2"><i class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
+            <a href="#" data-rating="3"><i class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
+            <a href="#" data-rating="4"><i class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
+            <a href="#" data-rating="5"><i class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
+        </ul>
+    </div>
+            <div class="form_item m-auto">
+                <textarea style="width: 500px;min-height: 150px;margin-left: 50px; " name="comment" placeholder="Your Comment*" required ></textarea>
+            </div>
+           <center> <button style="background-color: rgb(205, 163, 124); color: white;" type="submit" class="btn btn-lg mt-4" > Post Comment</button>
+          </center> </form>
+    </div>
+      <div class="col-lg-6">
+          <div class="review_comment2">
+              <h3 class="title_text">Reviews:</h3>
+              <ul class="review_comment_list2 ul_li_block">
+                  <li class="review_comment_wrap2">
+                      <h4 class="admin_name">John Doe <span class="comment_date">30 Aug
+                              2023</span></h4>
+                              <div><i class="fa-solid fa-star " style="color: #f5ed05;"></i>
+                                <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
+                                <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
+                                <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
+                                <i class="fa-solid fa-star " style="color: #f5ed05;"></i></div> 
+                      <p class="mb-0">
+                        Omar was great! on time, detail oriented, knowledgable, and very nice. will definitely hire him in the future.
+                      </p>
+                  </li>
+                  <li class="review_comment_wrap2">
+                      <h4 class="admin_name">Smith Alex <span class="comment_date">25 Aug
+                              2023</span></h4>
+                              <div><i class="fa-solid fa-star " style="color: #f5ed05;"></i>
+                                <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
+                                <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
+                                <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
+                                <i class="fa-solid fa-star " style="color: #f5ed05;"></i></div> 
+                      <p class="mb-0">
+                        Truly an amazing, multi-talented, detailed-oriented professional with a great attitude. I highly recommend him. Very thoughtful about the project, did amazing work.
+                      </p>
+                  </li>
+              </ul>
+          </div>
+        </div>
+       
+     
+  </div>
+</div>
+
+</div>
+
+</div>
+    
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+
+    <script src="lib/purecounter/purecounter_vanilla.js"></script>
+@endsection
