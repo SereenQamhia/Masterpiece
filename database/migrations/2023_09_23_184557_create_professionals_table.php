@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('professionals', function (Blueprint $table) {
-            $table->id('professional_id');
+            $table->id();
             $table->string('name');
             $table->string('description');
             $table->string('email');
@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('profission');
             $table->unsignedBigInteger('completed_jobs');
             $table->unsignedBigInteger('provider_id');
-            $table->foreign('provider_id')->references('provider_id')->on('providers');
+            $table->foreign('provider_id')->references('id')->on('providers');
             $table->string('image1');
             $table->string('image2');
             $table->string('image3');

@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
-            $table->id('review_id');
+            $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('professional_id');
             $table->unsignedTinyInteger('rating');
             $table->text('review_text');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('professional_id')->references('professional_id')->on('professionals');
+            $table->foreign('professional_id')->references('id')->on('professionals');
             $table->timestamps();
         });
     }

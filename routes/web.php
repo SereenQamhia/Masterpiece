@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ProviderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +17,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.register');
+    return view('Dashboard.index');
 });
+
+Route::resource('Services', ServiceController::class);
+Route::resource('Providers', ProviderController::class);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

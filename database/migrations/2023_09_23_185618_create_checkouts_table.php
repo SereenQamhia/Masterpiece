@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('checkouts', function (Blueprint $table) {
-            $table->id('checkout_id');
+            $table->id();
             $table->unsignedBigInteger('payment');
             $table->string('notes');
             $table->unsignedBigInteger('booking_id');
-            $table->foreign('booking_id')->references('booking_id')->on('bookings');
+            $table->foreign('booking_id')->references('id')->on('bookings');
             $table->string('address');
             $table->timestamps();
         });

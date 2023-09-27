@@ -15,7 +15,7 @@
 		<!-- FORM SECTION -->
 		<div class="row">
 			<!-- SIGN UP -->
-			<div class="col align-items-center flex-col sign-up">
+			<div class="col-6 align-items-center flex-col sign-up">
 				<div class="form-wrapper align-items-center">
 				
     <form class="form sign-up" method="POST" action="{{ route('register') }}">
@@ -73,16 +73,18 @@
 
 </div>
 </div>
-<div class="col align-items-center flex-col">
-    <div class="img sign-up">
-    
-    </div>
-    <div class="text sign-up">
-        <h2>
-            Join with us
-        </h2>
+<div class="row content-row">
+    <div class="col-7"></div>
+    <div class="col-5 align-items-center ">
+ 
+        <div class="text sign-up">
+            <h2>
+                Join with us
+            </h2>
 
+        </div>
     </div>
+    <!-- END SIGN UP CONTENT -->
 </div>
 </div>
 </div>
