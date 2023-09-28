@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProviderController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +20,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('Dashboard.index');
 });
-
+// Dashboard
 Route::resource('Services', ServiceController::class);
 Route::resource('Providers', ProviderController::class);
+Route::resource('Users', UserController::class);
 
 
 Route::get('/dashboard', function () {

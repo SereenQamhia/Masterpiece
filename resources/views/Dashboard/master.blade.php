@@ -118,10 +118,11 @@
                               <a href="{{route('Providers.index')}}">Providers</a>
                            </li>
                            <li>
-                              <button data-bs-toggle="tab" data-bs-target="#tab_profile" type="button" role="tab"
+                              {{-- <button data-bs-toggle="tab" data-bs-target="#tab_profile" type="button" role="tab"
                                  aria-selected="false">
                                  Profile
-                              </button>
+                              </button> --}}
+                              <a href="{{route('Users.index')}}">Users</a>
                            </li>
                            <li>
                               <button data-bs-toggle="tab" data-bs-target="#tab_settings" type="button" role="tab"

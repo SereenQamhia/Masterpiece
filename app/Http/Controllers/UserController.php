@@ -1,28 +1,26 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Service;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class ServiceController extends Controller
-{    public function index()
+class UserController extends Controller
+{
+    public function index()
     {
-        $services = Service::all();
-        return view('Dashboard.Services.index', compact('services'));
+        $Users = User::all();
+        return view('Dashboard.Users.index', compact('Users'));
     }
 
-   
     public function create()
     {
-        return view('Dashboard.Services.create');
+        return view('Dashboard.Users.create');
     }
 
     public function store( Request $request )
     {
         $validatedData = $request->validate([
             'name' => 'required',
-            'description' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust validation rules as needed
         ]);
     
@@ -31,14 +29,17 @@ class ServiceController extends Controller
         $imageName = time() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('img'), $imageName);
     
-        // Create a new Service with the image filename
-        Service::create([
+        // Create a new User with the image filename
+        User::create([
             'name' => $request->name,
-            'description' => $request->description,
+            'email' => $request->email,
+            'address' => $request->address,
+            'phone_number' => $request->phone_number,
+            'user_type' => $request->customer,
             'image' => $imageName, 
         ]);
     
-        return redirect()->route('Services.index')->with(['success' => 'created successfully
+        return redirect()->route('Users.index')->with(['success' => 'created successfully
         ']);
     }
 
@@ -50,8 +51,8 @@ class ServiceController extends Controller
 
     public function edit($id)
     {
-        $data = Service::find($id);
-        return view('Dashboard.Services.edit', compact('data'));
+        $data = User::find($id);
+        return view('Dashboard.Users.edit', compact('data'));
     }
 
     public function update(Request $request, $id)
@@ -59,16 +60,15 @@ class ServiceController extends Controller
         $data['name'] = $request->name;
         $data['description'] = $request->description;
 
-        Service::where(['id' => $id])->update($data);
-        return redirect()->route('Services.index')->with(['success' => 'Updated successfully
+        User::where(['id' => $id])->update($data);
+        return redirect()->route('Users.index')->with(['success' => 'Updated successfully
         ']);
     }
 
-  
+
     public function destroy($id)
     {
-        Service::destroy($id);
-        return redirect()->route('Services.index');
+        User::destroy($id);
+        return redirect()->route('Users.index');
     }
-
 }
