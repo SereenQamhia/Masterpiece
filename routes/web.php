@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::get('/', function () {
 Route::resource('Services', ServiceController::class);
 Route::resource('Providers', ProviderController::class);
 Route::resource('Users', UserController::class);
+Route::resource('Admins', AdminController::class);
 
 
 Route::get('/dashboard', function () {
