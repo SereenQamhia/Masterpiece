@@ -97,44 +97,42 @@
 
                         <ul class="vd_tab_nav nav ul_li_block" role="tablist">
                            <li>
-                              <button class="active" data-bs-toggle="tab" data-bs-target="#tab_dashboard" type="button"
-                                 role="tab" aria-selected="true">
-                                 Dashboard
-                              </button>
+                               <button class="{{ request()->is('Dash*') ? 'active' : '' }}" >
+                                   <a href="{{ route('Dashboard.index') }}" style="color: rgb(25, 24, 24) ; ">Dashboard</a>
+                               </button>
                            </li>
                            <li>
-                              {{-- <button data-bs-toggle="tab" data-bs-target="#tab_products" type="button" role="tab"
-                                 aria-selected="false">
-                                 Services
-                              </button> --}}
-
-                              <a href="{{route('Services.index')}}">Services</a>
+                               <button class="{{ request()->is('Services*') ? 'active' : '' }}" >
+                                   <a href="{{ route('Services.index') }}" style="color: rgb(25, 24, 24) ; ">Services</a>
+                               </button>
                            </li>
                            <li>
-                              {{-- <button data-bs-toggle="tab" data-bs-target="#tab_orders" type="button" role="tab"
-                                 aria-selected="false">
-                                 Orders
-                              </button> --}}
-                              <a href="{{route('Providers.index')}}">Providers</a>
+                               <button class="{{ request()->is('Providers*') ? 'active' : '' }}" >
+                                   <a href="{{ route('Providers.index') }}" style="color: rgb(25, 24, 24) ; ">Providers</a>
+                               </button>
                            </li>
                            <li>
-                              {{-- <button data-bs-toggle="tab" data-bs-target="#tab_profile" type="button" role="tab"
-                                 aria-selected="false">
-                                 Profile
-                              </button> --}}
-                              <a href="{{route('Users.index')}}">Users</a>
+                               <button class="{{ request()->is('Users*') ? 'active' : '' }}" >
+                                   <a href="{{ route('Users.index') }}" style="color: rgb(25, 24, 24) ; ">Users</a>
+                               </button>
                            </li>
                            <li>
-                              {{-- <button data-bs-toggle="tab" data-bs-target="#tab_settings" type="button" role="tab"
-                                 aria-selected="false">
-                                 Settings
-                              </button> --}}
-                              <a href="{{route('Admins.index')}}">Admins</a>
+                               <button class="{{ request()->is('Admins*') ? 'active' : '' }}" >
+                                   <a href="{{ route('Admins.index') }}" style="color: rgb(25, 24, 24) ; ">Admins</a>
+                               </button>
                            </li>
-                           <li class="w-100">
-                              <a href="#" >Logout</a>
+                           <li>
+                               <button class="{{ request()->is('Courses*') ? 'active' : '' }}" >
+                                   <a href="{{ route('Courses.index') }}" style="color: rgb(25, 24, 24) ; ">Courses</a>
+                               </button>
                            </li>
-                        </ul>
+                           <li>
+                               <button class="{{ request()->is('Logout*') ? 'active' : '' }}" >
+                                   <a href="#" style="color: rgb(25, 24, 24) ; ">Logout</a>
+                               </button>
+                           </li>
+                       </ul>
+                       
 
                  
                      </div>

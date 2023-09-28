@@ -21,8 +21,6 @@ return new class extends Migration
             $table->string('location');
             $table->string('day');
             $table->decimal('price', 10, 2);
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

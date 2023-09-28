@@ -5,6 +5,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CourseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,14 +19,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Dashboard.index');
-});
+Route::get('/Dash', function () {
+    return view('Dashboard.index') ;
+}) -> name('Dashboard.index');
 // Dashboard
 Route::resource('Services', ServiceController::class);
 Route::resource('Providers', ProviderController::class);
 Route::resource('Users', UserController::class);
 Route::resource('Admins', AdminController::class);
+Route::resource('Courses', CourseController::class);
 
 
 Route::get('/dashboard', function () {
