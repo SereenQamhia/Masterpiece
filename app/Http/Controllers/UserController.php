@@ -34,8 +34,9 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'address' => $request->address,
-            'phone_number' => $request->phone_number,
-            'user_type' => $request->customer,
+            'password' => $request->password,
+            'phone_number' => $request->phone,
+            'user_type' => $request->role,
             'image' => $imageName, 
         ]);
     

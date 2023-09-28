@@ -125,10 +125,11 @@
                               <a href="{{route('Users.index')}}">Users</a>
                            </li>
                            <li>
-                              <button data-bs-toggle="tab" data-bs-target="#tab_settings" type="button" role="tab"
+                              {{-- <button data-bs-toggle="tab" data-bs-target="#tab_settings" type="button" role="tab"
                                  aria-selected="false">
                                  Settings
-                              </button>
+                              </button> --}}
+                              <a href="{{route('Admins.index')}}">Admins</a>
                            </li>
                            <li class="w-100">
                               <a href="#" >Logout</a>

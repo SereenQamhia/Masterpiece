@@ -31,6 +31,11 @@
                         <label for="email">User email:</label>
                         <input type="text" class="form-control" id="email" name="email" placeholder="email"></textarea>
                     </div> 
+
+                    <div class="form-group">
+                      <label for="password">User password:</label>
+                      <input type="password" class="form-control" id="password" name="password" placeholder="password"></textarea>
+                  </div> 
                      
                     <div class="form-group">
                         <label for="phone">User phone number:</label>
