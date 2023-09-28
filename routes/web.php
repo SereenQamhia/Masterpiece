@@ -6,6 +6,7 @@ use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ProfessionalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,7 @@ Route::resource('Providers', ProviderController::class);
 Route::resource('Users', UserController::class);
 Route::resource('Admins', AdminController::class);
 Route::resource('Courses', CourseController::class);
+Route::resource('Professionals', ProfessionalController::class);
 
 
 Route::get('/dashboard', function () {
