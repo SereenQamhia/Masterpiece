@@ -1,4 +1,4 @@
-@extends('dashlayout.master')
+@extends('Dashboard.master')
 
 
 

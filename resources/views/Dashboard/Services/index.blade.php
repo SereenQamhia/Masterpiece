@@ -1,4 +1,4 @@
-@extends('dashlayout.master')
+@extends('Dashboard.master')
 
 
 
@@ -44,15 +44,15 @@
                                      <li style="display: inline-block">
                                          <a href="{{ route('Services.edit' , $service->id) }}" ><button type="submit"
                                                  class="bg_green" >
-                                                 <i class="fas fa-edit"></i>
+                                                 <i class="fas fa-edit" style="color: rgb(238, 224, 224)"></i>
                                              </button></a>
                                    
                                          <form action="{{ route('Services.destroy',$service->id) }}"
                                              method="POST" style="display: inline-block">
                                              @csrf
                                              @method('DELETE')
-                                             <button type="submit" class="bg_orange">
-                                                 <i class="fas fa-trash-alt"></i>
+                                             <button type="submit" class="bg_orange" >
+                                                 <i class="fas fa-trash-alt" style="color: rgb(238, 224, 224)"></i>
                                              </button>
                                          </form>
                                      </li>
@@ -62,106 +62,7 @@
                           </tr>
                           @endforeach
                         </tbody>
-                         <tr>
-                            <td>
-                               <div class="item_image">
-                                  <img src="./img/service-1.jpg" alt="image_not_found">
-                               </div>
-                            </td>
-                            <td>
-                               <h4 class="item_title"><a href="shop-list.html"></a>Carpenter
-                               </h4>
-                            </td>
-                            <td>
-                           
-                               <ul class="btns_group ul_li">
-                                  <li>
-                                     <button type="button" class="bg_green">
-                                        <i class="fas fa-edit"></i>
-                                     </button>
-                                  
-                                     <button type="button" class="bg_orange">
-                                        <i class="fas fa-trash-alt"></i>
-                                     </button>
-                                  </li>
-                               </ul>
-                            </td>
-                         </tr>
-                         <tr>
-                            <td>
-                               <div class="item_image">
-                                  <img src="./img/service-2.jpg" alt="image_not_found">
-                               </div>
-                            </td>
-                            <td>
-                               <h4 class="item_title"><a href="shop-list.html"></a>Electrical
-                               </h4>
-                            </td>
-                            <td>
-                            
-                               <ul class="btns_group ul_li">
-                                  <li>
-                                     <button type="button" class="bg_green">
-                                        <i class="fas fa-edit"></i>
-                                     </button>
-                                
-                                     <button type="button" class="bg_orange">
-                                        <i class="fas fa-trash-alt"></i>
-                                     </button>
-                                  </li>
-                               </ul>
-                            </td>
-                         </tr>
-                         <tr>
-                            <td>
-                               <div class="item_image">
-                                  <img src="./img/service-3.jpg" alt="image_not_found">
-                               </div>
-                            </td>
-                            <td>
-                               <h4 class="item_title"><a href="shop-list.html"></a>Painting
-                               </h4>
-                            </td>
-                       
-                            <td>
-                               <ul class="btns_group ul_li">
-                                  <li>
-                                     <button type="button" class="bg_green">
-                                        <i class="fas fa-edit"></i>
-                                     </button>
-                                 
-                                     <button type="button" class="bg_orange">
-                                        <i class="fas fa-trash-alt"></i>
-                                     </button>
-                                  </li>
-                               </ul>
-                            </td>
-                         </tr>
-                         <tr>
-                            <td>
-                               <div class="item_image">
-                                  <img src="./img/service-4.jpg" alt="image_not_found">
-                               </div>
-                            </td>
-                            <td>
-                               <h4 class="item_title"><a href="shop-list.html"></a>Plumping
-                               </h4>
-                            </td>
-                          
-                            <td>
-                               <ul class="btns_group ul_li">
-                                  <li>
-                                     <button type="button" class="bg_green">
-                                        <i class="fas fa-edit"></i>
-                                     </button>
-                               
-                                     <button type="button" class="bg_orange">
-                                        <i class="fas fa-trash-alt"></i>
-                                     </button>
-                                  </li>
-                               </ul>
-                            </td>
-                         </tr> 
+                        
                          
                   
                    </table>

@@ -115,7 +115,7 @@
                                  aria-selected="false">
                                  Orders
                               </button> --}}
-                              <a href="  {{route('Providers.index')}}">Providers</a>
+                              <a href="{{route('Providers.index')}}">Providers</a>
                            </li>
                            <li>
                               <button data-bs-toggle="tab" data-bs-target="#tab_profile" type="button" role="tab"

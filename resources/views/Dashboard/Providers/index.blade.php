@@ -1,4 +1,4 @@
-@extends('dashlayout.master')
+@extends('Dashboard.master')
 
 
 
@@ -25,7 +25,7 @@
                             <th>Edit/Delete</th>
                          </tr>
                       </thead>
-                         <tbody>
+                         <tbody >
                             @foreach ($Providers as $Provider)
                           <tr>
                            
@@ -44,15 +44,15 @@
                                      <li style="display: inline-block">
                                          <a href="{{ route('Providers.edit' , $Provider->id) }}" ><button type="submit"
                                                  class="bg_green" >
-                                                 <i class="fas fa-edit"></i>
+                                                 <i class="fas fa-edit" style="color: rgb(238, 224, 224)"></i>
                                              </button></a>
                                    
                                          <form action="{{ route('Providers.destroy',$Provider->id) }}"
                                              method="POST" style="display: inline-block">
                                              @csrf
                                              @method('DELETE')
-                                             <button type="submit" class="bg_orange">
-                                                 <i class="fas fa-trash-alt"></i>
+                                             <button type="submit" class="bg_orange" >
+                                                 <i class="fas fa-trash-alt" style="color: rgb(238, 224, 224)"></i>
                                              </button>
                                          </form>
                                      </li>

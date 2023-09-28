@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Add Service</title>
+    <title>Add Provider</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,23 +14,33 @@
    <div style="margin: 150px 300px; border: solid rgb(93, 187, 0) 3px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);">
 
       <div style="margin: 30px ">
-         <h2 class="text-center">Addff Service</h2>
-                   <form method="post" action="{{route('Services.store')}}" enctype="multipart/form-data" id="signup-form" class="signup-form">
+         <h2 class="text-center">Add Provider</h2>
+                   <form method="post" action="{{route('Providers.store')}}" enctype="multipart/form-data" id="signup-form" class="signup-form">
                        @csrf
                        @method('post')
 
                        <div class="form-group">
-                        <label for="name">Service Name:</label>
+                        <label for="name">Provider Name:</label>
                         <input type="text" class="form-control" id="name" placeholder="Enter name"
                           name="name">
                           <span style="color:red">@error('name'){{ $message }} @enderror</span>
                     </div>
-                       
+
+
+                    <div class="form-group">
+                        <label for="Description">Provider Description:</label>
+                        <input type="text" class="form-control" id="description" name="description" placeholder="discription"></textarea>
+            
+                    </div> 
                     
-                       <div class="form-group">	
-                           <input type="text" class="form-input" name="discription" id="discription" placeholder="discription"/>
-                         
-                       </div>
+                    <div class="form-group">
+                        <label for="Service">Service:</label>
+                        <input type="text" class="form-control" id="Service" name="Service" placeholder="Service"></textarea>
+                         <select class="form-control" id="Service" name="Service" placeholder="Service">
+                            <option value="8">nn</option>
+                            <option value="9">nk</option>
+                         </select>
+                    </div> 
                      
                       
                        <div class="form-group mt-4">

@@ -35,10 +35,11 @@ class ProviderController extends Controller
         Provider::create([
             'name' => $request->name,
             'description' => $request->description,
+            'service_id' => 8,
             'image' => $imageName, 
         ]);
     
-        return redirect()->route('Dashboard.index')->with(['success' => 'created successfully
+        return redirect()->route('Providers.index')->with(['success' => 'created successfully
         ']);
     }
 
