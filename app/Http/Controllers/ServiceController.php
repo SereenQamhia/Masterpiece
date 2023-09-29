@@ -48,26 +48,26 @@ class ServiceController extends Controller
         //
     }
 
-    public function edit($id)
+    public function edit($name)
     {
-        $data = Service::find($id);
+        $data = Service::where('name', $name)->first();
         return view('Dashboard.Services.edit', compact('data'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $name)
     {
         $data['name'] = $request->name;
         $data['description'] = $request->description;
 
-        Service::where(['id' => $id])->update($data);
+        Service::where(['name' => $name])->update($data);
         return redirect()->route('Services.index')->with(['success' => 'Updated successfully
         ']);
     }
 
   
-    public function destroy($id)
+    public function destroy($name)
     {
-        Service::destroy($id);
+        Service::where('name', $name)->delete();
         return redirect()->route('Services.index');
     }
 

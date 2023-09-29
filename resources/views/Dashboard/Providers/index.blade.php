@@ -22,6 +22,7 @@
                             <th>Provider Image</th>
                             <th>Provider Name</th>
                             <th>Provider Description</th>
+                            <th>Related Service</th>
                             <th>Edit/Delete</th>
                          </tr>
                       </thead>
@@ -33,6 +34,7 @@
                               height="100px" alt="image"></a></td>
                             <td>{{$Provider->name}}</td>
                             <td>{{$Provider->description}}</td>
+                            <td>{{$Provider->service_name}}</td>
                             
                             {{-- <td>  @if ($Provider->image)
                               <img src="{{ asset('images/fruits/' . $Provider->image) }}" alt="{{ $Provider->name }}" width="150" height="120">

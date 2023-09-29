@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ProfessionalController;
+use App\Http\Controllers\JoinUsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,7 @@ Route::resource('Users', UserController::class);
 Route::resource('Admins', AdminController::class);
 Route::resource('Courses', CourseController::class);
 Route::resource('Professionals', ProfessionalController::class);
+Route::resource('JoinUs', JoinUsController::class);
 
 
 Route::get('/dashboard', function () {

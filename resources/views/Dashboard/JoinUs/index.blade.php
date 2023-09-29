@@ -8,10 +8,8 @@
       
           <div class="trending_products">
              <div class="vd_title_wrap">
-                <h3>Professionals</h3>
-                <a href="{{ route('Professionals.create') }}"><button type="button" class="btn custom_btn"><i
-                  class="far fa-plus"></i> Add
-                  Professional</button></a>
+                <h3>Joining requists</h3>
+               
               
              </div>
              <div class="vd_shadow p-0">
@@ -41,7 +39,7 @@
                             <th>Project image4</th>
                             <th>Project image5</th>
                             <th>Project image6</th>
-                            <th>Action</th>
+                            <th>Actions</th>
                          </tr>
                       </thead>
                          <tbody >
@@ -52,7 +50,7 @@
                             <td>{{$Professional->name}}</td>
                             <td>{{$Professional->description}}</td>
                             <td>{{$Professional->email}}</td>
-                            <td><a style="color: rgb(1, 90, 255);" href="{{ url('cv/' . $Professional->cv) }}">Show file</a></td>
+                            <td><a href="{{ url('cv/' . $Professional->cv) }}">Show file</a></td>
                             <td>{{$Professional->location}}</td>
                             <td>{{$Professional->experience}}</td>
                             <td>{{$Professional->age}}</td>

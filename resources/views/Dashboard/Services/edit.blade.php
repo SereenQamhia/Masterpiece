@@ -16,7 +16,7 @@
     <div style="margin: 30px ">
     <h2 class="text-center">Update {{ $data['name']}} Service</h2>
 
-    <form action="{{ route('Services.update', $data['id']) }}" method="POST" class="needs-validation">
+    <form action="{{ route('Services.update', $data['name']) }}" method="POST" class="needs-validation" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">

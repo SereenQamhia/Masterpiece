@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table-> string('image');
-            $table -> unsignedBigInteger('service_id');
+            $table -> string('service_name');
             $table->timestamps();
 
-            $table->foreign('service_id')->references('id')->on('services');
+            $table->foreign('service_name')->references('name')->on('services');
         });
     }
 

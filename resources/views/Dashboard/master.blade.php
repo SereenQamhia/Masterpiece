@@ -111,6 +111,19 @@
                                    <a href="{{ route('Providers.index') }}" style="color: rgb(25, 24, 24) ; ">Providers</a>
                                </button>
                            </li>
+
+                           <li>
+                            <button class="{{ request()->is('Professionals*') ? 'active' : '' }}" >
+                                <a href="{{ route('Professionals.index') }}" style="color: rgb(25, 24, 24) ; ">Professionals</a>
+                            </button>
+                         </li>
+
+                         <li>
+                            <button class="{{ request()->is('JoinUs*') ? 'active' : '' }}" >
+                                <a href="{{ route('JoinUs.index') }}" style="color: rgb(25, 24, 24) ; ">Joining requists</a>
+                            </button>
+                         </li>
+
                            <li>
                                <button class="{{ request()->is('Users*') ? 'active' : '' }}" >
                                    <a href="{{ route('Users.index') }}" style="color: rgb(25, 24, 24) ; ">Users</a>

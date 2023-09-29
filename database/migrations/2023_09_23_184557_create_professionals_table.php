@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('cv');
             $table->string('location');
-            $table->unsignedBigInteger('years of experience');
+            $table->unsignedBigInteger('experience');
             $table->unsignedBigInteger('age');
             $table->string('gender');
             $table->decimal('price', 10, 2);
@@ -29,12 +29,14 @@ return new class extends Migration
             $table->unsignedBigInteger('completed_jobs');
             $table->unsignedBigInteger('provider_id');
             $table->foreign('provider_id')->references('id')->on('providers');
-            $table->string('image1');
-            $table->string('image2');
-            $table->string('image3');
-            $table->string('image4');
-            $table->string('image5');
-            $table->string('image6');
+            $table->string('image1')->nullable();
+            $table->string('image2')->nullable();
+            $table->string('image3')->nullable();
+            $table->string('image4')->nullable();
+            $table->string('image5')->nullable();
+            $table->string('image6')->nullable();
+            $table->string('daysofwork');
+            $table->string('hoursofwork');
             $table->timestamps();
         });
     }

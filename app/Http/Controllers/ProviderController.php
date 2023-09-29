@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Provider;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class ProviderController extends Controller
@@ -15,7 +16,8 @@ class ProviderController extends Controller
    
     public function create()
     {
-        return view('Dashboard.Providers.create');
+        $Services = Service::all();
+        return view('Dashboard.Providers.create', compact('Services'));
     }
 
     public function store( Request $request )
@@ -35,7 +37,7 @@ class ProviderController extends Controller
         Provider::create([
             'name' => $request->name,
             'description' => $request->description,
-            'service_id' => 8,
+            'service_name' => $request->Service,
             'image' => $imageName, 
         ]);
     

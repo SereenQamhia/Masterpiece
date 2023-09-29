@@ -29,17 +29,51 @@ class ProfessionalController extends Controller
         $image = $request->file('image');
         $imageName = time() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('img'), $imageName);
-    
+
+        $pdfFile = $request->file('cv');
+        $CV = time() . '.' . $pdfFile->getClientOriginalExtension();
+        $pdfFile->move(public_path('cv'), $CV);
+           
+        $imageNames = []; // Create an array to store image names
+
+        for ($i = 1; $i <= 6; $i++) {
+            $image = $request->file("image{$i}");
+            
+            if ($image) {
+                $imageName = time() . "_{$i}." . $image->getClientOriginalExtension();
+                $image->move(public_path('img'), $imageName);
+        
+                // Store the image name in the array with the loop index as the key
+                $imageNames[$i] = $imageName;
+            }
+        }
+         
+      
         // Create a new Professional with the image filename
         Professional::create([
             'name' => $request->name,
+            'description' => $request->description,
             'email' => $request->email,
-            'address' => $request->address,
-            'password' => $request->password,
-            'phone_number' => $request->phone,
-            'Professional_type' => $request->role,
-            'image' => $imageName, 
+            'location' => $request->location,
+            'experience' => $request->experience,
+            'age' => $request->age,
+            'gender' => $request->gender,
+            'image' => $imageName,
+            'cv' => $CV,
+            'price' => $request->price,
+            'profission' => $request->profission,
+            'hoursofwork' => $request->hoursofwork,
+            'daysofwork' => $request->daysofwork,
+            'completed_jobs' => $request->completed_jobs,
+            'provider_id' => $request->provider_id,
+            'image1' => $imageNames[1],
+            'image2' => $imageNames[2],
+            'image3' => $imageNames[3],
+            'image4' => $imageNames[4],
+            'image5' => $imageNames[5],
+            'image6' => $imageNames[6],
         ]);
+        
     
         return redirect()->route('Professionals.index')->with(['success' => 'created successfully
         ']);

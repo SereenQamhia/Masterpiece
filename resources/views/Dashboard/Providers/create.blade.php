@@ -33,15 +33,19 @@
             
                     </div> 
                     
+                  
+                        
+                   
                     <div class="form-group">
                         <label for="Service">Service:</label>
-                        <input type="text" class="form-control" id="Service" name="Service" placeholder="Service"></textarea>
+                        {{-- <input type="text" class="form-control" id="Service" name="Service" placeholder="Service"></textarea> --}}
                          <select class="form-control" id="Service" name="Service" placeholder="Service">
-                            <option value="8">nn</option>
-                            <option value="9">nk</option>
+                          @foreach ($Services as $service)
+                            <option value="{{$service->name}}">{{$service->name}}</option>
+                            @endforeach
                          </select>
                     </div> 
-                     
+                   
                       
                        <div class="form-group mt-4">
                        

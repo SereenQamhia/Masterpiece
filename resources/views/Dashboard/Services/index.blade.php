@@ -42,12 +42,12 @@
                               <td>
                                  <ul class="btns_group ul_li" >
                                      <li style="display: inline-block">
-                                         <a href="{{ route('Services.edit' , $service->id) }}" ><button type="submit"
+                                         <a href="{{ route('Services.edit' , $service->name) }}" ><button type="submit"
                                                  class="bg_green" >
-                                                 <i class="fas fa-edit"></i>
+                                                 <i class="fas fa-edit" style="color: rgb(238, 224, 224)"></i>
                                              </button></a>
                                    
-                                         <form action="{{ route('Services.destroy',$service->id) }}"
+                                         <form action="{{ route('Services.destroy',$service->name) }}"
                                              method="POST" style="display: inline-block">
                                              @csrf
                                              @method('DELETE')

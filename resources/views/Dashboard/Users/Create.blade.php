@@ -47,7 +47,9 @@
                     </div> 
                     <div class="form-group">
                         <label for="role">User role:</label>
-                        <input type="text" class="form-control" id="role" name="role" placeholder="role"></textarea>
+                        <select type="text" class="form-control" id="role" name="role" >
+                          <option value="customer">Customer</option>
+                          <option value="service_provider">Service_provider</option>
                     </div> 
                       
                        <div class="form-group mt-4">

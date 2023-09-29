@@ -29,12 +29,14 @@ return new class extends Migration
             $table->unsignedBigInteger('completed_jobs');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('image1');
-            $table->string('image2');
-            $table->string('image3');
-            $table->string('image4');
-            $table->string('image5');
-            $table->string('image6');
+            $table->string('image1')->nullable();
+            $table->string('image2')->nullable();
+            $table->string('image3')->nullable();
+            $table->string('image4')->nullable();
+            $table->string('image5')->nullable();
+            $table->string('image6')->nullable();
+            $table->string('daysofwork');
+            $table->string('hoursofwork');
             $table->timestamps();
         });
     }
