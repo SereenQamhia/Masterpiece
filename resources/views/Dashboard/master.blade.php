@@ -143,6 +143,12 @@
                                    <a href="{{ route('Courses.index') }}" style="color: rgb(25, 24, 24) ; ">Courses</a>
                                </button>
                            </li>
+
+                           <li>
+                            <button class="{{ request()->is('Reviews*') ? 'active' : '' }}" >
+                                <a href="{{ route('Reviews.index') }}" style="color: rgb(25, 24, 24) ; ">Reviews</a>
+                            </button>
+                         </li>
                            <li>
                                <button class="{{ request()->is('Logout*') ? 'active' : '' }}" >
                                    <a href="#" style="color: rgb(25, 24, 24) ; ">Logout</a>

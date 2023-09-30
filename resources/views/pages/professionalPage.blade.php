@@ -32,41 +32,41 @@
     <div class="row" style=" color: black;">
 <div class="col-7 row"  style="text-align: left;font-size: 20px">
     <div class="col-4">
-    <img style="border-radius: 500px; width: 200px;height: 200px;" src="./img/pro1.png" ></div>
+    <img style="border-radius: 500px; width: 200px;height: 200px;" src="{{ url('img/' . $pro->image) }}" ></div>
     <div  class="col-6" style="padding-top: 25px;"> 
-        <h2 style="font-size: 40px;">Omar M.</h2>
+        <h2 style="font-size: 40px;">{{$pro->name}}</h2>
         <div><i class="fa-solid fa-star " style="color: #f5ed05;"></i>
             <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
             <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
             <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
             <i class="fa-solid fa-star " style="color: #f5ed05;"></i></div> 
-            <img style=" width: 35px;" src="./img/complited.svg">55 job complited</img><br>
-        <i class="fa-solid fa-location-dot fa-lg" style="color: #ffba1a; padding: 10px;"></i>Irbid
+            <img style=" width: 35px;" src="./img/complited.svg">{{$pro->completed_jobs}} job complited<br>
+        <i class="fa-solid fa-location-dot fa-lg" style="color: #ffba1a; padding: 10px;"></i>{{$pro->location}}
          </div> 
          <!-- <div  class="col-2">
             <button style="background-color: rgb(255, 214, 78); color: white;margin-top: 50px;" type="submit" class="btn btn-lg">Chat with Omar</button>
 
          </div> -->
          <center>
-         <p style="text-align: left; padding-right: 100px;"><br>"I'm a specialist in attention to detail in every aspect of my business, and believe in great customer service, and because I understand the adage "home is where the heart is" I strive to be careful, and I endeavor to afford my clients with a truly professional, competitive service."</p>
+         <p style="text-align: left; padding-right: 100px;"><br>{{$pro->description}}</p>
          <ul style="text-align: left;">
-            <li>+13 Years of expert</li>
-            <li>5JD per meter</li>
-            <li>32 years old</li>
-            <li>Profession in wall painting and interior designing</li>
+            <li>+{{$pro->experience}} Years of expert</li>
+            <li>{{$pro->price}}JD per meter</li>
+            <li>{{$pro->age}} years old</li>
+            <li>Profession in {{$pro->profission}}</li>
         </ul>
       
           <br><br>
           <h3>Images for Omar M. previous projects:</h3><br>
           <div class="row ">
-          <img class="col-4" src="./img/image_png (3).png" alt="">
-          <img class="col-4" src="./img/image_png (4).png" alt="">
-          <img class="col-4" src="./img/image_png (5).png" alt=""> 
+          <img class="col-4" src="{{ url('img/' . $pro->image1) }}" alt="">
+          <img class="col-4" src="{{ url('img/' . $pro->image2) }}" alt="">
+          <img class="col-4" src="{{ url('img/' . $pro->image3) }}" alt=""> 
           </div> <br>
           <div class="row ">
-          <img class="col-4" src="./img/image_png (6).png" alt="">
-          <img class="col-4" src="./img/image_png (7).png" alt="">
-          <img class="col-4" src="./img/image_png (8).png" alt="">
+          <img class="col-4" src="{{ url('img/' . $pro->image4) }}" alt="">
+          <img class="col-4" src="{{ url('img/' . $pro->image5) }}" alt="">
+          <img class="col-4" src="{{ url('img/' . $pro->image6) }}" alt="">
           
           
       </center>

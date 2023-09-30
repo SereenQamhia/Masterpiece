@@ -178,7 +178,11 @@
                                             <i class="fas fa-map-marker-alt" style="color: #ffa411;"></i> Location: {{$pro->location}} , price {{$pro->price}}JD per meter
                                         </p>         
                                         <div class="expert-buttons">
-                                            <a href="profissionalPage.html" class="expert-button">More Info</a>
+                                            <form method="POST" action="{{ route('pro') }}">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{$pro->id}}">
+                                                <button class="expert-button" type="submit">More Info</button>
+                                            </form>
                                         </div>
                                       
                                     

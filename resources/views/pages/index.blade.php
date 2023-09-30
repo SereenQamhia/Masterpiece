@@ -167,7 +167,12 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">{{$service->name}}</h4>
                             <p>{{$service->description}}</p>
-                            <a class="fw-medium" href={{ route('Service' ,$service->name) }}>Read More<i class="fa fa-arrow-right ms-2"></i></a>
+                            <form method="POST" action="{{ route('Service')}}">
+                                @csrf
+                                <input type="hidden" name="name" value="{{$service->name}}">
+                                <button class="expert-button" type="submit">More Info</button>
+                            </form>
+                            {{-- <a class="fw-medium" href={{ route('Service' ,$service->name) }}>Read More<i class="fa fa-arrow-right ms-2"></i></a> --}}
                         </div>
                     </div>
                 </div>

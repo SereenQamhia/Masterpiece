@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ProfessionalController;
 use App\Http\Controllers\JoinUsController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,7 @@ Route::resource('Admins', AdminController::class);
 Route::resource('Courses', CourseController::class);
 Route::resource('Professionals', ProfessionalController::class);
 Route::resource('JoinUs', JoinUsController::class);
+Route::resource('Reviews', ReviewController::class);
 
 
 Route::get('/dashboard', function () {
@@ -45,12 +47,13 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/', [HomeController::class, 'showhome'])->name('home');
 Route::get('/about', function () {return view('pages.about') ;}) -> name('about');
-Route::get('/{name}',  [HomeController::class, 'showprovider']) -> name('Service');
+Route::post('/service',  [HomeController::class, 'showprovider']) -> name('Service');
 Route::get('/carpenter', function () {return view('pages.carpenter') ;}) -> name('Carpenter');
 Route::get('/electrical', function () {return view('pages.electrical') ;}) -> name('Electrical');
 Route::get('/painting', function () {return view('pages.painting') ;}) -> name('Painting');
 Route::get('/plumbing', function () {return view('pages.plumbing') ;}) -> name('Plumbing');
-Route::post('/choose-pro',  [HomeController::class, 'showpro']) -> name('choosepro');
+Route::post('/choose-pro',  [HomeController::class, 'showoptions']) -> name('choosepro');
+Route::post('/professional',  [HomeController::class, 'showpro']) -> name('pro');
 
 
 
