@@ -10,16 +10,16 @@ use App\Http\Controllers\ProfessionalController;
 use App\Http\Controllers\JoinUsController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
+
+//nav routes
+Route::get('/', function () {return view('pages.index') ;}) -> name('home');
+Route::get('/about', function () {return view('pages.about') ;}) -> name('about');
+Route::get('/carpenter', function () {return view('pages.carpenter') ;}) -> name('carpenter');
+Route::get('/electrical', function () {return view('pages.electrical') ;}) -> name('electrical');
+Route::get('/painting', function () {return view('pages.painting') ;}) -> name('painting');
+Route::get('/plumbing', function () {return view('pages.plumbing') ;}) -> name('plumbing');
+
 
 Route::get('/Dash', function () {
     return view('Dashboard.index') ;
@@ -35,7 +35,7 @@ Route::resource('JoinUs', JoinUsController::class);
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('pages.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

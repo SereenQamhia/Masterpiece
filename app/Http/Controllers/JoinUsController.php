@@ -9,7 +9,7 @@ class JoinUsController extends Controller
     public function index()
     {
         $Professionals = JoinUs::all();
-        return view('Dashboard.Professionals.index', compact('Professionals'));
+        return view('Dashboard.JoinUs.index', compact('Professionals'));
     }
 
     

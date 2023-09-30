@@ -101,6 +101,19 @@
                                    <a href="{{ route('Dashboard.index') }}" style="color: rgb(25, 24, 24) ; ">Dashboard</a>
                                </button>
                            </li>
+                           
+                           <li>
+                               <button class="{{ request()->is('Admins*') ? 'active' : '' }}" >
+                                   <a href="{{ route('Admins.index') }}" style="color: rgb(25, 24, 24) ; ">Admins</a>
+                               </button>
+                           </li>
+
+                           <li>
+                            <button class="{{ request()->is('Users*') ? 'active' : '' }}" >
+                                <a href="{{ route('Users.index') }}" style="color: rgb(25, 24, 24) ; ">Users</a>
+                            </button>
+                        </li>
+
                            <li>
                                <button class="{{ request()->is('Services*') ? 'active' : '' }}" >
                                    <a href="{{ route('Services.index') }}" style="color: rgb(25, 24, 24) ; ">Services</a>
@@ -124,16 +137,7 @@
                             </button>
                          </li>
 
-                           <li>
-                               <button class="{{ request()->is('Users*') ? 'active' : '' }}" >
-                                   <a href="{{ route('Users.index') }}" style="color: rgb(25, 24, 24) ; ">Users</a>
-                               </button>
-                           </li>
-                           <li>
-                               <button class="{{ request()->is('Admins*') ? 'active' : '' }}" >
-                                   <a href="{{ route('Admins.index') }}" style="color: rgb(25, 24, 24) ; ">Admins</a>
-                               </button>
-                           </li>
+                         
                            <li>
                                <button class="{{ request()->is('Courses*') ? 'active' : '' }}" >
                                    <a href="{{ route('Courses.index') }}" style="color: rgb(25, 24, 24) ; ">Courses</a>

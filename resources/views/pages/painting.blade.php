@@ -1,3 +1,9 @@
+@extends('layout.master')
+
+@section('content')
+
+
+<link href="css/categores.css" rel="stylesheet" />
 
     <!-- Page Header Start -->
     <div class="container-fluid page-header1 py-5 mb-6">
