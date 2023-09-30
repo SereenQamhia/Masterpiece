@@ -1,43 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>HomeFix</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="" name="keywords" />
-    <meta content="" name="description" />
+@extends('layout.master')
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon" />
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Icon Font Stylesheet -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <script src="https://kit.fontawesome.com/d6692547f6.js" crossorigin="anonymous"></script>
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet" />
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-   <!-- CSS
-	============================================ -->
+@section('content')
 
     <!-- Vendor CSS (Bootstrap & Icon Font) -->
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
@@ -56,145 +19,10 @@
     <link rel="stylesheet" href="css/plugins/magnific-popup.css">
     <link rel="stylesheet" href="css/plugins/slick.css">  
 
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet" />
-    <link href="css/choosepro.css" rel="stylesheet" />
+  
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <link rel="stylesheet" href="css/style.min.css">
-    <style>
-         .bg-image {
-    /* background-image: url("./img/bg.jpg");
-    background-repeat: no-repeat;
-    background-size: cover; */
-    background-color: rgba(254, 254, 73, 0.712);
-}
-
-        .expert-card {
-           height: 550px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px; 
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin-bottom: 20px;
-            padding:20px; 
-        
-        }
-        
-        .expert-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .expert-thumb img {
-            width:200px;
-        
-        
-        }
-        
-        
-        .expert h6.title {
-            margin: 10px 0;
-            color: #AB7442;
-            font-size: 20px; 
-        }
-        
-        .expert-rating {
-            color: #AB7442;
-            margin-bottom: 8px;
-        }
-        
-        .stars {
-            color: #ffe645;
-            font-size: 30px;
-        }
-        
-        .expert-description {
-            color: #666;
-            margin-bottom: 15px; 
-            font-size: 16px; 
-        }
-        
-        .expert-buttons {
-            display: flex;
-            justify-content: space-between;
-            align-items: center; 
-        }
-        
-        .expert-button {
-            background-color: #AB7442;
-            color: #fff;
-            padding: 8px 15px; 
-            border-radius: 5px; 
-            text-decoration: none;
-            transition: background-color 0.3s;
-            flex-grow: 1;
-            text-align: center;
-        
-        }
-        
-        .expert-button:last-child {
-            margin-left: 10px; 
-        }
-        
-        .expert-button:hover {
-            background-color: #AB7442;
-            color: white;
-        }
-        
-        
-        </style>
-    
-  </head>
-
-  <body>
-    <!-- Spinner Start -->
-    <div
-      id="spinner"
-      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
-    >
-      <div
-        class="spinner-grow text-primary"
-        style="width: 3rem; height: 3rem"
-        role="status"
-      >
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
-    <!-- Spinner End -->
-
-  <!-- Navbar Start -->
-  <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
-    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-        <h2 style="font-family: Georgia, 'Times New Roman', Times, serif;" class="m-0 text-primary"><img style="height: 180px; width:280px;" src="./img/homefix-logo.png "></h2>
-    </a>
-    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="index.html" class="nav-item nav-link ">Home</a>
-            <a href="about.html" class="nav-item nav-link">About</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Services</a>
-                <div class="dropdown-menu fade-up m-0">
-                    <a href="carpenter.html" class="dropdown-item">Carpenter</a>
-                    <a href="electrical.html" class="dropdown-item">Electrical</a>
-                    <a href="painting.html" class="dropdown-item active">Painting</a>
-                    <a href="plumbing.html" class="dropdown-item">Plumbing</a>
-                </div>
-            </div>
-            <a href="" class="nav-item nav-link">Courses</a>
-            <a href="" class="nav-item nav-link">Join us</a>
-        
-        </div>
-        <a href="Login.html" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block" style="border-radius: 0px; margin-bottom: 0%;">Login<i class="fa fa-arrow-right ms-3"></i></a>
-    </div>
-</nav>
-<!-- Navbar End -->
-
-
+  
 
      <!-- Page Header Start -->
  <div class="container-fluid page-header2 py-5 mb-6">
@@ -329,7 +157,44 @@
                         <!-- Products Start -->
                         <div id="shop-products" class="products isotope-grid row row-cols-xl-3 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1">
         
+ 
+                            @foreach ($professionals as $pro)
                             <div class="grid-sizer col-1"></div>
+        
+                            <div class="grid-item col featured">
+                                <div class="expert-card">
+                                <div class="product">
+                                    <div class="product-thumb">
+                                        <a href="profissionalPage.html" class="image">
+                                            <img src="{{ url('/img/' . $pro->image) }}"  style="height: 300px;border-radius: 10px;">
+                                        </a>
+                                    </div>
+                                    <div class="product-info">
+                                        <h5><a href="profissionalPage.html">{{$pro->name}}</a></h5>
+                                        <span class="rating">4.5</span>
+                                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                                       
+                                        <p class="expert-location">
+                                            <i class="fas fa-map-marker-alt" style="color: #ffa411;"></i> Location: {{$pro->location}} , price {{$pro->price}}JD per meter
+                                        </p>         
+                                        <div class="expert-buttons">
+                                            <a href="profissionalPage.html" class="expert-button">More Info</a>
+                                        </div>
+                                      
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            @endforeach
+
+
+
+
+
+
+
+                            {{-- <div class="grid-sizer col-1"></div>
         
                             <div class="grid-item col featured">
                                 <div class="expert-card">
@@ -493,7 +358,7 @@
                                 </div>
                             </div>
                             </div>
-                            
+                             --}}
                       
                  
                             
@@ -532,26 +397,6 @@
 
 
 
-    <!-- Back to Top -->
-    
-    <a
-      href="#"
-      class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"
-      ><i class="bi bi-arrow-up"></i
-    ></a>
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/purecounter/purecounter_vanilla.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-  
      <!-- JS
 ============================================ -->
 
@@ -587,9 +432,7 @@
 
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+ 
     <script src="main.js"></script>
   
-
-  </body>
-</html>
+@endsection

@@ -32,7 +32,7 @@
                             @foreach ($Users as $User)
                           <tr>
                            
-                            <td><a href="#"><img src="{{ url('/img/' . $User->image) }}" width="100px"
+                            <td><a href="#"><img src="{{ url('img/' . $User->image) }}" width="100px"
                               height="100px" alt="image"></a></td>
                             <td>{{$User->name}}</td>
                             <td>{{$User->email}}</td>

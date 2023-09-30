@@ -27,8 +27,8 @@ class ProfessionalController extends Controller
     
         // Upload and store the image
         $image = $request->file('image');
-        $imageName = time() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('img'), $imageName);
+        $proimage = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('img'), $proimage);
 
         $pdfFile = $request->file('cv');
         $CV = time() . '.' . $pdfFile->getClientOriginalExtension();
@@ -58,7 +58,7 @@ class ProfessionalController extends Controller
             'experience' => $request->experience,
             'age' => $request->age,
             'gender' => $request->gender,
-            'image' => $imageName,
+            'image' => $proimage,
             'cv' => $CV,
             'price' => $request->price,
             'profission' => $request->profission,

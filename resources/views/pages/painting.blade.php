@@ -137,7 +137,28 @@
         </div>
         <div class="row g-6 mb-6">
             <div class="col-md-1 col-lg-1 "></div>
-            <div class="col-md-5 col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
+           @foreach ($providers as $provider)
+           <div class="col-md-5 col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="service-item">
+                <div class="overflow-hidden">
+                    <img  class="img-fluid" src="{{ url('/img/' . $provider->image) }}" alt="">
+                </div>
+                <div class="p-4 text-center border border-5 border-light border-top-0">
+                    <h4 class="mb-3">{{$provider->name}}</h4>
+                    <p>{{$provider->description}}</p>
+                    {{-- <a class="fw-medium" href="{{ route('choosepro' ,$provider->id) }}">View Companies<i class="fa fa-arrow-right ms-2"></i></a> --}}
+                    <form method="POST" action="{{ route('choosepro') }}">
+                      @csrf
+                      <input type="hidden" name="id" value="{{$provider->id}}">
+                      <button class="fw-medium" type="submit">Fetch Professionals</button>
+                  </form>
+                  </div>
+            </div>
+        </div>
+           @endforeach
+
+
+            {{-- <div class="col-md-5 col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="service-item">
                     <div class="overflow-hidden">
                         <img  class="img-fluid" src="img/paint companies.png" alt="">
@@ -161,7 +182,7 @@
                     </div>
                     <div class="col-md-1 col-lg-1 "></div>
                 </div>
-            </div> 
+            </div>  --}}
          </div>
         </div>
     </div>

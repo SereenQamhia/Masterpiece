@@ -155,7 +155,30 @@
                 <h1 class="display-5 mb-5">Our Services</h1>
             </div>
             <div class="row g-4">
-                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
+
+                
+                @foreach ($services as $service)
+            
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" style="height: 250px" src="{{ url('/img/' . $service->image) }}" alt="">
+                        </div>
+                        <div class="p-4 text-center border border-5 border-light border-top-0">
+                            <h4 class="mb-3">{{$service->name}}</h4>
+                            <p>{{$service->description}}</p>
+                            <a class="fw-medium" href={{ route('Service' ,$service->name) }}>Read More<i class="fa fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                @endforeach
+
+
+
+
+
+                {{-- <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item">
                         <div class="overflow-hidden">
                             <img style="height: 215px;" class="img-fluid" src="img/service-1.jpg" alt="">
@@ -202,7 +225,7 @@
                             <a class="fw-medium" href="plumbing.html">Read More<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

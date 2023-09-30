@@ -41,7 +41,7 @@
 
         <div>
             @if ($data->image)
-                <img src="{{ asset('imag/' . $data->image) }}" alt="{{ $data->name }}" width="200"
+                <img src="{{ asset('img/' . $data->image) }}" alt="{{ $data->name }}" width="200"
                     height="200">
             @endif
         </div>

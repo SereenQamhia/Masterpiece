@@ -32,19 +32,18 @@
 
         </div>
      
-     
-
         <div class="form-group">
-            <label for="Image"> Service Image:</label>
-            <input type="file" class="form-control" id="Image" name="image">
-        </div>
+          <label for="image"> Course Image:</label>
+          <input type="file" class="form-control" id="image" name="image">
+      </div>
 
-        <div>
-            @if ($data->image)
-                <img src="{{ asset('imag/' . $data->image) }}" alt="{{ $data->name }}" width="200"
-                    height="200">
-            @endif
-        </div>
+      <div>
+          @if ($data->image)
+              <img src="{{ asset('img/' . $data->image) }}" alt="{{ $data->name }}" width="200"
+                  height="200">
+          @endif
+      </div>
+
 
         <button type="submit" class="btn btn-success " style="margin: 1% 40%">Save update</button>
     </form>

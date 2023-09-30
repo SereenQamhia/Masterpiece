@@ -62,6 +62,18 @@ class ProviderController extends Controller
         $data['name'] = $request->name;
         $data['description'] = $request->description;
 
+        if ($request->hasFile('image')) {
+            // Validate and store the uploaded image
+            $image = $request->file('image');
+            if ($image->isValid()) {
+                $imageName = time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('img/'), $imageName);
+                $data['image'] = $imageName;
+            } else {
+                // Handle the case where the image is not valid (e.g., not an actual image file)
+                return redirect()->route('Providers.index')->with(['error' => 'Invalid image file.']);
+            }
+        }
         Provider::where(['id' => $id])->update($data);
         return redirect()->route('Providers.index')->with(['success' => 'Updated successfully
         ']);

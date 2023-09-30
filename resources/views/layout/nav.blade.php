@@ -61,10 +61,10 @@
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle {{ preg_match('/^(carpenter|painting|electrical|plumbing)/', request()->path()) ? 'active' : '' }}" data-bs-toggle="dropdown">Services</a>
                     <div class="dropdown-menu fade-up m-0">
-                        <a href="{{ route('carpenter') }}" class="dropdown-item {{ request()->is('carpenter*') ? 'active' : '' }}">Carpenter</a>
-                        <a href="{{ route('electrical') }}" class="dropdown-item {{ request()->is('electrical*') ? 'active' : '' }}">Electrical</a>
-                        <a href="{{ route('painting') }}" class="dropdown-item {{ request()->is('painting*') ? 'active' : '' }}">Painting</a>
-                        <a href="{{ route('plumbing') }}" class="dropdown-item {{ request()->is('plumbing*') ? 'active' : '' }}">Plumbing</a>
+                        <a href="{{ route('Carpenter') }}" class="dropdown-item {{ request()->is('carpenter*') ? 'active' : '' }}">Carpenter</a>
+                        <a href="{{ route('Electrical') }}" class="dropdown-item {{ request()->is('electrical*') ? 'active' : '' }}">Electrical</a>
+                        <a href="{{ route('Painting') }}" class="dropdown-item {{ request()->is('painting*') ? 'active' : '' }}">Painting</a>
+                        <a href="{{ route('Plumbing') }}" class="dropdown-item {{ request()->is('plumbing*') ? 'active' : '' }}">Plumbing</a>
                     </div>
                 </li>
                 <li class="nav-item">
