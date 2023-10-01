@@ -3,7 +3,8 @@
 @section('content')
 
 
-<link href="css/categores.css" rel="stylesheet" />
+<link href="{{ asset('css/categores.css') }}" rel="stylesheet">
+
 
     <!-- Page Header Start -->
     <div class="container-fluid page-header1 py-5 mb-6">
@@ -141,49 +142,18 @@
            <div class="col-md-5 col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
             <div class="service-item">
                 <div class="overflow-hidden">
-                    <img  class="img-fluid" src="{{ url('/img/' . $provider->image) }}" alt="">
+                    <img  class="img-fluid" src="{{ url('img/' . $provider->image) }}" alt="">
                 </div>
                 <div class="p-4 text-center border border-5 border-light border-top-0">
                     <h4 class="mb-3">{{$provider->name}}</h4>
                     <p>{{$provider->description}}</p>
-                    {{-- <a class="fw-medium" href="{{ route('choosepro' ,$provider->id) }}">View Companies<i class="fa fa-arrow-right ms-2"></i></a> --}}
-                    <form method="POST" action="{{ route('choosepro') }}">
-                      @csrf
-                      <input type="hidden" name="id" value="{{$provider->id}}">
-                      <button class="fw-medium" type="submit">Fetch Professionals</button>
-                  </form>
+                    <a class="fw-medium" href="{{ route('choosepro' ,$provider->id) }}">View Companies<i class="fa fa-arrow-right ms-2"></i></a>
+                  
                   </div>
             </div>
         </div>
            @endforeach
-
-
-            {{-- <div class="col-md-5 col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item">
-                    <div class="overflow-hidden">
-                        <img  class="img-fluid" src="img/paint companies.png" alt="">
-                    </div>
-                    <div class="p-4 text-center border border-5 border-light border-top-0">
-                        <h4 class="mb-3">Painting Companies</h4>
-                        <p>Comprehensive solutions with seasoned teams.</p>
-                        <a class="fw-medium" href="carpenter.html">View Companies<i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-5 col-lg-5 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item">
-                    <div class="overflow-hidden">
-                        <img class="img-fluid" src="img/paint pro.png" alt="">
-                    </div>
-                    <div class="p-4 text-center border border-5 border-light border-top-0">
-                        <h4 class="mb-3">Our professionals</h4>
-                        <p>Personalized touch for your home's new colors.</p>
-                        <a class="fw-medium" href="choose-pro.html">Choose Your Pro<i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
-                    <div class="col-md-1 col-lg-1 "></div>
-                </div>
-            </div>  --}}
-         </div>
+          </div>
         </div>
     </div>
 
@@ -195,7 +165,20 @@
               <h1 class="display-5 mb-5">Hear from our profissionals</h1>
           </div>
           <div class="owl-carousel testimonial-carousel">
+             
+              @foreach ($professionals as $pro)
               <div class="testimonial-item text-center">
+                  <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ url('img/' . $pro->image) }}" style="width: 90px; height: 90px;">
+                  <div class="testimonial-text text-center p-4">
+                      <h5 class="mb-1">{{$pro->name }}</h5>
+                      <span class="fst-italic"><img class="img-fluid mx-auto " src="{{asset('img/complited.svg')}}" style="width: 30px; height: 30px; display: inline-block;">{{$pro->completed_jobs}} jobs completed</span></span>
+                      <p>{{$pro->description}}</p>
+                  </div>
+              </div>
+              @endforeach
+          
+          </div>
+            {{-- <div class="testimonial-item text-center">
                   <img class="img-fluid bg-light p-2 mx-auto mb-3" src="img/pro1.png" style="width: 90px; height: 90px;">
                   <div class="testimonial-text text-center p-4">
                       <h5 class="mb-1">Omar M.</h5>
@@ -218,14 +201,14 @@
                       <span class="fst-italic"> <img class="img-fluid mx-auto " src="img/complited.svg" style="width: 30px; height: 30px; display: inline-block;">85 jobs completed</span>
                       <p>"I'm a specialist in Murals ,its my passion and I apply it with all of love and professionalism . When you have an imaginative mind, I will make sure to make you see it true on your wall , to make your home a place for your imaginary , creativity and comfy place for you"</p>
                   </div>
-              </div>
+              </div> --}}
           </div>
       </div>
   </div>
   <!-- Testimonial End -->
 
 
-  <script src="lib/purecounter/purecounter_vanilla.js"></script>
+  <script src="{{ asset('lib/purecounter/purecounter_vanilla.js') }}"></script>
     
     <script>
       document.addEventListener("DOMContentLoaded", function() {

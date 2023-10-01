@@ -18,15 +18,16 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Services</h4>
-                    <a class="btn btn-link" href="carpenter.html">Carpentry</a>
-                    <a class="btn btn-link" href="electrical.html">Electrical</a>
-                    <a class="btn btn-link" href="painting.html">Painting</a>
-                    <a class="btn btn-link" href="plumbing.html">Plumping</a>
+                    <a class="btn btn-link" href="{{ route('Service','carpenter') }}">Carpentry</a>
+                    <a class="btn btn-link" href="{{ route('Service','Electrical') }}">Electrical</a>
+                    <a class="btn btn-link" href="{{ route('Service','Painting') }}">Painting</a>
+                    <a class="btn btn-link" href="{{ route('Service','Plumbing') }}">Plumping</a>
                 </div>
+
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Quick Links</h4>
-                    <a class="btn btn-link" href="about.html">About Us</a>
-                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    <a class="btn btn-link" href="{{ route('about') }}">About Us</a>
+                    <a class="btn btn-link" href="{{ route('contact') }}">Contact Us</a>
                     <a class="btn btn-link" href="">Join Us</a>
                     <a class="btn btn-link" href="FAQs.html">FAQs</a>
                     <a class="btn btn-link" href="">Terms & Condition</a>
@@ -61,20 +62,20 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
 
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="{{ asset('lib/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('lib/wow/wow.min.js') }}"></script>
+<script src="{{ asset('lib/easing/easing.min.js') }}"></script>
+<script src="{{ asset('lib/waypoints/waypoints.min.js') }}"></script>
+<script src="{{ asset('lib/counterup/counterup.min.js') }}"></script>
+<script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('lib/isotope/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('lib/lightbox/js/lightbox.min.js') }}"></script>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+<!-- Template Javascript -->
+<script src="{{ asset('js/main.js') }}"></script>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
 </body>
 
 </html>

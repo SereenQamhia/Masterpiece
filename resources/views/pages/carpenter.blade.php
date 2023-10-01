@@ -2,7 +2,7 @@
 
 @section('content')
 
-<link href="css/categores.css" rel="stylesheet" />
+<link href="{{ asset('css/categores.css') }}" rel="stylesheet">
     
 
     
@@ -132,43 +132,62 @@
 
  <!-- Service Start -->
  <div class="container-xxl py-5">
-    <div class="container" style="margin-top: 50px;">
-        <div class="section-title text-center">
-            <h1 class="display-8 mb-5">With who you want to work</h1>
+  <div class="container" style="margin-top: 50px;">
+      <div class="section-title text-center">
+          <h1 class="display-8 mb-5">With who you want to work</h1>
+      </div>
+      <div class="row g-6 mb-6">
+          <div class="col-md-1 col-lg-1 "></div>
+         @foreach ($providers as $provider)
+         <div class="col-md-5 col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="service-item">
+              <div class="overflow-hidden">
+                  <img  class="img-fluid" src="{{ url('img/' . $provider->image) }}" alt="">
+              </div>
+              <div class="p-4 text-center border border-5 border-light border-top-0">
+                  <h4 class="mb-3">{{$provider->name}}</h4>
+                  <p>{{$provider->description}}</p>
+                  <a class="fw-medium" href="{{ route('choosepro' ,$provider->id) }}">View Companies<i class="fa fa-arrow-right ms-2"></i></a>
+                
+                </div>
+          </div>
+      </div>
+         @endforeach
         </div>
-        <div class="row g-6 mb-6">
-            <div class="col-md-1 col-lg-1 "></div>
-            <div class="col-md-5 col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item">
-                    <div class="overflow-hidden">
-                        <img  class="img-fluid" src="img/carpentery comp.jpg" alt="">
-                    </div>
-                    <div class="p-4 text-center border border-5 border-light border-top-0">
-                        <h4 class="mb-3">Carpintery Companies</h4>
-                        <p> Comprehensive solutions with seasoned teams.</p>
-                        <a class="fw-medium" href="carpenter.html"> View Companies<i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
+      </div>
+  </div>
+
+
+  <!-- Testimonial Start -->
+  <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="section-title text-center">
+            <h1 class="display-5 mb-5">Hear from our profissionals</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel">
+           
+            @foreach ($professionals as $pro)
+            <div class="testimonial-item text-center">
+                <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ url('img/' . $pro->image) }}" style="width: 90px; height: 90px;">
+                <div class="testimonial-text text-center p-4">
+                    <h5 class="mb-1">{{$pro->name }}</h5>
+                    <span class="fst-italic"><img class="img-fluid mx-auto " src="{{asset('img/complited.svg')}}" style="width: 30px; height: 30px; display: inline-block;">{{$pro->completed_jobs}} jobs completed</span></span>
+                    <p>{{$pro->description}}</p>
                 </div>
             </div>
-            <div class="col-md-5 col-lg-5 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item">
-                    <div class="overflow-hidden">
-                        <img class="img-fluid" src="img/carpenter pro.jpg" alt="">
-                    </div>
-                    <div class="p-4 text-center border border-5 border-light border-top-0">
-                        <h4 class="mb-3">Our professionals</h4>
-                        <p>
-                             Personalized skills for your home aspirations.</p>
-                        <a class="fw-medium" href="">Choose Your Pro<i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
-                    <div class="col-md-1 col-lg-1 "></div>
-                </div>
-            </div> 
-         </div>
+            @endforeach
+        
+        </div>
+          
         </div>
     </div>
+</div>
+<!-- Testimonial End -->
 
 
+
+
+{{-- 
     <!-- Testimonial Start -->
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
       <div class="container">
@@ -203,15 +222,14 @@
           </div>
       </div>
   </div>
-  <!-- Testimonial End -->
+  <!-- Testimonial End --> --}}
 
+  <script src="{{ asset('lib/purecounter/purecounter_vanilla.js') }}"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      new PureCounter('.purecounter');
+    });
 
-  <script src="lib/purecounter/purecounter_vanilla.js"></script>
-    
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        new PureCounter('.purecounter');
-      });
-
-    </script>
+  </script>
 @endsection

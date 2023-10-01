@@ -13,7 +13,7 @@
                                 <h5 class="text-white text-uppercase mb-3 animated slideInDown">Welcome To HomeFix</h5>
                                 <h1 class="display-3 text-white animated slideInDown mb-4">Your home, our expertise - a perfect match.</h1>
                                 <p class="fs-5 fw-medium text-white mb-4 pb-2">We are your reliable partner for all your household repair and maintenance needs.</p>
-                                <a href="about.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                                <a href="{{ route('about') }}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                                 
                                 <h1 class="display-3 text-white animated slideInDown mb-4">Bringing Excellence to Your Doorstep</h1>
                                 <p class="fs-5 fw-medium text-white mb-4 pb-2">Empowering homes with our electrical, carpentry, painting, and plumbing expertise. Your all-in-one fix-it partner.</p>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Our services</a>
+                                <a href="#services" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Our services</a>
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                             <div class="col-12 col-lg-8 text-center">
                                 <h1 class="display-3 text-white animated slideInDown mb-4">Unlock Your Full Potential</h1>
                                 <p class="fs-5 fw-medium text-white mb-4 pb-2">Your Path to Home Repair Mastery Starts Here - Join Our Expert-led DIY Fixing Courses and Elevate Your Home.</p>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">See Courses</a>
+                                <a href="#courses" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">See Courses</a>
                             </div>
                         </div>
                     </div>
@@ -139,7 +139,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="about.html" class="btn btn-primary py-3 px-5">Read More</a>
+                        <a href="{{ route('about') }}" class="btn btn-primary py-3 px-5">Read More</a>
                     </div>
                 </div>
             </div>
@@ -149,7 +149,7 @@
 
 
     <!-- Service Start -->
-    <div class="container-xxl py-5">
+    <div id="services" class="container-xxl py-5">
         <div class="container">
             <div class="section-title text-center">
                 <h1 class="display-5 mb-5">Our Services</h1>
@@ -167,70 +167,11 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">{{$service->name}}</h4>
                             <p>{{$service->description}}</p>
-                            <form method="POST" action="{{ route('Service')}}">
-                                @csrf
-                                <input type="hidden" name="name" value="{{$service->name}}">
-                                <button class="expert-button" type="submit">More Info</button>
-                            </form>
-                            {{-- <a class="fw-medium" href={{ route('Service' ,$service->name) }}>Read More<i class="fa fa-arrow-right ms-2"></i></a> --}}
+                            <a class="fw-medium" href={{ route('Service' ,$service->name) }}>Read More<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
-
                 @endforeach
-
-
-
-
-
-                {{-- <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img style="height: 215px;" class="img-fluid" src="img/service-1.jpg" alt="">
-                        </div>
-                        <div class="p-4 text-center border border-5 border-light border-top-0">
-                            <h4 class="mb-3">Carpentry</h4>
-                            <p>Vision to reality – custom, intricate, repairs.</p>
-                            <a class="fw-medium" href="carpenter.html">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/service-2.jpg" alt="">
-                        </div>
-                        <div class="p-4 text-center border border-5 border-light border-top-0">
-                            <h4 class="mb-3">Electrical</h4>
-                            <p>Safety, precision – installations and troubleshooting.</p>
-                            <a class="fw-medium" href="electrical.html">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img  class="img-fluid" src="img/service-3.jpg" alt="">
-                        </div>
-                        <div class="p-4 text-center border border-5 border-light border-top-0">
-                            <h4 class="mb-3">Painting</h4>
-                            <p>Vibrant colors, flawless finishes, inside and out.</p>
-                            <a class="fw-medium" href="painting.html">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img style="height: 218px;" class="img-fluid" src="img/service-4.jpg" alt="">
-                        </div>
-                        <div class="p-4 text-center border border-5 border-light border-top-0">
-                            <h4 class="mb-3">Plumbing</h4>
-                            <p>Swift solutions for leaks, clogs, new installations.</p>
-                            <a class="fw-medium" href="plumbing.html">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </div>
@@ -307,7 +248,7 @@
 
 
     <!-- Projects Start -->
-    <div class="container-xxl py-5">
+    <div id="courses" class="container-xxl py-5">
         <div class="container">
             <div class="section-title text-center">
                 <h1 class="display-5 mb-5">Our Courses</h1>
@@ -454,33 +395,46 @@
                 <h1 class="display-5 mb-5">Testimonial</h1>
             </div>
             <div class="owl-carousel testimonial-carousel">
+               
+                @foreach ($Reviews as $Review)
                 <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light p-2 mx-auto mb-3" src="img/testimonial-1.png" style="width: 90px; height: 90px;">
+                    <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ url('img/' . $Review->user->image) }}" style="width: 90px; height: 90px;">
                     <div class="testimonial-text text-center p-4">
-                        <h5 class="mb-1">Sarah</h5>
-                        <span class="fst-italic">Software Developer</span>
-                        <p>I recently used HomeFix for electrical repairs in my home. The technician was professional, efficient, and solved the issue quickly. The best part was the transparent pricing – no surprises! I highly recommend their services.</p>
+                        <h5 class="mb-1">{{$Review->user->name }}</h5>
+                        <span class="fst-italic">Review for {{$Review->professional->name}}</span>
+                        <p>{{$Review->review_text}}</p>
                     </div>
                 </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light p-2 mx-auto mb-3" src="img/testimonial-2.png" style="width: 90px; height: 90px;">
-                    <div class="testimonial-text text-center p-4">
-                        <h5 class="mb-1">Omar</h5>
-                        <span class="fst-italic">Doctor</span>
-                        <p>I've used HomeFix for both painting and carpinter work, and they've consistently delivered outstanding results. Their professionals are skilled and friendly, making the whole process stress-free. I'm a loyal customer!</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light p-2 mx-auto mb-3" src="img/testimonial-3.jpg" style="width: 90px; height: 90px;">
-                    <div class="testimonial-text text-center p-4">
-                        <h5 class="mb-1">Ahmad</h5>
-                        <span class="fst-italic">Mechanical Engineer</span>
-                        <p>I had a leaky faucet that was driving me crazy. I decided to take one of their DIY courses, and it was a game-changer. Not only did I fix the faucet myself, but I also gained the confidence to tackle other small repairs around the house. Thank you, [Your Website Name], for empowering me!</p>
-                    </div>
-                </div>
+                @endforeach
+            
             </div>
         </div>
     </div>
     <!-- Testimonial End -->
-
+    {{-- <div class="owl-carousel testimonial-carousel">
+                    <div class="testimonial-item text-center">
+                        <img class="img-fluid bg-light p-2 mx-auto mb-3" src="img/testimonial-1.png" style="width: 90px; height: 90px;">
+                        <div class="testimonial-text text-center p-4">
+                            <h5 class="mb-1">Sarah</h5>
+                            <span class="fst-italic">Software Developer</span>
+                            <p>I recently used HomeFix for electrical repairs in my home. The technician was professional, efficient, and solved the issue quickly. The best part was the transparent pricing – no surprises! I highly recommend their services.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-item text-center">
+                        <img class="img-fluid bg-light p-2 mx-auto mb-3" src="img/testimonial-2.png" style="width: 90px; height: 90px;">
+                        <div class="testimonial-text text-center p-4">
+                            <h5 class="mb-1">Omar</h5>
+                            <span class="fst-italic">Doctor</span>
+                            <p>I've used HomeFix for both painting and carpinter work, and they've consistently delivered outstanding results. Their professionals are skilled and friendly, making the whole process stress-free. I'm a loyal customer!</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-item text-center">
+                        <img class="img-fluid bg-light p-2 mx-auto mb-3" src="img/testimonial-3.jpg" style="width: 90px; height: 90px;">
+                        <div class="testimonial-text text-center p-4">
+                            <h5 class="mb-1">Ahmad</h5>
+                            <span class="fst-italic">Mechanical Engineer</span>
+                            <p>I had a leaky faucet that was driving me crazy. I decided to take one of their DIY courses, and it was a game-changer. Not only did I fix the faucet myself, but I also gained the confidence to tackle other small repairs around the house. Thank you, [Your Website Name], for empowering me!</p>
+                        </div>
+                    </div>
+                </div> --}}
     @endsection

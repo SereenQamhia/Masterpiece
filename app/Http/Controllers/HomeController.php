@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Models\Service;
+use App\Models\Review;
 use App\Models\Provider;
 use App\Models\Professional;
 class HomeController extends Controller
@@ -12,33 +12,31 @@ class HomeController extends Controller
     {
          
           $services = DB::table('services')->get();
-        //   $products = DB::table('products')->get();
-        //   $users = DB::table('users')->get();
-        //   $volanters = DB::table('paypals')->get();
-        
-          return view('pages.index', compact('services'));
+          $Reviews = Review::with(['user', 'professional'])->orderBy('created_at', 'desc')->take(6)->get();
+          return view('pages.index', compact('services' , 'Reviews'));
      
     }
 
-    function showprovider(Request $request)
+  
+
+    function showprovider($name)
     {  
-        $name = $request->input('name');
         $providers = Provider::where('service_name', $name)->get();
-        return view("pages.$name", compact('providers'));
+        $professionals = Professional::where('profission', $name)->inRandomOrder()->limit(6)->get();
+        return view("pages.$name", compact('providers' , 'professionals'));
     }
 
  
 
-    public function showoptions(Request $request)
+    public function showoptions($id)
     {
-    $id = $request->input('id');
+    // $id = $request->input('id');
     $professionals = Professional::where('provider_id', $id)->get();
     return view("pages.choose-pro", compact('professionals'));
     }
 
-    public function showpro(Request $request)
+    public function showpro($id)
     {
-    $id = $request->input('id');
     $pro = Professional::where('id', $id)->first();
     return view("pages.professionalPage", compact('pro'));
     }

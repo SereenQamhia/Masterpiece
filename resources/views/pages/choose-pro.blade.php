@@ -2,27 +2,30 @@
 
 @section('content')
 
-    <!-- Vendor CSS (Bootstrap & Icon Font) -->
-    <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="css/vendor/fontawesome.min.css">
-    <link rel="stylesheet" href="css/vendor/themify-icons.css">
-    <link rel="stylesheet" href="css/vendor/customFonts.css">
+   <!-- Vendor CSS (Bootstrap & Icon Font) -->
+<link rel="stylesheet" href="{{ asset('css/vendor/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/vendor/fontawesome.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/vendor/themify-icons.css') }}">
+<link rel="stylesheet" href="{{ asset('css/vendor/customFonts.css') }}">
 
-    <!-- Plugins CSS (All Plugins Files) -->
-    <link rel="stylesheet" href="css/plugins/select2.min.css">
-    <link rel="stylesheet" href="css/plugins/perfect-scrollbar.css">
-    <link rel="stylesheet" href="css/plugins/swiper.min.css">
-    <link rel="stylesheet" href="css/plugins/nice-select.css">
-    <link rel="stylesheet" href="css/plugins/ion.rangeSlider.min.css">
-    <link rel="stylesheet" href="css/plugins/photoswipe.css">
-    <link rel="stylesheet" href="css/plugins/photoswipe-default-skin.css">
-    <link rel="stylesheet" href="css/plugins/magnific-popup.css">
-    <link rel="stylesheet" href="css/plugins/slick.css">  
+<!-- Plugins CSS (All Plugins Files) -->
+<link rel="stylesheet" href="{{ asset('css/plugins/select2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/plugins/perfect-scrollbar.css') }}">
+<link rel="stylesheet" href="{{ asset('css/plugins/swiper.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/plugins/nice-select.css') }}">
+<link rel="stylesheet" href="{{ asset('css/plugins/ion.rangeSlider.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/plugins/photoswipe.css') }}">
+<link rel="stylesheet" href="{{ asset('css/plugins/photoswipe-default-skin.css') }}">
+<link rel="stylesheet" href="{{ asset('css/plugins/magnific-popup.css') }}">
+<link rel="stylesheet" href="{{ asset('css/plugins/slick.css') }}">  
 
-  
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <link rel="stylesheet" href="css/style.min.css">
-  
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https:fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+
+<!-- Your Custom Stylesheet (if it's a custom stylesheet) -->
+<link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
+
+
 
      <!-- Page Header Start -->
  <div class="container-fluid page-header2 py-5 mb-6">
@@ -86,7 +89,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a class="product-filter-toggle" href="#product-filter">Filters</a>
+                                <a class="product-filter-toggle" href="#product-filter'">Filters</a>
                             </li>
 
                         </ul>
@@ -159,14 +162,14 @@
         
  
                             @foreach ($professionals as $pro)
-                            <div class="grid-sizer col-1"></div>
+                        
         
                             <div class="grid-item col featured">
                                 <div class="expert-card">
                                 <div class="product">
                                     <div class="product-thumb">
                                         <a href="profissionalPage.html" class="image">
-                                            <img src="{{ url('/img/' . $pro->image) }}"  style="height: 300px;border-radius: 10px;">
+                                            <img src="{{ url('img/' . $pro->image) }}"  style="height: 300px;border-radius: 10px;">
                                         </a>
                                     </div>
                                     <div class="product-info">
@@ -178,11 +181,8 @@
                                             <i class="fas fa-map-marker-alt" style="color: #ffa411;"></i> Location: {{$pro->location}} , price {{$pro->price}}JD per meter
                                         </p>         
                                         <div class="expert-buttons">
-                                            <form method="POST" action="{{ route('pro') }}">
-                                                @csrf
-                                                <input type="hidden" name="id" value="{{$pro->id}}">
-                                                <button class="expert-button" type="submit">More Info</button>
-                                            </form>
+                                            <a class="fw-medium" href="{{ route('pro' ,$pro->id) }}">More Info<i class="fa fa-arrow-right ms-2"></i></a>
+
                                         </div>
                                       
                                     
@@ -196,174 +196,7 @@
 
 
 
-
-
-                            {{-- <div class="grid-sizer col-1"></div>
-        
-                            <div class="grid-item col featured">
-                                <div class="expert-card">
-                                <div class="product">
-                                    <div class="product-thumb">
-                                        <a href="profissionalPage.html" class="image">
-                                            <img src="./img/pro1.png"  style="height: 300px;border-radius: 10px;">
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <h5><a href="profissionalPage.html">Omar Mohammad</a></h5>
-                                        <span class="rating">4.5</span>
-                                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                                       
-                                        <p class="expert-location">
-                                            <i class="fas fa-map-marker-alt" style="color: #ffa411;"></i> Location: Irbid , price 5JD per meter
-                                        </p>         
-                                        <div class="expert-buttons">
-                                            <a href="profissionalPage.html" class="expert-button">More Info</a>
-                                        </div>
-                                      
-                                    
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-        
-                            <div class="grid-sizer col-1"></div>
-        
-                            <div class="grid-item col featured">
-                                <div class="expert-card">
-                                <div class="product">
-                                    <div class="product-thumb">
-                                        <a href="profissionalPage.html" class="image">
-                                            <img src="./img/pro2.png" style="height: 300px;border-radius: 10px;">
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <h5><a href="profissionalPage.html">Fouad Salah</a></h5>
-                                        <span class="rating">4.5</span>
-                                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                                     
-                                        <p class="expert-location">
-                                            <i class="fas fa-map-marker-alt" style="color: #ffa411;"></i> Location: Aqaba  , price 7JD per meter
-                                        </p>         
-                                        <div class="expert-buttons">
-                                            <a href="profissionalPage.html" class="expert-button">More Info</a>
-                                        </div>
-                                    
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                            
-                            <div class="grid-sizer col-1"></div>
-        
-                            <div class="grid-item col featured">
-                                <div class="expert-card">
-                                <div class="product">
-                                    <div class="product-thumb">
-                                        <a href="profissionalPage.html" class="image">
-                                            <img src="./img/pro3.png" style="height: 300px;border-radius: 10px;">
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <h5><a href="profissionalPage.html">Eman Hazam</a></h5>
-                                        <span class="rating">4.5</span>
-                                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                                     
-                                        <p class="expert-location">
-                                            <i class="fas fa-map-marker-alt" style="color: #ffa411;"></i> Location: Amman , price 10JD per meter
-                                        </p>         
-                                        <div class="expert-buttons">
-                                            <a href="profissionalPage.html" class="expert-button">More Info</a>
-                                        </div>
-                                     
-                                    
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="grid-sizer col-1"></div>
-        
-                            <div class="grid-item col featured">
-                                <div class="expert-card">
-                                <div class="product">
-                                    <div class="product-thumb">
-                                        <a href="profissionalPage.html" class="image">
-                                            <img src="./img/team-4.jpg"  style="height: 300px;border-radius: 10px;">
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <h5><a href="profissionalPage.html">Omar Mohammad</a></h5>
-                                        <span class="rating">4.5</span>
-                                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                                       
-                                        <p class="expert-location">
-                                            <i class="fas fa-map-marker-alt" style="color: #ffa411;"></i> Location: Irbid , price 6JD per meter
-                                        </p>         
-                                        <div class="expert-buttons">
-                                            <a href="profissionalPage.html" class="expert-button">More Info</a>
-                                        </div>
-                                      
-                                    
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-        
-                            <div class="grid-sizer col-1"></div>
-        
-                            <div class="grid-item col featured">
-                                <div class="expert-card">
-                                <div class="product">
-                                    <div class="product-thumb">
-                                        <a href="profissionalPage.html" class="image">
-                                            <img src="./img/team-2.jpg" style="height: 300px;border-radius: 10px;">
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <h5><a href="profissionalPage.html">Fouad Salah</a></h5>
-                                        <span class="rating">4.5</span>
-                                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                                     
-                                        <p class="expert-location">
-                                            <i class="fas fa-map-marker-alt" style="color: #ffa411;"></i> Location: Aqaba , price 5JD per meter
-                                        </p>         
-                                        <div class="expert-buttons">
-                                            <a href="profissionalPage.html" class="expert-button">More Info</a>
-                                        </div>
-                                    
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                            
-                            <div class="grid-sizer col-1"></div>
-        
-                            <div class="grid-item col featured">
-                                <div class="expert-card">
-                                <div class="product">
-                                    <div class="product-thumb">
-                                        <a href="profissionalPage.html" class="image">
-                                            <img src="./img/team-1.jpg" style="height: 300px;border-radius: 10px;">
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <h5><a href="profissionalPage.html">Eman Hazam</a></h5>
-                                        <span class="rating">4.5</span>
-                                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                                     
-                                        <p class="expert-location">
-                                            <i class="fas fa-map-marker-alt" style="color: #ffa411;"></i> Location: Amman , price 7JD per meter
-                                        </p>         
-                                        <div class="expert-buttons">
-                                            <a href="profissionalPage.html" class="expert-button">More Info</a>
-                                        </div>
-                                     
-                                    
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                             --}}
-                      
+     
                  
                             
                         </div>
@@ -403,40 +236,37 @@
 
      <!-- JS
 ============================================ -->
+<!-- Vendors JS -->
+<script src="{{ asset('js/vendor/modernizr-3.6.0.min.js') }}"></script>
+<script src="{{ asset('js/vendor/jquery-3.4.1.min.js') }}"></script>
+<script src="{{ asset('js/vendor/jquery-migrate-3.1.0.min.js') }}"></script>
+<script src="{{ asset('js/vendor/bootstrap.bundle.min.js') }}"></script>
 
-    <!-- Vendors JS -->
-    <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="js/vendor/jquery-3.4.1.min.js"></script>
-    <script src="js/vendor/jquery-migrate-3.1.0.min.js"></script>
-    <script src="js/vendor/bootstrap.bundle.min.js"></script>
+<!-- Plugins JS -->
+<script src="{{ asset('js/plugins/select2.min.js') }}"></script>
+<script src="{{ asset('js/plugins/jquery.nice-select.min.js') }}"></script>
+<script src="{{ asset('js/plugins/perfect-scrollbar.min.js') }}"></script>
+<script src="{{ asset('js/plugins/swiper.min.js') }}"></script>
+<script src="{{ asset('js/plugins/slick.min.js') }}"></script>
+<script src="{{ asset('js/plugins/mo.min.js') }}"></script>
+<script src="{{ asset('js/plugins/jquery.ajaxchimp.min.js') }}"></script>
+<script src="{{ asset('js/plugins/jquery.countdown.min.js') }}"></script>
+<script src="{{ asset('js/plugins/imagesloaded.pkgd.min.js') }}"></script>
+<script src="{{ asset('js/plugins/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('js/plugins/jquery.matchHeight-min.js') }}"></script>
+<script src="{{ asset('js/plugins/ion.rangeSlider.min.js') }}"></script>
+<script src="{{ asset('js/plugins/photoswipe.min.js') }}"></script>
+<script src="{{ asset('js/plugins/photoswipe-ui-default.min.js') }}"></script>
+<script src="{{ asset('js/plugins/jquery.zoom.min.js') }}"></script>
+<script src="{{ asset('js/plugins/ResizeSensor.js') }}"></script>
+<script src="{{ asset('js/plugins/jquery.sticky-sidebar.min.js') }}"></script>
+<script src="{{ asset('js/plugins/product360.js') }}"></script>
+<script src="{{ asset('js/plugins/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('js/plugins/jquery.scrollUp.min.js') }}"></script>
+<script src="{{ asset('js/plugins/scrollax.min.js') }}"></script>
 
-    <!-- Plugins JS -->
-    <script src="js/plugins/select2.min.js"></script>
-    <script src="js/plugins/jquery.nice-select.min.js"></script>
-    <script src="js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="js/plugins/swiper.min.js"></script>
-    <script src="js/plugins/slick.min.js"></script>
-    <script src="js/plugins/mo.min.js"></script>
-    <script src="js/plugins/jquery.ajaxchimp.min.js"></script>
-    <script src="js/plugins/jquery.countdown.min.js"></script>
-    <script src="js/plugins/imagesloaded.pkgd.min.js"></script>
-    <script src="js/plugins/isotope.pkgd.min.js"></script>
-    <script src="js/plugins/jquery.matchHeight-min.js"></script>
-    <script src="js/plugins/ion.rangeSlider.min.js"></script>
-    <script src="js/plugins/photoswipe.min.js"></script>
-    <script src="js/plugins/photoswipe-ui-default.min.js"></script>
-    <script src="js/plugins/jquery.zoom.min.js"></script>
-    <script src="js/plugins/ResizeSensor.js"></script>
-    <script src="js/plugins/jquery.sticky-sidebar.min.js"></script>
-    <script src="js/plugins/product360.js"></script>
-    <script src="js/plugins/jquery.magnific-popup.min.js"></script>
-    <script src="js/plugins/jquery.scrollUp.min.js"></script>
-    <script src="js/plugins/scrollax.min.js"></script>
+<!-- Template Javascript -->
+<script src="{{ asset('js/main.js') }}"></script>
 
-
-
-    <!-- Template Javascript -->
- 
-    <script src="main.js"></script>
   
 @endsection

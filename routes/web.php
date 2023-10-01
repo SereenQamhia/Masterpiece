@@ -42,19 +42,21 @@ Route::middleware('auth')->group(function () {
 });
 
 
+// Route::get('/', [HomeController::class, 'shownav'])->name('nav');
 
 //nav routes
 
 Route::get('/', [HomeController::class, 'showhome'])->name('home');
 Route::get('/about', function () {return view('pages.about') ;}) -> name('about');
-Route::post('/service',  [HomeController::class, 'showprovider']) -> name('Service');
-Route::get('/carpenter', function () {return view('pages.carpenter') ;}) -> name('Carpenter');
-Route::get('/electrical', function () {return view('pages.electrical') ;}) -> name('Electrical');
-Route::get('/painting', function () {return view('pages.painting') ;}) -> name('Painting');
-Route::get('/plumbing', function () {return view('pages.plumbing') ;}) -> name('Plumbing');
-Route::post('/choose-pro',  [HomeController::class, 'showoptions']) -> name('choosepro');
-Route::post('/professional',  [HomeController::class, 'showpro']) -> name('pro');
+Route::get('/contact', function () {return view('pages.contact') ;}) -> name('contact');
+Route::get('/service/{name}',  [HomeController::class, 'showprovider']) -> name('Service');
+Route::get('/choose-pro/{id}',  [HomeController::class, 'showoptions']) -> name('choosepro');
+Route::get('/professional/{id}',  [HomeController::class, 'showpro']) -> name('pro');
 
 
+// Route::get('/carpenter', function () {return view('pages.carpenter') ;}) -> name('Carpenter');
+// Route::get('/electrical', function () {return view('pages.electrical') ;}) -> name('Electrical');
+// Route::get('/painting', function () {return view('pages.painting') ;}) -> name('Painting');
+// Route::get('/plumbing', function () {return view('pages.plumbing') ;}) -> name('Plumbing');
 
 require __DIR__.'/auth.php';
