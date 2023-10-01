@@ -58,10 +58,23 @@
                     <!-- Isotop Filter Start -->
                     <div class="col-md col-12 align-self-center learts-mb-20">
                         <div class="isotope-filter shop-product-filter" data-target="#shop-products">
-                            <button class="active" data-filter="*">all</button>
-                            <button data-filter=".featured">Irbid</button>
-                            <button data-filter=".new">Amman</button>
-                            <button data-filter=".sales">Aqaba</button>
+                            <form action="{{ route('choosepro', ['id' => request()->route('id')]) }}" method="GET">
+                                @csrf
+                            <button name="locations[]" value="all" class="{{ in_array('all', (array) request('locations')) ? 'active' : '' }}" >all</button>
+                          </form>
+                            <form action="{{ route('choosepro', ['id' => request()->route('id')]) }}" method="GET">
+                                @csrf
+                            <button name="locations[]" value="Irbid" class="{{ in_array('Irbid', (array) request('locations')) ? 'active' : '' }}" >Irbid</button>
+                          </form>
+                          <form action="{{ route('choosepro', ['id' => request()->route('id')]) }}" method="GET">
+                            @csrf
+                            <button name="locations[]" value="Amman" class="{{ in_array('Amman', (array) request('locations')) ? 'active' : '' }}">Amman</button>
+                        </form>
+                      <form action="{{ route('choosepro', ['id' => request()->route('id')]) }}" method="GET">
+                        @csrf
+                    <button name="locations[]" value="Aqaba" class="{{ in_array('Aqaba', (array) request('locations')) ? 'active' : '' }}" >Aqaba</button>
+                  </form>
+                       
                         </div>
                     </div>
                     <!-- Isotop Filter End -->
@@ -74,8 +87,6 @@
                                     <select class="nice-select">
                                         <option value="menu_order" selected="selected">Default sorting</option>
                                         <option value="popularity">Sort by popularity</option>
-                                        <option value="rating">Sort by average rating</option>
-                                        <option value="date">Sort by latest</option>
                                         <option value="price">Sort by price: low to high</option>
                                         <option value="price-desc">Sort by price: high to low</option>
                                     </select>
@@ -89,7 +100,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a class="product-filter-toggle" href="#product-filter'">Filters</a>
+                                <a class="product-filter-toggle" href="javascript:void(0);" onclick="toggleFilterSection()">Filters</a>
                             </li>
 
                         </ul>
@@ -100,57 +111,66 @@
         </div>
         <!-- Shop Toolbar End -->
 
-        <!-- Product Filter Start -->
-        <div id="product-filter" class="product-filter bg-light">
+        <div id="product-filter" class="product-filter bg-light" style="display: none; height: 450px">
             <div class="container">
-                <div class="row row-cols-lg-5 row-cols-md-3 row-cols-sm-2 row-cols-1 learts-mb-n30">
-
-                    <!-- Sort by Start -->
-                    <div class="col learts-mb-30">
-                        <h3 class="widget-title product-filter-widget-title">Sort by</h3>
-                        <ul class="widget-list product-filter-widget customScroll">
-                            <li><a href="#">Popularity</a></li>
-                            <li><a href="#">Average rating</a></li>
-                            <li><a href="#">Newness</a></li>
-                            <li><a href="#">Price: low to high</a></li>
-                            <li><a href="#">Price: high to low</a></li>
-                        </ul>
+                <form action="{{ route('choosepro', ['id' => request()->route('id')]) }}" method="GET">
+                    @csrf
+        
+                    <div class="row row-cols-lg-5 row-cols-md-3 row-cols-sm-2 row-cols-1 learts-mb-n30">
+                        <!-- Sort by Start -->
+                        <div class="col learts-mb-30">
+                            <h3 class="widget-title product-filter-widget-title">Sort by</h3>
+                            <ul class="widget-list product-filter-widget customScroll">
+                                <select name="sort_by">
+                                    <option value="popularity">Popularity</option>
+                                    <option value="price_low_to_high">Price: Low to High</option>
+                                    <option value="price_high_to_low">Price: High to Low</option>
+                                </select>
+                            </ul>
+                        </div>
+                        <!-- Sort by End -->
+        
+                   
+        
+                        <!-- Location Filter -->
+                        <div class="col learts-mb-30">
+                            <h3 class="widget-title product-filter-widget-title">Location filter</h3>
+                            <ul class="widget-list product-filter-widget customScroll">
+                                <label>Location:</label>
+                                <input type="checkbox" name="locations[]" value="Irbid"> Irbid <br>
+                                <input type="checkbox" name="locations[]" value="Amman"> Amman  <br>
+                                <input type="checkbox" name="locations[]" value="Aqaba"> Aqaba
+                            </ul>
+                        </div>
+        
+                        <!-- Gender Filter -->
+                        <div class="col learts-mb-30">
+                            <h3 class ="widget-title product-filter-widget-title">Gender filter</h3>
+                            <ul class="widget-list product-filter-widget customScroll">
+                                <label>Gender:</label>
+                                <input type="checkbox" name="genders[]" value="Male"> Male <br>
+                                <input type="checkbox" name="genders[]" value="Female"> Female
+                            </ul>
+                        </div>
+        
+                        <!-- Experience Filter -->
+                        <div class="col learts-mb-30">
+                            <h3 class="widget-title product-filter-widget-title">Experience filter</h3>
+                            <ul class="widget-list product-filter-widget customScroll">
+                                <label for="experience">Experience Range:</label>
+                                <input type="range" id="experience" name="experience" min="0" max="40" step="1" value="0">
+                                <output for="experience">0</output> years
+                            </ul>
+                        </div>
+                        
                     </div>
-                    <!-- Sort by End -->
-
-                    <!-- Price filter Start -->
-                    <div class="col learts-mb-30">
-                        <h3 class="widget-title product-filter-widget-title">Price filter</h3>
-                        <ul class="widget-list product-filter-widget customScroll">
-                            <li> <a href="#">All</a></li>
-                            <li> <a href="#"><span class="amount"><span class="cur-symbol">JD</span>0.00</span> - <span class="amount"><span class="cur-symbol">£</span>80.00</span></a></li>
-                            <li> <a href="#"><span class="amount"><span class="cur-symbol">£</span>80.00</span> - <span class="amount"><span class="cur-symbol">£</span>160.00</span></a></li>
-                            <li> <a href="#"><span class="amount"><span class="cur-symbol">£</span>160.00</span> - <span class="amount"><span class="cur-symbol">£</span>240.00</span></a></li>
-                            <li> <a href="#"><span class="amount"><span class="cur-symbol">£</span>240.00</span> - <span class="amount"><span class="cur-symbol">£</span>320.00</span></a></li>
-                            <li> <a href="#"><span class="amount"><span class="cur-symbol">£</span>320.00</span> +</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Price filter End -->
-               
-                    <div class="col learts-mb-30">
-                        <h3 class="widget-title product-filter-widget-title">Avalible days filter</h3>
-                        <ul class="widget-list product-filter-widget customScroll">
-                            <li><a href="#">Sunday</a></li>
-                            <li><a href="#">Monday </a></li>
-                            <li><a href="#">Tusedsy</a></li>
-                            <li><a href="#">Wednesday</a></li>
-                            <li><a href="#">Thursday</a></li>
-                            <li><a href="#">Friday</a></li>
-                            <li><a href="#">Saturday</a></li>
-                        </ul>
-                    </div>
-
-
-                </div>
+        
+                    <!-- Add a submit button to apply filters -->
+                    <button type="submit">Apply Filters</button>
+                </form>
             </div>
         </div>
-        <!-- Product Filter End -->
+   
 
         <div class="section learts-mt-70">
             <div class="container">
@@ -193,11 +213,6 @@
                             @endforeach
 
 
-
-
-
-     
-                 
                             
                         </div>
                         <!-- Products End -->
@@ -215,22 +230,6 @@
                 </div>
         
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -268,5 +267,23 @@
 <!-- Template Javascript -->
 <script src="{{ asset('js/main.js') }}"></script>
 
-  
+<script>
+    function toggleFilterSection() {
+        var filterSection = document.getElementById('product-filter');
+        if (filterSection.style.display === 'none' || filterSection.style.display === '') {
+            filterSection.style.display = 'block';
+        } else {
+            filterSection.style.display = 'none';
+        }
+    }
+
+    const experienceInput = document.getElementById("experience");
+    const experienceOutput = document.querySelector("output[for='experience']");
+
+    experienceInput.addEventListener("input", function () {
+        experienceOutput.textContent = experienceInput.value ;
+    });
+
+</script>
+
 @endsection
