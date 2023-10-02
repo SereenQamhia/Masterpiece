@@ -1,7 +1,8 @@
 @extends('layout.master')
 
 @section('content')
-    <link href="css/choosepro.css" rel="stylesheet" />
+{{-- <link href="{{ asset('css/choosepro.css') }}" rel="stylesheet" /> --}}
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <script src="https://kit.fontawesome.com/d6692547f6.js" crossorigin="anonymous"></script>
 
@@ -111,54 +112,66 @@
   aria-labelledby="pills-reviews-tab">
   <div class="row ">
     <div class=" col-lg-6  comment_form_area">
-      <form >
+      <form action="{{ route('Reviews.store') }}" method="POST">
+        @csrf
+        <input type="hidden" name="professional_id" value="{{$pro->id}}">
         <h3 class="title_text">Add New Comment</h3>
         <input type="hidden" name="rating" id="ratingInput" value="0" required>
         <div class="rating_input">
-        <span class="rating_title" style="font-size:30px;">Rating:</span>
-        <ul class="rating_stars " style="color:Green ; ">
-           <a href="#" data-rating="1"><i class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
-            <a href="#" data-rating="2"><i class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
-            <a href="#" data-rating="3"><i class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
-            <a href="#" data-rating="4"><i class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
-            <a href="#" data-rating="5"><i class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
-        </ul>
-    </div>
-            <div class="form_item m-auto">
-                <textarea style="width: 500px;min-height: 150px;margin-left: 50px; " name="comment" placeholder="Your Comment*" required ></textarea>
-            </div>
-           <center> <button style="background-color: rgb(205, 163, 124); color: white;" type="submit" class="btn btn-lg mt-4" > Post Comment</button>
-          </center> </form>
+            <span class="rating_title" style="font-size:30px;">Rating:</span>
+            <ul class="rating_stars" style="color: Green;">
+                <a href="#" data-rating="1"><i id="star1" class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
+                <a href="#" data-rating="2"><i id="star2" class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
+                <a href="#" data-rating="3"><i id="star3" class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
+                <a href="#" data-rating="4"><i id="star4" class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
+                <a href="#" data-rating="5"><i id="star5" class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
+            </ul>
+        </div>
+        <div class="form_item m-auto">
+            <textarea style="width: 500px; min-height: 150px; margin-left: 50px;" name="comment" placeholder="Your Comment*" required></textarea>
+        </div>
+        <center>
+            <button style="background-color: rgb(205, 163, 124); color: white;" type="submit" class="btn btn-lg mt-4">Post Comment</button>
+        </center>
+    </form>
     </div>
       <div class="col-lg-6">
           <div class="review_comment2">
               <h3 class="title_text">Reviews:</h3>
-              <ul class="review_comment_list2 ul_li_block">
-                  <li class="review_comment_wrap2">
-                      <h4 class="admin_name">John Doe <span class="comment_date">30 Aug
-                              2023</span></h4>
-                              <div><i class="fa-solid fa-star " style="color: #f5ed05;"></i>
-                                <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
-                                <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
-                                <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
-                                <i class="fa-solid fa-star " style="color: #f5ed05;"></i></div> 
+              <div class="reviews-container" style="height: 300px; overflow: auto;">
+            
+                <ul class="review_comment_list2 ul_li_block">
+
+                      @foreach ($Reviews as $Review)
+                          <li class="review_comment_wrap2">
+                              <h4 class="admin_name">{{$Review->user->name}} <span class="comment_date">{{$Review->created_at}}</span></h4>
+                              <div>
+                                @php
+                                $x = $Review->rating; // Get the rating from the review
+                            @endphp
+                               
+                                @for ($i =0; $i < $x; $i++)
+                                <i class="fa-solid fa-star" style="color: #f5ed05;"></i>
+                            @endfor
+                              </div>
+                              <p class="mb-0">
+                                  {{$Review->review_text}}
+                              </p>
+                          </li> 
+                      @endforeach
+                    </ul>
+              </div>
+              
+                  {{-- 
                       <p class="mb-0">
                         Omar was great! on time, detail oriented, knowledgable, and very nice. will definitely hire him in the future.
                       </p>
-                  </li>
-                  <li class="review_comment_wrap2">
-                      <h4 class="admin_name">Smith Alex <span class="comment_date">25 Aug
-                              2023</span></h4>
-                              <div><i class="fa-solid fa-star " style="color: #f5ed05;"></i>
-                                <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
-                                <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
-                                <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
-                                <i class="fa-solid fa-star " style="color: #f5ed05;"></i></div> 
+                 
                       <p class="mb-0">
                         Truly an amazing, multi-talented, detailed-oriented professional with a great attitude. I highly recommend him. Very thoughtful about the project, did amazing work.
                       </p>
-                  </li>
-              </ul>
+                 --}}
+           
           </div>
         </div>
        
@@ -179,4 +192,27 @@
   
 
     <script src="lib/purecounter/purecounter_vanilla.js"></script>
+    
+    <script>
+      // JavaScript to handle star rating
+      const stars = document.querySelectorAll(".rating_stars i");
+      const ratingInput = document.getElementById("ratingInput");
+  
+      stars.forEach((star, index) => {
+          star.addEventListener("click", () => {
+              const rating = index + 1;
+              ratingInput.value = rating;
+              // Update star colors based on selected rating
+              stars.forEach((s, i) => {
+                  if (i < rating) {
+                      s.classList.add("fas");
+                      s.classList.remove("far");
+                  } else {
+                      s.classList.remove("fas");
+                      s.classList.add("far");
+                  }
+              });
+          });
+      });
+  </script>
 @endsection

@@ -201,7 +201,7 @@
                                             <i class="fas fa-map-marker-alt" style="color: #ffa411;"></i> Location: {{$pro->location}} , price {{$pro->price}}JD per meter
                                         </p>         
                                         <div class="expert-buttons">
-                                            <a class="fw-medium" href="{{ route('pro' ,$pro->id) }}">More Info<i class="fa fa-arrow-right ms-2"></i></a>
+                                            <a class="fw-medium mx-auto" href="{{ route('pro' ,$pro->id) }}">More Info<i class="fa fa-arrow-right ms-2"></i></a>
 
                                         </div>
                                       

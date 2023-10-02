@@ -15,29 +15,19 @@ class ReviewController extends Controller
    
     public function create()
     {
-        $Services = Service::all();
-        return view('Dashboard.Reviews.create', compact('Services'));
+      //
     }
 
-    public function store( Request $request )
+    public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust validation rules as needed
-        ]);
+        $review = new Review;
+        $review->user_id = auth()->user()->id;
+        $review->professional_id = $request->input('professional_id');; 
+        $review->rating = $request->rating;
+        $review->review_text = $request->comment;
+        $review->save();
     
-        
-        // Create a new Review with the image filename
-        Review::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'service_name' => $request->Service,
-            
-        ]);
-    
-        return redirect()->route('Reviews.index')->with(['success' => 'created successfully
-        ']);
+        return redirect()->back()->with('success', 'Review submitted successfully.');
     }
 
     
@@ -54,13 +44,7 @@ class ReviewController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data['name'] = $request->name;
-        $data['description'] = $request->description;
-
-     
-        Review::where(['id' => $id])->update($data);
-        return redirect()->route('Reviews.index')->with(['success' => 'Updated successfully
-        ']);
+       //
     }
 
   

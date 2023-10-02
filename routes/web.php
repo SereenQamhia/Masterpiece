@@ -28,7 +28,7 @@ Route::resource('Admins', AdminController::class);
 Route::resource('Courses', CourseController::class);
 Route::resource('Professionals', ProfessionalController::class);
 Route::resource('JoinUs', JoinUsController::class);
-Route::resource('Reviews', ReviewController::class);
+Route::resource('Reviews', ReviewController::class)->middleware('auth');
 
 
 Route::get('/dashboard', function () {

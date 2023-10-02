@@ -77,6 +77,7 @@ class HomeController extends Controller
     public function showpro($id)
     {
     $pro = Professional::where('id', $id)->first();
-    return view("pages.professionalPage", compact('pro'));
+    $Reviews = Review::with(['user', 'professional'])->where('professional_id', $id)->get();
+    return view("pages.professionalPage", compact('pro' , 'Reviews'));
     }
 }
