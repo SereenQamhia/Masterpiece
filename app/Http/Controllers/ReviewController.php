@@ -36,16 +36,7 @@ class ReviewController extends Controller
         //
     }
 
-    public function edit($id)
-    {
-        $data = Review::find($id);
-        return view('Dashboard.Reviews.edit', compact('data'));
-    }
-
-    public function update(Request $request, $id)
-    {
-       //
-    }
+  
 
   
     public function destroy($id)

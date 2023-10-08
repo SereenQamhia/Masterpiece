@@ -78,6 +78,10 @@ class HomeController extends Controller
     {
     $pro = Professional::where('id', $id)->first();
     $Reviews = Review::with(['user', 'professional'])->where('professional_id', $id)->get();
-    return view("pages.professionalPage", compact('pro' , 'Reviews'));
+    $workDays = explode(',', $pro->daysofwork);
+    $workHours = explode(',', $pro->hoursofwork);
+
+
+    return view("pages.professionalPage", compact('pro' , 'Reviews','workDays', 'workHours'));
     }
 }

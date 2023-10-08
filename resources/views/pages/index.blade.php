@@ -162,7 +162,7 @@
                 <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" style="height: 250px" src="{{ url('/img/' . $service->image) }}" alt="">
+                            <img class="img-fluid" style="height: 250px" src="{{ url('img/' . $service->image) }}" alt="">
                         </div>
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">{{$service->name}}</h4>
