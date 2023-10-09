@@ -33,13 +33,13 @@ Route::resource('Reviews', ReviewController::class);
 // Route::resource('Reviews', ReviewController::class)->middleware('auth');
 
 
-// Route::get('/dashboard', function () {
-//     return view('pages.index');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('/home', function () {
+Route::get('/dashboard', function () {
     return view('pages.index');
-})->middleware(['auth', 'verified'])->name('Home');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route::get('/', function () {
+//     return view('pages.index');
+// })->name('Home');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

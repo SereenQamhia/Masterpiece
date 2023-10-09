@@ -41,7 +41,7 @@
             <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
             <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
             <i class="fa-solid fa-star " style="color: #f5ed05;"></i></div> 
-            <img style=" width: 35px;" src="./img/complited.svg">{{$pro->completed_jobs}} job complited<br>
+            <img style=" width: 35px;" src="..\.\img\complited.svg">{{$pro->completed_jobs}} job complited<br>
         <i class="fa-solid fa-location-dot fa-lg" style="color: #ffba1a; padding: 10px;"></i>{{$pro->location}}
          </div> 
          <!-- <div  class="col-2">
@@ -73,54 +73,44 @@
       </center>
 </div>
 
-<div class="col-5 schedule" style="text-align: left;font-size: 20px; padding: 20px;">
+<div class="col-5 schedule" style="text-align: left;font-size: 20px; padding:20px 0px 20px 50px;">
     <h2 style="color: #ffba1a;">Schedule now</h2> <br>
-    <center> <h3>Tell us about the job </h3><br>
+    <center> <h3>Tell us about the job </h3></center><br>
       <form method="post" action="{{route('Bookings')}}">
         @csrf
         @method('post')
         <input type="hidden" name="professional_id" value="{{$pro->id}}">
-    <div>How many hours would you like to book?</div>
-    <select name="" id="" style="width: 90%; height: 40px;">
-        <option value="1hr">1 hr</option>
-        <option value="2hr">2 hr</option>
-        <option value="3hr">3 hr</option>
-        <option value="4hr">4 hr</option>
-        <option value="5hr">5 hr</option>
-        <option value="6hr">6 hr</option>
-        <option value="7hr">7 hr</option>
-        <option value="8hr">8 hr</option>
-    </select> <br> <br>
+   
     <div>When would you like him to come?</div>
     {{-- <input style="width: 90%; height: 40px;" type="time"> <br>  --}}
     {{-- <input style="width: 90%; height: 40px;" type="date"> <br><br> --}}
-    <select name="selected_hours" id="selected_hours">
+    <select style="width: 90%; height: 35px;" name="selected_hours" id="selected_hours">
       @foreach($workHours as $hour)
           <option value="{{ $hour }}" @if(in_array($hour, $workHours)) selected @endif>{{ $hour }}</option>
       @endforeach
   </select>
   
-  <select name="selected_days" id="selected_days">
+  <select style="width: 90%; height: 35px;" name="selected_days" id="selected_days">
       @foreach($workDays as $day)
           <option value="{{ $day }}" @if(in_array($day, $workDays)) selected @endif>{{ $day }}</option>
       @endforeach
   </select>
   
-    
+    <br><br>
     <div>Will you provide tools eg:
         a paintbrush?</div>
-        <select name="tools" id="" style="width: 90%; height: 40px;">
+        <select name="tools" id="" style="width: 90%; height: 35px;">
             <option value="no">NO</option>
             <option value="yes">Yes</option>
         </select> <br>
-    <div style="text-align: left; padding-left: 30px;">You will provide the paint</div> <br>
+    <div ><i class="fa-solid fa-circle fa-2xs" style="color: #353535;"></i>  You will provide the paint</div> <br>
 
 <div>Description:</div>
 <input style="width: 90%; height: 250px;" type="text" placeholder="Please describe the job in detail (optional)" name="description"> <br><br>
 <a >
-<button style="background-color: rgb(171,116,66); color: white;" type="submit" class="btn btn-lg mt-4">Complete booking</button></a>
+<button style="background-color: rgb(171,116,66); color: white; margin-left:25% " type="submit" class="btn btn-lg mt-3">Complete booking</button></a>
 </form> 
-</center>
+
 
 
 </div>

@@ -149,7 +149,8 @@
               <div class="card p-2" style="font-family: Georgia, 'Times New Roman', Times, serif ; border: 2px solid #83b0a1; height: 100%;">
                 <h5 class="text-uppercase p-2" >Service details</h5>
               <h5 class=" p-2 ">Painting service - Omar Mohammad</h5>
-              <h6 class=" px-2"> {{ $booking->day }} at {{ $booking->time }} <br> (4hr)</h6>
+              <h6 class=" px-2"> {{ $booking->day }} at {{ $booking->time }}</h6>
+              <h6 class=" px-2"> {{$booking->professional->price}} </h6>
 
  
 

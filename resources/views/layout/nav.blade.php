@@ -46,7 +46,7 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
-        <a href="{{ route('home') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <a href="{{ route('home')}}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 style="font-family: Georgia, 'Times New Roman', Times, serif;" class="m-0 text-primary"><img style="height: 180px; width:280px;" src="{{ asset('img/homefix-logo.png') }}" alt="HomeFix Logo"></h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
