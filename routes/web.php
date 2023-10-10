@@ -11,6 +11,7 @@ use App\Http\Controllers\JoinUsController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\StripePaymentController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -66,5 +67,15 @@ Route::post('/checkout',  [BookingController::class, 'store'])->middleware(['aut
 // Route::get('/electrical', function () {return view('pages.electrical') ;}) -> name('Electrical');
 // Route::get('/painting', function () {return view('pages.painting') ;}) -> name('Painting');
 // Route::get('/plumbing', function () {return view('pages.plumbing') ;}) -> name('Plumbing');
+
+// Route::post('Checkout', [StripePaymentController::class, 'payment'])->middleware('auth', 'verified')->name('stripe_single'); // Use 'store' method for POST
+
+Route::controller(StripePaymentController::class)->group(function(){
+    Route::post('Checkout', 'stripe');
+    Route::post('Checkout', 'stripePost')->name('stripe.post');
+});
+
+
+
 
 require __DIR__.'/auth.php';
