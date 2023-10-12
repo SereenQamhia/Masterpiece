@@ -51,9 +51,13 @@ class StripePaymentController extends Controller
 
             $booking->save();
 
+             // Unset the session data
+             $request->session()->forget('pending_booking');
+
+
             Session::flash('success', 'Payment successful');
 
-            return view("pages.index");
+            return view("pages.about");
         } else {
             return redirect()->route('login');
         }
