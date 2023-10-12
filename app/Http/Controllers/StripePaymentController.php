@@ -25,31 +25,25 @@ class StripePaymentController extends Controller
         if (Auth::check()) {
             Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
-            // Retrieve the authenticated user
             $user = Auth::user();
 
-            // Your payment processing logic here...
-
-            // Save payment-related information to the checkouts table
             $checkout = new Checkout();
             $checkout->payment = 5;
-            $checkout->notes = ''; // You can add relevant notes if needed
-            $checkout->booking_id = 1; // Set the booking ID as needed
-            $checkout->address = $request->address; // Use the user's ID from the booking
-            $checkout->timestamps = false; // To prevent Laravel from updating timestamps
+            $checkout->notes = ''; 
+            $checkout->booking_id = 1; 
+            $checkout->address = $request->address;
+            $checkout->timestamps = false; 
 
             $checkout->save();
 
             Session::flash('success', 'Payment successful');
 
-            return back();
+            return view("pages.about");
         } else {
-            // User is not authenticated, handle the case accordingly (e.g., redirect to login)
-            return redirect()->route('login'); // Adjust this to your application's login route
+            return redirect()->route('login');
         }
     }
 }
-
 
 
 // <?php

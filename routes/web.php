@@ -60,7 +60,7 @@ Route::get('/service/{name}',  [HomeController::class, 'showprovider']) -> name(
 Route::get('/choose-pro/{id}',  [HomeController::class, 'showoptions']) -> name('choosepro');
 Route::get('/professional/{id}',  [HomeController::class, 'showpro']) -> name('pro');
 Route::post('/professional',  [ReviewController::class, 'store'])->middleware('auth')->name('review');
-Route::post('/checkout',  [BookingController::class, 'store'])->middleware(['auth', 'verified'])->name('Bookings');
+Route::post('/checkout',  [BookingController::class, 'store'])->name('Bookings');
 
 
 // Route::get('/carpenter', function () {return view('pages.carpenter') ;}) -> name('Carpenter');

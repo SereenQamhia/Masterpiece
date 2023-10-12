@@ -48,22 +48,21 @@
                 </div>
               </div> --}}
 
+              
+              <div class="form_item col-lg-6">
+                <span class="input_title">Full Name<sup>*</sup></span>
+                <input type="text" name="postcode">
+              </div>
 
 
+              <div class="form_item col-lg-6">
+                <span class="input_title">City<sup>*</sup></span>
+                <input type="text" name="city" value="{{$pro->location}}" required>
+              </div>
 
               <div class="form_item col-lg-6">
                 <span class="input_title">Address<sup>*</sup></span>
-                <input type="text" name="address" required>
-              </div>
-
-              <div class="form_item col-lg-6">
-                <span class="input_title">Town/City<sup>*</sup></span>
-                <input type="text" name="city">
-              </div>
-
-              <div class="form_item col-lg-6">
-                <span class="input_title">County<sup>*</sup></span>
-                <input type="text" name="county">
+                <input type="text" name="address" required  value="{{ auth()->user()->address }}">
               </div>
 
               <div class="form_item col-lg-6">
@@ -73,12 +72,12 @@
 
               <div class="form_item col-lg-6">
                 <span class="input_title">Phone<sup>*</sup></span>
-                <input type="tel" name="phone">
+                <input type="tel" name="phone"  value="{{ auth()->user()->phone_number }}" required>
               </div>
 
               <div class="form_item col-lg-6">
                 <span class="input_title">Email Address<sup>*</sup></span>
-                <input type="email" name="email">
+                <input type="email" name="email"  value="{{ auth()->user()->email }}" required>
               </div>
             </div>
 
@@ -88,7 +87,7 @@
 
 
             <div class="form_item mb-0 col-lg-12 " >
-              <span class="input_title">Order notes<sup>*</sup></span>
+              <span class="input_title">Any notes<sup>*</sup></span>
               <input type="text" placeholder="Note about your order, eg. special notes fordelivery.">
 
             </div>
@@ -150,11 +149,11 @@
                         type='text' required="required"> <span>CVV</span> </div>
 
                     </div>
-                    <div class='col-xs-12 col-md-4 form-group expiration required'>
+                    {{-- <div class='col-xs-12 col-md-4 form-group expiration required'>
                       <label class='control-label'>Expiration Year</label> <input
                           class='form-control card-expiry-year' placeholder='YYYY' size='4'
                           type='text'>
-                  </div>
+                  </div> --}}
                   </div>
                 </div>
               </div>
@@ -168,9 +167,9 @@
             <div class="col-md-5" >
               <div class="card p-2" style="font-family: Georgia, 'Times New Roman', Times, serif ; border: 2px solid #83b0a1; height: 100%;">
                 <h5 class="text-uppercase p-2" >Service details</h5>
-              <h5 class=" p-2 ">Painting service - Omar Mohammad</h5>
-              <h6 class=" px-2"> {{ $booking->day }} at {{ $booking->time }}</h6>
-              <h6 class=" px-2"> {{$booking->professional->price}} </h6>
+              <h5 class=" p-2 ">{{$pro->profission}} - {{$pro->name}}</h5>
+              <h6 class=" px-2"> {{ session('pending_booking.dselected_days') }} at {{ session('pending_booking.selected_hours') }}</h6>
+              <h6 class=" px-2"> {{$pro->price}} ,its for confirming the booking and its count as the fees for the first hour ,if you cancel the booking it will be returnd  </h6>
 
  
 

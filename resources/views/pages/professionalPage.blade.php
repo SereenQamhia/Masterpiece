@@ -73,46 +73,43 @@
       </center>
 </div>
 
-<div class="col-5 schedule" style="text-align: left;font-size: 20px; padding:20px 0px 20px 50px;">
+<div class="col-5 schedule" style="text-align: left; font-size: 20px; padding: 20px 0px 20px 50px;">
     <h2 style="color: #ffba1a;">Schedule now</h2> <br>
     <center> <h3>Tell us about the job </h3></center><br>
-      <form method="post" action="{{route('Bookings')}}">
+    <form method="post" action="{{ route('Bookings') }}">
         @csrf
         @method('post')
-        <input type="hidden" name="professional_id" value="{{$pro->id}}">
+        <input type="hidden" name="professional_id" value="{{ $pro->id }}">
    
-    <div>When would you like him to come?</div>
-    {{-- <input style="width: 90%; height: 40px;" type="time"> <br>  --}}
-    {{-- <input style="width: 90%; height: 40px;" type="date"> <br><br> --}}
-    <select style="width: 90%; height: 35px;" name="selected_hours" id="selected_hours">
-      @foreach($workHours as $hour)
-          <option value="{{ $hour }}" @if(in_array($hour, $workHours)) selected @endif>{{ $hour }}</option>
-      @endforeach
-  </select>
+        <div>When would you like him to come?</div>
+        <select style="width: 90%; height: 35px;" name="selected_hours" id="selected_hours">
+            @foreach($workHours as $hour)
+                <option value="{{ $hour }}" @if(session('pending_booking.selected_hours') == $hour) selected @endif>{{ $hour }}</option>
+            @endforeach
+        </select>
   
-  <select style="width: 90%; height: 35px;" name="selected_days" id="selected_days">
-      @foreach($workDays as $day)
-          <option value="{{ $day }}" @if(in_array($day, $workDays)) selected @endif>{{ $day }}</option>
-      @endforeach
-  </select>
+        <select style="width: 90%; height: 35px;" name="selected_days" id="selected_days">
+            @foreach($workDays as $day)
+                <option value="{{ $day }}" @if(session('pending_booking.selected_days') == $day) selected @endif>{{ $day }}</option>
+            @endforeach
+        </select>
   
-    <br><br>
-    <div>Will you provide tools eg:
-        a paintbrush?</div>
+        <br><br>
+        <div>Will you provide tools e.g., a paintbrush?</div>
         <select name="tools" id="" style="width: 90%; height: 35px;">
-            <option value="no">NO</option>
-            <option value="yes">Yes</option>
-        </select> <br>
-    <div ><i class="fa-solid fa-circle fa-2xs" style="color: #353535;"></i>  You will provide the paint</div> <br>
-
-<div>Description:</div>
-<input style="width: 90%; height: 250px;" type="text" placeholder="Please describe the job in detail (optional)" name="description"> <br><br>
-<a >
-<button style="background-color: rgb(171,116,66); color: white; margin-left:25% " type="submit" class="btn btn-lg mt-3">Complete booking</button></a>
-</form> 
-
-
-
+            <option value="no" @if(session('pending_booking.tools') == 'no') selected @endif>NO</option>
+            <option value="yes" @if(session('pending_booking.tools') == 'yes') selected @endif>Yes</option>
+        </select>
+  
+        <div><i class="fa-solid fa-circle fa-2xs" style="color: #353535;"></i> You will provide the paint</div> <br>
+  
+        <div>Description:</div>
+        <input style="width: 90%; height: 250px;" type="text" placeholder="Please describe the job in detail (optional)" name="description" value="{{ session('pending_booking.description') }}">
+        <br><br>
+        <a>
+            <button style="background-color: rgb(171, 116, 66); color: white; margin-left: 25%" type="submit" class="btn btn-lg mt-3">Complete booking</button>
+        </a>
+    </form>
 </div>
 
 

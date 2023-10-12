@@ -17,13 +17,23 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('professional_id');
             $table->foreign('professional_id')->references('id')->on('professionals');
-            $table->string('time');
-            $table->string('day');
-            $table->string('description')->nullable();          
-            $table->string('status');      
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->string('time');
+            $table->string('day');
+            $table->string('tools');      
+            $table->string('description')->nullable();          
+            $table->string('name');
+            $table->string('address');
+            $table->string('building');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('notes');
+            $table->decimal('payment', 10, 2);
             $table->timestamps();
+
+       
+        
         });
     }
 
