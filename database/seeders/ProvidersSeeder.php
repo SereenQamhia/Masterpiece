@@ -11,7 +11,7 @@ class ProvidersSeeder extends Seeder
     {
         // DB::table('providers')->truncate();
 
-        DB::table('providers')->insert([
+        $providers = [
             [
                 'name' => 'Carpintery Companies',
                 'description' => 'Description for Provider 1Comprehensive solutions with seasoned teams.',
@@ -45,7 +45,7 @@ class ProvidersSeeder extends Seeder
                 'updated_at' => now(),
             ],  
             [
-                'name' => 'Carpintery Companies',
+                'name' => ' Companies',
                 'description' => 'Description for Provider 1',
                 'image' => 'provider1.jpg',
                 'service_name' => 'painting',
@@ -53,29 +53,24 @@ class ProvidersSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Our professionals',
+                'name' => 'professionals',
                 'description' => 'Description for Provider 2',
                 'image' => 'provider2.jpg',
                 'service_name' => 'painting',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            [
-                'name' => 'Carpintery Companies',
-                'description' => 'Description for Provider 1',
-                'image' => 'provider1.jpg',
-                'service_name' => 'plumping',
+      
+        ];
+        foreach ($providers as $provider) {
+            DB::table('providers')->insert([
+                'name' => $provider['name'],
+                'description' => $provider['description'],
+                'image' => $provider['image'],
+                'service_name' => $provider['service_name'],
                 'created_at' => now(),
                 'updated_at' => now(),
-            ],
-            [
-                'name' => 'Our professionals',
-                'description' => 'Description for Provider 2',
-                'image' => 'provider2.jpg',
-                'service_name' => 'plumping',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]
-        ]);
+            ]);
+        }
     }
 }
