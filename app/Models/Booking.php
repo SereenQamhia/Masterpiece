@@ -7,7 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Booking extends Model
 {
-    protected $fillable = ['time', 'day', 'description', 'tools'];
+    protected $fillable = [  'professional_id',
+    'user_id',
+    'time',
+    'day',
+    'tools',
+    'description',
+    'name',
+    'address',
+    'building',
+    'phone',
+    'email',
+    'notes',
+    'payment',];
 
     public function professional()
     {

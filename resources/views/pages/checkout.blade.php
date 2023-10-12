@@ -34,51 +34,34 @@
         @csrf
           <div class="form_wrap">
             <div class="row">
-              {{-- <div class="col-lg-6">
-                <div class="form_item">
-                  <span class="input_title" >First Name<sup>*</sup></span>
-                  <input type="text" name="firstname">
-                </div>
-              </div>
-
-              <div class="col-lg-6">
-                <div class="form_item">
-                  <span class="input_title">Last Name<sup>*</sup></span>
-                  <input type="text" name="lastname">
-                </div>
-              </div> --}}
-
-              
               <div class="form_item col-lg-6">
                 <span class="input_title">Full Name<sup>*</sup></span>
-                <input type="text" name="postcode">
-              </div>
+                <input type="text" name="name" required>
+            </div>
 
-
-              <div class="form_item col-lg-6">
+            <div class="form_item col-lg-6">
                 <span class="input_title">City<sup>*</sup></span>
                 <input type="text" name="city" value="{{$pro->location}}" required>
-              </div>
+            </div>
 
-              <div class="form_item col-lg-6">
+            <div class="form_item col-lg-6">
                 <span class="input_title">Address<sup>*</sup></span>
-                <input type="text" name="address" required  value="{{ auth()->user()->address }}">
-              </div>
+                <input type="text" name="address" required value="{{ auth()->user()->address }}">
+            </div>
 
-              <div class="form_item col-lg-6">
-                <span class="input_title">Building<sup>*</sup></span>
-                <input type="text" name="postcode">
-              </div>
+            <div class="form_item col-lg-6">
+                <span class ="input_title">Building<sup>*</sup></span>
+                <input type="text" name="building" required>
+            </div>
 
-              <div class="form_item col-lg-6">
+            <div class="form_item col-lg-6">
                 <span class="input_title">Phone<sup>*</sup></span>
-                <input type="tel" name="phone"  value="{{ auth()->user()->phone_number }}" required>
-              </div>
+                <input type="tel" name="phone" value="{{ auth()->user()->phone_number }}" required>
+            </div>
 
-              <div class="form_item col-lg-6">
+            <div class="form_item col-lg-6">
                 <span class="input_title">Email Address<sup>*</sup></span>
-                <input type="email" name="email"  value="{{ auth()->user()->email }}" required>
-              </div>
+                <input type="email" name="email" value="{{ auth()->user()->email }}" required>
             </div>
 
 
@@ -92,7 +75,7 @@
 
             </div>
           </div>
-      
+          </div>
 
 
         <div class=" mt-5 " >

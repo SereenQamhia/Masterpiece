@@ -2,7 +2,7 @@
     
 namespace App\Http\Controllers;
   
-use App\Models\Checkout;
+use App\Models\Booking;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,18 +27,33 @@ class StripePaymentController extends Controller
 
             $user = Auth::user();
 
-            $checkout = new Checkout();
-            $checkout->payment = 5;
-            $checkout->notes = ''; 
-            $checkout->booking_id = 1; 
-            $checkout->address = $request->address;
-            $checkout->timestamps = false; 
+            // Retrieve data from the session
+            $sessionData = $request->session()->get('pending_booking', []);
+            
+            // Create a new Booking instance and populate its attributes
+            $booking = new Booking();
+            $booking->user_id = $user->id;
+            $booking->professional_id = $sessionData['professional_id'];
+            $booking->payment = 5; // Set the payment as a constant value
+            $booking->name = $request->input('name');
+            $booking->address = $request->input('address');
+            $booking->building = $request->input('building');
+            $booking->phone = $request->input('phone');
+            $booking->email = $request->input('email');
 
-            $checkout->save();
+            // Populate other attributes from the session
+            $booking->time = $sessionData['selected_hours'];
+            $booking->day = $sessionData['selected_days'];
+            $booking->tools = $sessionData['tools'];
+            $booking->description = $sessionData['description'];
+
+            $booking->notes = ''; // Set notes as needed
+
+            $booking->save();
 
             Session::flash('success', 'Payment successful');
 
-            return view("pages.about");
+            return view("pages.index");
         } else {
             return redirect()->route('login');
         }
