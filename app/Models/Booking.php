@@ -19,7 +19,8 @@ class Booking extends Model
     'phone',
     'email',
     'notes',
-    'payment',];
+    'payment',
+'id',];
 
     public function professional()
     {

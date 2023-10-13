@@ -44,9 +44,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Membership</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link" id="Schedule-tab" data-toggle="tab" href="#Schedule" role="tab" aria-controls="Schedule" aria-selected="false">Schedule</a>
                         </li>
@@ -59,7 +59,7 @@
            
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-0" >
             <div class="col-md-4">
             
             </div>
@@ -102,7 +102,7 @@
                               
                               
                     </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    {{-- <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Membership Status:</label>
@@ -144,41 +144,42 @@
                                     </div>
                                 </div>
                   
-                    </div>
+                    </div> --}}
 
 
                     <div class="tab-pane fade" id="Schedule" role="tabpanel" aria-labelledby="Schedule-tab">
                         <table class="table table-striped">
                             <thead>
                               <tr>
-                                <th scope="col">#id</th>
+                                <th scope="col">#</th>
                                 <th scope="col">Service</th>
                                 <th scope="col">Profisional</th>
-                                <th scope="col">Date</th>
+                                <th scope="col">Day</th>
                                 <th scope="col">time</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Payment</th>
                                 <th scope="col">Action</th>
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>Painting</td>
-                                <td>Omar Mohammad</td>
-                                <td>27/8/2023</td>
-                                <td>10am</td>
-                                <td>Done</td>
-                                <td><center><i class="fa-solid fa-x"></i></center></td>
-                              </tr>
-                              <tr>
-                                <th scope="row">2</th>
-                                <td>Carpinter</td>
-                                <td>Ali Ahmad</td>
-                                <td>4/9/2023</td>
-                                <td>9am</td>
-                                <td>Waiting</td>
-                                <td><i class="fa-solid fa-pen-to-square"></i> / <i class="fa-solid fa-x"></i></td>
-                              </tr>
+                              @php
+                              $counter = 1; // Initialize the counter
+                          @endphp
+                              @foreach ($bookings as $booking)
+                              <th scope="row">{{ $counter++ }}</th>
+                              <td>{{$booking->professional->profission}}</td>
+                              <td>{{$booking->professional->name}}</td>
+                              <td>{{$booking->day}}</td>
+                              <td>{{$booking->time}}</td>
+                              <td>{{$booking->payment}}</td>
+                              <td>
+                                <form action="{{ route('cancel.booking', $booking->id) }}" >
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit">Cancel</button>
+                                </form>
+                            </td>
+                            
+                              @endforeach
                           
                             </tbody>
                           </table>

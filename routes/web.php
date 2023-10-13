@@ -43,10 +43,12 @@ Route::get('/dashboard', function () {
 // })->name('Home');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', function () {return view('pages.profile') ;}) -> name('profile');
+    Route::get('/profile', [ProfileController::class, 'show']) -> name('profile');
     Route::get('/profile_edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::delete('/profile/{id}',  [BookingController::class, 'destroy'])->name('cancel.booking');
+
 });
 
 

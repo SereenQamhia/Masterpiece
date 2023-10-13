@@ -13,10 +13,27 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
 
+        <div class="row">
+            <div class=" col-4">
+                <div>
+                @if ($user->name)
+                    <img src="{{  url('img/' . $user->image) }}" alt="{{ $user->name }}'s Profile Picture" class="img-fluid" style="max-width: 200px; height: auto;">
+                @else
+                    <img src="{{ url('images/users/Default_pfp.svg.png') }}" alt="Default Profile Picture" class="img-fluid" style="max-width: 200px; height: auto;">
+                @endif
+
+                <div class="form-group mt-3">
+                    <label for="image">{{ __('Upload new image') }}</label>
+                    <input id="image" name="image" type="file" accept="image/*" class="form-control-file" :value="old('image', $user->image)" autocomplete="image" />
+                    <x-input-error class="mt-2" :messages="$errors->get('image')" />
+                </div>
+            </div>
+            </div>
+       <div  class="col-6" >
         <div>
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
@@ -47,6 +64,18 @@
             @endif
         </div>
 
+        <div>
+            <x-input-label for="phone" :value="__('Phone')" />
+            <x-text-input id="phone" name="phone" type="text" class="mt-1 block w-full" :value="old('phone', $user->phone_number)" required autofocus autocomplete="phone" />
+            <x-input-error class="mt-2" :messages="$errors->get('phone')" />
+        </div>
+
+        <div>
+            <x-input-label for="address" :value="__('Address')" />
+            <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address', $user->address)" required autofocus autocomplete="address" />
+            <x-input-error class="mt-2" :messages="$errors->get('address')" />
+        </div>
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
@@ -60,5 +89,8 @@
                 >{{ __('Saved.') }}</p>
             @endif
         </div>
+        </div>
+        </div>
+        
     </form>
 </section>

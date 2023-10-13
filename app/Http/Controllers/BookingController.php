@@ -50,4 +50,10 @@ class BookingController extends Controller
     }
 }
 
+public function destroy($id){
+
+    Booking::where('id', $id)->delete();
+    return redirect()->route('profile');
+}
+
 }
