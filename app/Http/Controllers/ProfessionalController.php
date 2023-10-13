@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Professional;
+use App\Models\Provider;
 use Illuminate\Http\Request;
 
 class ProfessionalController extends Controller
@@ -15,7 +16,8 @@ class ProfessionalController extends Controller
 
     public function create()
     {
-        return view('Dashboard.Professionals.create');
+        $Providers=Provider::all();
+        return view('Dashboard.Professionals.create' , compact('Providers'));
     }
 
     public function store( Request $request )

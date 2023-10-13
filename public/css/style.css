@@ -283,6 +283,24 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 
 }
+.page-header3 {
+
+  background: linear-gradient(rgba(53, 53, 53, 0.25), rgba(53, 53, 53, 0.08)), url(../img/electrical.jpeg) center center no-repeat;
+  background-size: cover;
+height: 70vh;
+  display: flex; 
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+.page-header4 {
+
+  background: linear-gradient(rgba(53, 53, 53, 0.05), rgba(53, 53, 53, 0.08)), url(../img/plum.jpeg) center center no-repeat;
+  background-size: cover;
+ height: 70vh;
+  display: flex; 
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
 
 .breadcrumb-item + .breadcrumb-item::before {
     color: var(--light);

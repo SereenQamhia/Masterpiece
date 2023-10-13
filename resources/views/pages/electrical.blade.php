@@ -3,19 +3,20 @@
 @section('content')
 
 
-<link href="css/categores.css" rel="stylesheet" />
+<link href="{{ asset('css/categores.css') }}" rel="stylesheet">
+
 
     <!-- Page Header Start -->
-    <div class="container-fluid page-header1 py-5 mb-6">
+    <div class="container-fluid page-header3 py-5 mb-6">
       <div class="container py-5 d-flex justify-content-center flex-column">
-        <h1 class="display-3 text-white mb-3 animated slideInDown">Painting</h1>
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Electrical</h1>
         <nav aria-label="breadcrumb animated slideInDown">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
               <a class="text-white" href="#">Home</a>
             </li>
             <li class="breadcrumb-item text-white active" aria-current="page">
-              Painting service
+              Electrical service
             </li>
           </ol>
         </nav>
@@ -32,33 +33,33 @@
                 <div class="row justify-content-end">
     
                   <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
-                    <div class="count-box py-5">
-                      <i class="bi bi-emoji-smile"></i>
-                      <span data-purecounter-start="0" data-purecounter-end="115" class="purecounter">0</span>
+                    <div class="count-box py-5" >
+                      <i class="bi bi-emoji-smile" style="color: rgb(216, 112, 8);"></i>
+                      <span data-purecounter-start="0" data-purecounter-end="105" class="purecounter">0</span>
                       <p>Happy Clients</p>
                     </div>
                   </div>
     
                   <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                     <div class="count-box py-5">
-                      <i class="bi bi-journal-richtext"></i>
-                      <span data-purecounter-start="0" data-purecounter-end="120" class="purecounter">0</span>
+                      <i class="bi bi-journal-richtext" style="color: rgb(216, 112, 8);"></i>
+                      <span data-purecounter-start="0" data-purecounter-end="109" class="purecounter">0</span>
                       <p>Projects</p>
                     </div>
                   </div>
     
                   <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                     <div class="count-box pb-5 pt-0 pt-lg-5">
-                      <i class="bi bi-clock"></i>
-                      <span data-purecounter-start="0" data-purecounter-end="27" class="purecounter">0</span>
+                      <i class="bi bi-clock" style="color: rgb(216, 112, 8);"></i>
+                      <span data-purecounter-start="0" data-purecounter-end="20" class="purecounter">0</span>
                       <p>Years of experience</p>
                     </div>
                   </div>
     
                   <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                     <div class="count-box pb-5 pt-0 pt-lg-5">
-                      <i class="bi bi-award"></i>
-                      <span data-purecounter-start="0" data-purecounter-end="22" class="purecounter">0</span>
+                      <i class="bi bi-award" style="color: rgb(216, 112, 8);"></i>
+                      <span data-purecounter-start="0" data-purecounter-end="17" class="purecounter">0</span>
                       <p>Awards</p>
                     </div>
                   </div>
@@ -83,10 +84,10 @@
 
         <div class="row">
           <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-right">
-            <div class="content">
-              <h3>Why Choose HomeFix for Your Home Painting Needs?</h3>
+            <div class="content" style="background-color: rgb(239, 201, 94);">
+              <h3>Why Choose HomeFix for Your Home Electrical Needs?</h3>
               <p>
-                When it comes to entrusting the task of painting your home, HomeFix rises as the unrivaled premier 
+                When it comes to entrusting the task of Electrical your home, HomeFix rises as the unrivaled premier 
                 choice. Our unwavering commitment to excellence and our steadfast focus on delivering nothing but 
                 the best results set us apart. We provide a seamless and transformative experience that adds a new
                  dimension to your living spaces. Here's why homeowners place their trust in us:</p>
@@ -100,7 +101,7 @@
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-receipt"></i>
                     <h4>Expert Painters: </h4>
-                    <p>Our skilled painting contractors bring professionalism and expertise to each project. 
+                    <p>Our skilled Electrical contractors bring professionalism and expertise to each project. 
                       From surface preparation to the final coat, our painters ensure a flawless finish.</p>
                   </div>
                 </div>
@@ -109,7 +110,7 @@
                     <i class="bx bx-cube-alt"></i>
                     <h4>Tailored Solutions:</h4>
                     <p>Understanding the uniqueness of every home, we provide customized solutions that cater to
-                       your specific needs. Whether it's interior or exterior painting, our services match your vision.</p>
+                       your specific needs. Whether it's interior or exterior Electrical, our services match your vision.</p>
                   </div>
                 </div>
                 <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
@@ -137,32 +138,22 @@
         </div>
         <div class="row g-6 mb-6">
             <div class="col-md-1 col-lg-1 "></div>
-            <div class="col-md-5 col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item">
-                    <div class="overflow-hidden">
-                        <img  class="img-fluid" src="img/paint companies.png" alt="">
-                    </div>
-                    <div class="p-4 text-center border border-5 border-light border-top-0">
-                        <h4 class="mb-3">Painting Companies</h4>
-                        <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
-                        <a class="fw-medium" href="carpenter.html">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
+           @foreach ($providers as $provider)
+           <div class="col-md-5 col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="service-item">
+                <div class="overflow-hidden">
+                    <img  class="img-fluid" src="{{ url('img/' . $provider->image) }}" alt="" style="height: 350px; width:100%">
                 </div>
+                <div class="p-4 text-center border border-5 border-light border-top-0">
+                    <h4 class="mb-3">{{$provider->name}}</h4>
+                    <p>{{$provider->description}}</p>
+                    <a class="fw-medium" href="{{ route('choosepro' ,$provider->id) }}">View Companies<i class="fa fa-arrow-right ms-2"></i></a>
+                  
+                  </div>
             </div>
-            <div class="col-md-5 col-lg-5 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item">
-                    <div class="overflow-hidden">
-                        <img class="img-fluid" src="img/paint pro.png" alt="">
-                    </div>
-                    <div class="p-4 text-center border border-5 border-light border-top-0">
-                        <h4 class="mb-3">Our professionals</h4>
-                        <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
-                        <a class="fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
-                    <div class="col-md-1 col-lg-1 "></div>
-                </div>
-            </div> 
-         </div>
+        </div>
+           @endforeach
+          </div>
         </div>
     </div>
 
@@ -174,7 +165,20 @@
               <h1 class="display-5 mb-5">Hear from our profissionals</h1>
           </div>
           <div class="owl-carousel testimonial-carousel">
+             
+              @foreach ($professionals as $pro)
               <div class="testimonial-item text-center">
+                  <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ url('img/' . $pro->image) }}" style="width: 90px; height: 90px;">
+                  <div class="testimonial-text text-center p-4">
+                      <h5 class="mb-1">{{$pro->name }}</h5>
+                      <span class="fst-italic"><img class="img-fluid mx-auto " src="{{asset('img/complited.svg')}}" style="width: 30px; height: 30px; display: inline-block;">{{$pro->completed_jobs}} jobs completed</span></span>
+                      <p>{{$pro->description}}</p>
+                  </div>
+              </div>
+              @endforeach
+          
+          </div>
+            {{-- <div class="testimonial-item text-center">
                   <img class="img-fluid bg-light p-2 mx-auto mb-3" src="img/pro1.png" style="width: 90px; height: 90px;">
                   <div class="testimonial-text text-center p-4">
                       <h5 class="mb-1">Omar M.</h5>
@@ -187,7 +191,7 @@
                   <div class="testimonial-text text-center p-4">
                       <h5 class="mb-1">Fouad S.</h5>
                       <span class="fst-italic"> <img class="img-fluid mx-auto " src="img/complited.svg" style="width: 30px; height: 30px; display: inline-block;">70 jobs completed</span>
-                      <p>"I've been in the Home Painting & Remodeling business for 15+yrs. I specialize in painting,  carpentry. Dependable, reliable and professional. Customer satisfaction being most important! Based in North Jordan, serving all of Irbid areas. THANK YOU for your time, Fouad S."</p>
+                      <p>"I've been in the Home Electrical & Remodeling business for 15+yrs. I specialize in Electrical,  carpentry. Dependable, reliable and professional. Customer satisfaction being most important! Based in North Jordan, serving all of Irbid areas. THANK YOU for your time, Fouad S."</p>
                   </div>
               </div>
               <div class="testimonial-item text-center">
@@ -197,13 +201,14 @@
                       <span class="fst-italic"> <img class="img-fluid mx-auto " src="img/complited.svg" style="width: 30px; height: 30px; display: inline-block;">85 jobs completed</span>
                       <p>"I'm a specialist in Murals ,its my passion and I apply it with all of love and professionalism . When you have an imaginative mind, I will make sure to make you see it true on your wall , to make your home a place for your imaginary , creativity and comfy place for you"</p>
                   </div>
-              </div>
+              </div> --}}
           </div>
       </div>
   </div>
-  
+  <!-- Testimonial End -->
 
-  <script src="lib/purecounter/purecounter_vanilla.js"></script>
+
+  <script src="{{ asset('lib/purecounter/purecounter_vanilla.js') }}"></script>
     
     <script>
       document.addEventListener("DOMContentLoaded", function() {

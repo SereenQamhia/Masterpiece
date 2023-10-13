@@ -21,7 +21,7 @@ class ProfessionalsSeeder extends Seeder
                 'name' => 'John Doe',
                 'description' => 'Experienced professional',
                 'email' => 'john@example.com',
-                'image' => 'john.jpg',
+                'image' => 'team-1.jpg',
                 'cv' => 'john_cv.pdf',
                 'location' => 'New York',
                 'experience' => 5,
@@ -30,7 +30,7 @@ class ProfessionalsSeeder extends Seeder
                 'price' => 50.00,
                 'profission' => 'Carpenter',
                 'completed_jobs' => 20,
-                'provider_id' => 29, // Assuming this references a provider
+                'provider_id' => 34, // Assuming this references a provider
                 'image1' => 'john_image1.jpg',
                 'image2' => 'john_image2.jpg',
                 'image3' => 'john_image3.jpg',
@@ -38,7 +38,7 @@ class ProfessionalsSeeder extends Seeder
                 'image5' => 'john_image5.jpg',
                 'image6' => 'john_image6.jpg',
                 'daysofwork' => 'Monday,Tuesday,Wednesday',
-                'hoursofwork' => '8am-5pm',
+                'hoursofwork' => '8am,9am,12am,3pm',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

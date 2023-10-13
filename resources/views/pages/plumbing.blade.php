@@ -1,123 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>HomeFix</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="" name="keywords" />
-    <meta content="" name="description" />
+@extends('layout.master')
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon" />
+@section('content')
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
-      rel="stylesheet"
-    />
 
-    <!-- Icon Font Stylesheet -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <script src="https://kit.fontawesome.com/d6692547f6.js" crossorigin="anonymous"></script>
+<link href="{{ asset('css/categores.css') }}" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet" />
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet" />
-    <link href="css/categores.css" rel="stylesheet" />
-  </head>
-
-  <body>
-    <!-- Spinner Start -->
-    <div
-      id="spinner"
-      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
-    >
-      <div
-        class="spinner-grow text-primary"
-        style="width: 3rem; height: 3rem"
-        role="status"
-      >
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
-    <!-- Spinner End -->
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
-      <a
-        href="index.html"
-        class="navbar-brand d-flex align-items-center px-4 px-lg-5"
-      >
-      <h2 style="font-family: Georgia, 'Times New Roman', Times, serif;" class="m-0 text-primary"><img style="height: 180px; width:280px;" src="./img/homefix-logo.png "></h2>
-
-      </a>
-      <button
-        type="button"
-        class="navbar-toggler me-4"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarCollapse"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto p-4 p-lg-0">
-          <a href="index.html" class="nav-item nav-link ">Home</a>
-          <a href="about.html" class="nav-item nav-link">About</a>
-          <div class="nav-item dropdown">
-            <a
-              href="#"
-              class="nav-link dropdown-toggle active"
-              data-bs-toggle="dropdown"
-              >Services</a
-            >
-            <div class="dropdown-menu fade-up m-0">
-                <a href="carpenter.html" class="dropdown-item ">Carpenter</a>
-                <a href="electrical.html" class="dropdown-item ">Electrical</a>
-              <a href="painting.html" class="dropdown-item">Painting</a>
-              <a href="plumbing.html" class="dropdown-item active">Plumbing</a>
-            </div>
-          </div>
-          <a href="service.html" class="nav-item nav-link">Courses</a>
-          <a href="project.html" class="nav-item nav-link">Project</a>
-          <a href="" class="nav-item nav-link">Join us</a>
-        </div>
-        <a
-          href="Login.html"
-          class="btn btn-primary py-4 px-lg-5 d-none d-lg-block"
-          >Login<i class="fa fa-arrow-right ms-3"></i
-        ></a>
-      </div>
-    </nav>
-    <!-- Navbar End -->
-
-    
     <!-- Page Header Start -->
-    <div class="container-fluid page-header1 py-5 mb-6">
+    <div class="container-fluid page-header4 py-5 mb-6">
       <div class="container py-5 d-flex justify-content-center flex-column">
-        <h1 class="display-3 text-white mb-3 animated slideInDown">Painting</h1>
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Plumbing</h1>
         <nav aria-label="breadcrumb animated slideInDown">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
               <a class="text-white" href="#">Home</a>
             </li>
             <li class="breadcrumb-item text-white active" aria-current="page">
-              Painting service
+              Plumbing service
             </li>
           </ol>
         </nav>
@@ -178,58 +77,58 @@
 
 
 
-    
     <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us">
-      <div class="container" style="margin-top: 50px;">
+<section id="why-us" class="why-us">
+  <div class="container" style="margin-top: 50px;">
 
-        <div class="row">
-          <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-right">
-            <div class="content">
-              <h3>Why Choose HomeFix for Your Home Painting Needs?</h3>
-              <p>
-                When it comes to entrusting the task of painting your home, HomeFix rises as the unrivaled premier 
-                choice. Our unwavering commitment to excellence and our steadfast focus on delivering nothing but 
-                the best results set us apart. We provide a seamless and transformative experience that adds a new
-                 dimension to your living spaces. Here's why homeowners place their trust in us:</p>
-      
+    <div class="row">
+      <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-right">
+        <div class="content" style="background-color: rgb(165, 212, 241);">
+          <h3>Why Choose HomeFix for Your Plumbing Needs?</h3>
+          <p>
+            When it comes to entrusting the task of plumbing in your home, HomeFix rises as the unrivaled premier 
+            choice. Our unwavering commitment to excellence and our steadfast focus on delivering nothing but 
+            the best results set us apart. We provide a seamless and transformative experience that adds a new
+             dimension to your plumbing solutions. Here's why homeowners place their trust in us:</p>
+  
+        </div>
+      </div>
+      <div class="col-lg-8 d-flex align-items-stretch">
+        <div class="icon-boxes d-flex flex-column justify-content-center">
+          <div class="row">
+            <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon-box mt-4 mt-xl-0">
+                <i class="bx bx-receipt"></i>
+                <h4>Expert Plumbers: </h4>
+                <p>Our skilled plumbing contractors bring professionalism and expertise to each project. 
+                  From leak detection to fixture installation, our plumbers ensure a flawless plumbing solution.</p>
+              </div>
+            </div>
+            <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+              <div class ="icon-box mt-4 mt-xl-0">
+                <i class="bx bx-cube-alt"></i>
+                <h4>Tailored Plumbing Solutions:</h4>
+                <p>Understanding the uniqueness of every plumbing system, we provide customized solutions that cater to
+                   your specific needs. Whether it's fixing an issue or upgrading your plumbing, our services match your vision.</p>
+              </div>
+            </div>
+            <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
+              <div class="icon-box mt-4 mt-xl-0">
+                <i class="bx bx-images"></i>
+                <h4>Quality Assurance:</h4>
+                <p>
+                  At HomeFix, quality is key. With top-notch materials and meticulous attention to detail, we deliver 
+                  a plumbing solution that surpasses expectations, ensuring your home's functionality and reliability.</p>
+              </div>
             </div>
           </div>
-          <div class="col-lg-8 d-flex align-items-stretch">
-            <div class="icon-boxes d-flex flex-column justify-content-center">
-              <div class="row">
-                <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-receipt"></i>
-                    <h4>Expert Painters: </h4>
-                    <p>Our skilled painting contractors bring professionalism and expertise to each project. 
-                      From surface preparation to the final coat, our painters ensure a flawless finish.</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-cube-alt"></i>
-                    <h4>Tailored Solutions:</h4>
-                    <p>Understanding the uniqueness of every home, we provide customized solutions that cater to
-                       your specific needs. Whether it's interior or exterior painting, our services match your vision.</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-images"></i>
-                    <h4>Quality Assurance:</h4>
-                    <p>
-                      At HomeFix, quality is key. With top-notch materials and meticulous attention to detail, we deliver 
-                      a finish that surpasses expectations, ensuring your home's lasting beauty.e</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End .content-->
-          </div>
-        </div>
-
+        </div><!-- End .content-->
       </div>
-    </section><!-- End Why Us Section -->
+    </div>
+
+  </div>
+</section><!-- End Why Us Section -->
+
 
  <!-- Service Start -->
  <div class="container-xxl py-5">
@@ -239,32 +138,22 @@
         </div>
         <div class="row g-6 mb-6">
             <div class="col-md-1 col-lg-1 "></div>
-            <div class="col-md-5 col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item">
-                    <div class="overflow-hidden">
-                        <img  class="img-fluid" src="img/paint companies.png" alt="">
-                    </div>
-                    <div class="p-4 text-center border border-5 border-light border-top-0">
-                        <h4 class="mb-3">Painting Companies</h4>
-                        <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
-                        <a class="fw-medium" href="carpenter.html">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
+           @foreach ($providers as $provider)
+           <div class="col-md-5 col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="service-item">
+                <div class="overflow-hidden">
+                    <img  class="img-fluid" src="{{ url('img/' . $provider->image) }}" alt="">
                 </div>
+                <div class="p-4 text-center border border-5 border-light border-top-0">
+                    <h4 class="mb-3">{{$provider->name}}</h4>
+                    <p>{{$provider->description}}</p>
+                    <a class="fw-medium" href="{{ route('choosepro' ,$provider->id) }}">View Companies<i class="fa fa-arrow-right ms-2"></i></a>
+                  
+                  </div>
             </div>
-            <div class="col-md-5 col-lg-5 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item">
-                    <div class="overflow-hidden">
-                        <img class="img-fluid" src="img/paint pro.png" alt="">
-                    </div>
-                    <div class="p-4 text-center border border-5 border-light border-top-0">
-                        <h4 class="mb-3">Our professionals</h4>
-                        <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
-                        <a class="fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
-                    <div class="col-md-1 col-lg-1 "></div>
-                </div>
-            </div> 
-         </div>
+        </div>
+           @endforeach
+          </div>
         </div>
     </div>
 
@@ -276,7 +165,20 @@
               <h1 class="display-5 mb-5">Hear from our profissionals</h1>
           </div>
           <div class="owl-carousel testimonial-carousel">
+             
+              @foreach ($professionals as $pro)
               <div class="testimonial-item text-center">
+                  <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ url('img/' . $pro->image) }}" style="width: 90px; height: 90px;">
+                  <div class="testimonial-text text-center p-4">
+                      <h5 class="mb-1">{{$pro->name }}</h5>
+                      <span class="fst-italic"><img class="img-fluid mx-auto " src="{{asset('img/complited.svg')}}" style="width: 30px; height: 30px; display: inline-block;">{{$pro->completed_jobs}} jobs completed</span></span>
+                      <p>{{$pro->description}}</p>
+                  </div>
+              </div>
+              @endforeach
+          
+          </div>
+            {{-- <div class="testimonial-item text-center">
                   <img class="img-fluid bg-light p-2 mx-auto mb-3" src="img/pro1.png" style="width: 90px; height: 90px;">
                   <div class="testimonial-text text-center p-4">
                       <h5 class="mb-1">Omar M.</h5>
@@ -289,7 +191,7 @@
                   <div class="testimonial-text text-center p-4">
                       <h5 class="mb-1">Fouad S.</h5>
                       <span class="fst-italic"> <img class="img-fluid mx-auto " src="img/complited.svg" style="width: 30px; height: 30px; display: inline-block;">70 jobs completed</span>
-                      <p>"I've been in the Home Painting & Remodeling business for 15+yrs. I specialize in painting,  carpentry. Dependable, reliable and professional. Customer satisfaction being most important! Based in North Jordan, serving all of Irbid areas. THANK YOU for your time, Fouad S."</p>
+                      <p>"I've been in the Home Plumbing & Remodeling business for 15+yrs. I specialize in Plumbing,  carpentry. Dependable, reliable and professional. Customer satisfaction being most important! Based in North Jordan, serving all of Irbid areas. THANK YOU for your time, Fouad S."</p>
                   </div>
               </div>
               <div class="testimonial-item text-center">
@@ -299,137 +201,14 @@
                       <span class="fst-italic"> <img class="img-fluid mx-auto " src="img/complited.svg" style="width: 30px; height: 30px; display: inline-block;">85 jobs completed</span>
                       <p>"I'm a specialist in Murals ,its my passion and I apply it with all of love and professionalism . When you have an imaginative mind, I will make sure to make you see it true on your wall , to make your home a place for your imaginary , creativity and comfy place for you"</p>
                   </div>
-              </div>
+              </div> --}}
           </div>
       </div>
   </div>
   <!-- Testimonial End -->
 
 
-    <!-- <div style="font-size: 23px;margin: 2% 15%;">
-        <h2 >What we offer: </h2>
-        <div style="margin: 15px 2px 15px 80px; font-size: 28px;  ">
-            <i class="fa-solid fa-check fa-xl" style="color: #dcf330; padding: 35px 5px;"></i> <span>High quality and on-time dates.</span> <br>
-            <i class="fa-solid fa-check fa-xl" style="color: #dcf330; padding: 35px 5px;"></i> <span>Affordable, upfront pricing.</span> <br>
-            <i class="fa-solid fa-check fa-xl" style="color: #dcf330; padding: 35px 5px;"></i> <span>Background-checked professionals.</span> <br>
-            <i class="fa-solid fa-check fa-xl" style="color: #dcf330; padding: 35px 5px;"></i> <span>Flexible rescheduling.</span><br>
-             
-        
-        </div> 
-        
-    </div> -->
-
-
-
-
-
-
-
-
-
-
-    
-    <!-- Footer Start -->
-    <div
-      class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn"
-      data-wow-delay="0.1s"
-    >
-      <div class="container py-5">
-        <div class="row g-5">
-          <div class="col-lg-3 col-md-6">
-            <h4 class="text-light mb-4">Address</h4>
-            <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Irbid</p>
-            <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>0775154882</p>
-            <p class="mb-2">
-              <i class="fa fa-envelope me-3"></i>info@HomeFix.com
-            </p>
-            <div class="d-flex pt-2">
-              <a class="btn btn-outline-light btn-social" href=""
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a class="btn btn-outline-light btn-social" href=""
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a class="btn btn-outline-light btn-social" href=""
-                ><i class="fab fa-youtube"></i
-              ></a>
-              <a class="btn btn-outline-light btn-social" href=""
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <h4 class="text-light mb-4">Services</h4>
-            <a class="btn btn-link" href="">Carpentry</a>
-            <a class="btn btn-link" href="">Electrical</a>
-            <a class="btn btn-link" href="">Painting</a>
-            <a class="btn btn-link" href="">Plumping</a>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <h4 class="text-light mb-4">Quick Links</h4>
-            <a class="btn btn-link" href="">About Us</a>
-            <a class="btn btn-link" href="contact.html">Contact Us</a>
-            <a class="btn btn-link" href="">Join Us</a>
-            <a class="btn btn-link" href="">FAQs</a>
-            <a class="btn btn-link" href="">Terms & Condition</a>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <h4 class="text-light mb-4">Newsletter</h4>
-            <p>
-              Get home improvement insights and exclusive offers – subscribe
-              now!
-            </p>
-            <div class="position-relative mx-auto" style="max-width: 400px">
-              <input
-                class="form-control border-0 w-100 py-3 ps-4 pe-5"
-                type="text"
-                placeholder="Your email"
-              />
-              <button
-                type="button"
-                class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"
-              >
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="copyright">
-          <div class="row">
-            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-              &copy; <a class="border-bottom" href="#">HomeFix</a>, All Right
-              Reserved.
-            </div>
-            <!-- <div class="col-md-6 text-center text-md-end"> -->
-            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-            <!-- Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                    </div> -->
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Footer End -->
-
-    <!-- Back to Top -->
-    <a
-      href="#"
-      class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"
-      ><i class="bi bi-arrow-up"></i
-    ></a>
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/purecounter/purecounter_vanilla.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+  <script src="{{ asset('lib/purecounter/purecounter_vanilla.js') }}"></script>
     
     <script>
       document.addEventListener("DOMContentLoaded", function() {
@@ -437,9 +216,4 @@
       });
 
     </script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-
-  </body>
-</html>
+@endsection

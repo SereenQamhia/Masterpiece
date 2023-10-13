@@ -11,7 +11,7 @@
   </head>
   <body>
       
-   <div style="margin: 150px 300px; border: solid rgb(93, 187, 0) 3px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);">
+   <div style="margin: 100px 300px; border: solid rgb(93, 187, 0) 3px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);">
 
       <div style="margin: 30px ">
          <h2 class="text-center">Add Professional</h2>
@@ -25,8 +25,14 @@
                 <span style="color:red">@error('name'){{ $message }} @enderror</span>
             </div>
         
+            <div class="form-group mt-4">
+                <label for="image">His/Her Image:</label>
+                <input name="image" type="file" class="form-control white-input" id="image">
+                {{-- <span style="color:red">@error('image'){{ $message }} @enderror</span><br><br> --}}
+            </div>
+
             <div class="form-group">
-                <label for="description">Professional Description:</label>
+                <label for="description"> About the professional :</label>
                 <input type="text" class="form-control" id="description" name="description" placeholder="Description">
             </div>
         
@@ -61,7 +67,7 @@
             </div>
         
             <div class="form-group">
-                <label for="price">Price:</label>
+                <label for="price">Price ber hour:</label>
                 <input type="text" class="form-control" id="price" name="price" placeholder="Price">
             </div>
         
@@ -72,31 +78,37 @@
         
             <div class="form-group">
                 <label for="hoursofwork">Hours of Work:</label>
-                <input type="text" class="form-control" id="hoursofwork" name="hoursofwork" placeholder="Hours of Work">
+                <input type="text" class="form-control" id="hoursofwork" name="hoursofwork" placeholder="10am , 11am , ..">
             </div>
         
             <div class="form-group">
                 <label for="daysofwork">Days of Work:</label>
-                <input type="text" class="form-control" id="daysofwork" name="daysofwork" placeholder="Days of Work">
+                <input type="text" class="form-control" id="daysofwork" name="daysofwork" placeholder="Sunday , Monday , ..">
             </div>
         
             <div class="form-group">
                 <label for="completed_jobs">Completed Jobs:</label>
-                <input type="text" class="form-control" id="completed_jobs" name="completed_jobs" placeholder="Completed Jobs">
+                <input type="text" class="form-control" id="completed_jobs" name="completed_jobs" placeholder="33">
             </div>
         
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="provider_id">Provider ID:</label>
                 <input type="text" class="form-control" id="provider_id" name="provider_id" placeholder="Provider ID">
-            </div>
-        
-            <div class="form-group mt-4">
-                <label for="image">Image:</label>
-                <input name="image" type="file" class="form-control white-input" id="image">
-                <span style="color:red">@error('image'){{ $message }} @enderror</span><br><br>
-            </div>
+            </div> --}}
 
-            
+            <div class="form-group">
+                <label for="provider_id">Provider:</label>
+                 <select class="form-control" id="provider_id" name="provider_id" placeholder="Provider ID">
+                  @foreach ($Providers as $provider)
+                    <option value="{{$provider->id}}">{{$provider->name}}</option>
+                    @endforeach
+                 </select>
+            </div> 
+        
+     
+            <br>
+           <h3>Previous works images:</h3> 
+          
     <div class="form-group">
         <label for="image1">Image 1:</label>
         <input name="image1" type="file" class="form-control white-input" id="image1">
@@ -127,7 +139,7 @@
         <input name="image6" type="file" class="form-control white-input" id="image6">
     </div>
 
-    <input type="submit" name="submit" id="submit" class="form-submit" value="Add" style="color:black;">
+    <input type="submit" name="submit" id="submit" class="btn btn-success " style="margin: 1% 40%" value="Add Professional" />
 </form>
            
         

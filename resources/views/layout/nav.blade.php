@@ -79,7 +79,7 @@
                     @if (Auth::check())
                   
                  
-                        <a href="{{ route('profile.edit') }}" class="nav-link" >Profile</a>
+                        <a href="{{ route('profile') }}" class="nav-link" >Profile</a>
                      
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

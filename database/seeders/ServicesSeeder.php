@@ -12,28 +12,28 @@ class ServicesSeeder extends Seeder
 
         DB::table('services')->insert([
             [
-                'name' => 'carpenter',
+                'name' => 'Carpenter',
                 'description' => 'Vision to reality – custom, intricate, repairs.',
                 'image' => 'service-1.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name' => 'electrical',
+                'name' => 'Electrical',
                 'description' => 'Safety, precision – installations and troubleshooting.',
                 'image' => 'service-2.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name' => 'painting',
+                'name' => 'Painting',
                 'description' => 'Vibrant colors, flawless finishes, inside and out.',
                 'image' => 'service-3.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name' => 'plumping',
+                'name' => 'Plumbing',
                 'description' => 'Swift solutions for leaks, clogs, new installations.',
                 'image' => 'service-4.jpg',
                 'created_at' => now(),
