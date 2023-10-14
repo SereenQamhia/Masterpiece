@@ -47,6 +47,7 @@ class ProfileController extends Controller
     
         // Update the user's phone number
         $user->phone_number = $request->input('phone');
+        $user->address = $request->input('address');
     
         // Reset email verification if email is changed
         if ($user->isDirty('email')) {

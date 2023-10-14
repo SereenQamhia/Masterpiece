@@ -13,23 +13,18 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\AdminLoginController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 
 
-
-// Route::get('admin/login', [AdminLoginController::class,'showLoginForm'])->name('admin.login');
-// Route::post('admin/login', [AdminLoginController::class,'login'])->name('admin.login.submit');
+// Dashboard
 
 Route::get('login_admin', [App\Http\Controllers\LoginAdmin::class, 'show'])->name('login_admin');
-
 Route::post('check', [App\Http\Controllers\LoginAdmin::class, 'store'])->name('check_admin');
 
 Route::middleware(['is_admin'])->group(function () {
-    Route::get('/Dash', function () {
-        return view('Dashboard.index') ;
-    }) -> name('Dashboard.index');
-// Dashboard
+Route::get('/Dash', function () {return view('Dashboard.index') ; }) -> name('Dashboard.index');
 Route::resource('Services', ServiceController::class);
 Route::resource('Providers', ProviderController::class);
 Route::resource('Users', UserController::class);
@@ -40,16 +35,12 @@ Route::resource('JoinUs', JoinUsController::class);
 Route::resource('Reviews', ReviewController::class);
 Route::get('admin_logout', [App\Http\Controllers\LoginAdmin::class, 'logout_admin'])->name('admin_logout');
 
-// Route::resource('Reviews', ReviewController::class)->middleware('auth');
 });
 
 Route::get('/dashboard', function () {
     return view('pages.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::get('/', function () {
-//     return view('pages.index');
-// })->name('Home');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'show']) -> name('profile');
@@ -60,8 +51,6 @@ Route::middleware('auth')->group(function () {
 
 });
 
-
-// Route::get('/', [HomeController::class, 'shownav'])->name('nav');
 
 //nav routes
 
@@ -86,6 +75,9 @@ Route::controller(StripePaymentController::class)->group(function(){
     Route::post('Checkout', 'stripe');
     Route::post('Checkout', 'stripePost')->name('stripe.post');
 });
+
+Route::get('contact-us', [ContactController::class, 'index']);
+Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
 
 
 

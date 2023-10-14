@@ -351,28 +351,34 @@
                         <h1 class="display-5 mb-4">Contact Us</h1>
                     </div>
                     <p class="mb-4 pb-2">Have questions or need assistance? We're just a message away.</p>
-                    <form>
+                    @if(Session::has('success'))
+                            <div class="alert alert-success">
+                                {{Session::get('success')}}
+                            </div>
+                        @endif
+                    <form method="POST" action="{{ route('contact.us.store') }}">
+                        @csrf
                         <div class="row g-3">
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;">
+                                <input type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;" name="name">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
+                                <input type="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;" name="email">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control border-0" placeholder="Your Mobile" style="height: 55px;">
+                                <input type="text" class="form-control border-0" placeholder="Your Mobile" style="height: 55px;" name="phone">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <select class="form-select border-0" style="height: 55px;">
+                                <select name="subject" class="form-select border-0" style="height: 55px;">
                                     <option selected>Select A Service</option>
-                                    <option value="2">Carpinter</option>
-                                    <option value="3">Electrical</option>
-                                    <option value="1">Painting</option>
-                                    <option value="4">Plumping</option>
+                                    <option value="Carpinter">Carpinter</option>
+                                    <option value="Electrical">Electrical</option>
+                                    <option value="Painting">Painting</option>
+                                    <option value="Plumbing">Plumbing</option>
                                 </select>
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control border-0" placeholder="Your message"></textarea>
+                                <textarea class="form-control border-0" placeholder="Your message" name="message"></textarea>
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>

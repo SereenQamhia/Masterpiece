@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-  <section class="vh-100" style="background-color: #DFDFDF;">
+  <section class="vh-100" style="background-color: #f6ece6;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card shadow-2-strong" style="border-radius: 1rem; height: 80vh;">
-          <div class="text-center mb-0 mt-4">
-            <a href="index-2.html" ><h1 style="font-size: 50px;color:#F8796C">AYSEL</h1></a>
+          <div class="text-center mb-0">
+            <a href="{{route('home')}}" ><img style="height: 180px; width:280px;" src="{{ asset('img/homefix-logo.png') }}" alt="HomeFix Logo"></a>
             {{-- <img src="{{ asset('assets/img/furnishareblack.png') }}" alt="Your Image" style="max-width: 100%; max-height: 150px;"> --}}
           </div>
-          <div class="card-body p-4 text-center">
-            <h3 class="mb-4">Sign in</h3>
+          <div class="card-body  text-center">
+            <h3 class="mb-4">Dashboard</h3>
             @if (Session::has('error'))
             <div class="alert alert-danger" role="alert">
               {{ Session::get('error') }}
@@ -36,7 +36,7 @@
                 <input type="password" name="password" class="form-control form-control-lg" id="password"
                   placeholder="Password" required />
               </div>
-              <button class="btn btn-lg btn-block text-white" type="submit" style="background-color: #F8796C;">Login</button>
+              <button class="btn btn-lg btn-block text-white" type="submit" style="background-color: rgb(171, 105, 43);">Login</button>
             </form>
             <hr class="my-4">
           </div>
