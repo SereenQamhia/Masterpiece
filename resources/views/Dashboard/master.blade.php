@@ -83,14 +83,14 @@
                         <div class="vd_space">
                            <div class="vd_info_wrap text-center">
                               <div class="vd_image">
-                                 <div class="image_wrap">
-                                    <img src="./img/pro2.png" alt="image_not_found">
+                                 <div class="image_wrap" >
+                                    <img src="{{ url('img/' . Auth::guard('admin')->user()->image) }}" alt="image_not_found" >
                                  </div>
                                  <button type="button" class="edit_btn">
                                     <i class="fas fa-camera-retro"></i>
                                  </button>
                               </div>
-                              <h2 class="vd_mane">Sereen Qamhia</h2>
+                              <h2 class="vd_mane">{{ Auth::guard('admin')->user()->name}}</h2>
                             
                            </div>
                         </div>
@@ -149,11 +149,12 @@
                                 <a href="{{ route('Reviews.index') }}" style="color: rgb(25, 24, 24) ; ">Reviews</a>
                             </button>
                          </li>
-                           <li>
-                               <button class="{{ request()->is('Logout*') ? 'active' : '' }}" >
-                                   <a href="#" style="color: rgb(25, 24, 24) ; ">Logout</a>
-                               </button>
-                           </li>
+                         <li>
+                            <button class="{{ request()->is('admin_logout*') ? 'active' : '' }}" >
+                                <a href="{{ route('admin_logout') }}" style="color: rgb(25, 24, 24) ; ">Logout</a>
+                            </button>
+                         
+                        </li>
                        </ul>
                        
 

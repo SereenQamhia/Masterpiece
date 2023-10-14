@@ -12,16 +12,23 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\AdminLoginController;
 use Illuminate\Support\Facades\Route;
 
 
 
 
-Route::get('/Dash', function () {
-    return view('Dashboard.index') ;
-}) -> name('Dashboard.index');
+// Route::get('admin/login', [AdminLoginController::class,'showLoginForm'])->name('admin.login');
+// Route::post('admin/login', [AdminLoginController::class,'login'])->name('admin.login.submit');
 
+Route::get('login_admin', [App\Http\Controllers\LoginAdmin::class, 'show'])->name('login_admin');
 
+Route::post('check', [App\Http\Controllers\LoginAdmin::class, 'store'])->name('check_admin');
+
+Route::middleware(['is_admin'])->group(function () {
+    Route::get('/Dash', function () {
+        return view('Dashboard.index') ;
+    }) -> name('Dashboard.index');
 // Dashboard
 Route::resource('Services', ServiceController::class);
 Route::resource('Providers', ProviderController::class);
@@ -31,8 +38,10 @@ Route::resource('Courses', CourseController::class);
 Route::resource('Professionals', ProfessionalController::class);
 Route::resource('JoinUs', JoinUsController::class);
 Route::resource('Reviews', ReviewController::class);
-// Route::resource('Reviews', ReviewController::class)->middleware('auth');
+Route::get('admin_logout', [App\Http\Controllers\LoginAdmin::class, 'logout_admin'])->name('admin_logout');
 
+// Route::resource('Reviews', ReviewController::class)->middleware('auth');
+});
 
 Route::get('/dashboard', function () {
     return view('pages.index');

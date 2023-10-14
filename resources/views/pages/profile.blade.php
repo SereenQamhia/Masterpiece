@@ -165,6 +165,7 @@
                               $counter = 1; // Initialize the counter
                           @endphp
                               @foreach ($bookings as $booking)
+                              <tr>
                               <th scope="row">{{ $counter++ }}</th>
                               <td>{{$booking->professional->profission}}</td>
                               <td>{{$booking->professional->name}}</td>
@@ -175,10 +176,10 @@
                                 <form action="{{ route('cancel.booking', $booking->id) }}" >
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit">Cancel</button>
+                                    <button type="submit" class="btn-danger">Cancel</button>
                                 </form>
                             </td>
-                            
+                        </tr>
                               @endforeach
                           
                             </tbody>

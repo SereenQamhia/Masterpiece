@@ -29,7 +29,7 @@
                             @foreach ($Admins as $Admin)
                           <tr>
                            
-                            <td><a href="#"><img src="{{ url('/img/' . $Admin->image) }}" width="100px"
+                            <td><a href="#"><img src="{{ url('img/' . $Admin->image) }}" width="100px"
                               height="100px" alt="image"></a></td>
                             <td>{{$Admin->name}}</td>
                             <td>{{$Admin->email}}</td>

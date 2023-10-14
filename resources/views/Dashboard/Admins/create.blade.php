@@ -33,8 +33,8 @@
                     </div> 
 
                     <div class="form-group">
-                      <label for="passward">Admin passward:</label>
-                      <input type="passward" class="form-control" id="passward" name="passward" placeholder="passward"></textarea>
+                      <label for="password">Admin password:</label>
+                      <input type="password" class="form-control" id="password" name="password" placeholder="password"></textarea>
                   </div> 
                      
              
@@ -55,7 +55,6 @@
                </div>
            </div>
  
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

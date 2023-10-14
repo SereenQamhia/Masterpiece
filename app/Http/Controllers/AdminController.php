@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -29,11 +30,13 @@ class AdminController extends Controller
         $imageName = time() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('img'), $imageName);
     
+        $hashedPassword = Hash::make($request->password);
+
         // Create a new Admin with the image filename
         Admin::create([
             'name' => $request->name,
             'email' => $request->email,
-            'passward' => $request->passward,
+            'password' => $hashedPassword,
             'image' => $imageName, 
         ]);
     
