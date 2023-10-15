@@ -30,7 +30,7 @@ class ProfessionalsSeeder extends Seeder
                 'price' => 50.00,
                 'profission' => 'Carpenter',
                 'completed_jobs' => 20,
-                'provider_id' => 34, // Assuming this references a provider
+                'provider_id' => 4, // Assuming this references a provider
                 'image1' => 'john_image1.jpg',
                 'image2' => 'john_image2.jpg',
                 'image3' => 'john_image3.jpg',

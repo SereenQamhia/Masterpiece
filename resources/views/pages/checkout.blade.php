@@ -93,7 +93,7 @@
 
               <div class="card p-3" style="font-family: Georgia, 'Times New Roman', Times, serif; border: 2px solid #83b0a1;">
 
-                <h6 class="text-uppercase">Payment details</h6>
+                <h5 class="text-uppercase">Payment details</h5>
                 @if (Session::has('success'))
                 <div class="alert alert-success text-center">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
@@ -103,7 +103,7 @@
                 <div class="inputbox mt-3"> <input class='form-control' size='4' type='text' required="required">
                   <span>Name on card</span> </div>
 
-
+                 
                 <div class="row">
 
                   <div class="col-md-6">
@@ -151,9 +151,9 @@
               <div class="card p-2" style="font-family: Georgia, 'Times New Roman', Times, serif ; border: 2px solid #83b0a1; height: 100%;">
                 <h5 class="text-uppercase p-2" >Service details</h5>
               <h5 class=" p-2 ">{{$pro->profission}} - {{$pro->name}}</h5>
-              <h6 class=" px-2"> {{ session('pending_booking.dselected_days') }} at {{ session('pending_booking.selected_hours') }}</h6>
-              <h6 class=" px-2"> {{$pro->price}} ,its for confirming the booking and its count as the fees for the first hour ,if you cancel the booking it will be returnd  </h6>
-
+              <h6 class=" px-2"> {{ session('pending_booking.selected_days') }} at {{ session('pending_booking.selected_hours') }} -  Price {{$pro->price}} JD </h6>
+              <h6 class=" px-2">  <hr> The payment confirms your booking and covers the first-hour fee, refundable upon cancellation.  </h6>
+              
  
 
             </div>
