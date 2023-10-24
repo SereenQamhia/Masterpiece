@@ -2,7 +2,28 @@
 
 @section('content')
 {{-- <link href="{{ asset('css/choosepro.css') }}" rel="stylesheet" /> --}}
+<style>
 
+.owl-prev, .owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.owl-prev {
+    left: 10px;
+}
+
+.owl-next {
+    right: 10px;
+}
+</style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <script src="https://kit.fontawesome.com/d6692547f6.js" crossorigin="anonymous"></script>
 
@@ -57,19 +78,36 @@
             <li>Profession in {{$pro->profission}}</li>
         </ul>
       
-          <br><br>
-          <h3>Images for Omar M. previous projects:</h3><br>
-          <div class="row ">
-          <img class="col-4" src="{{ url('img/' . $pro->image1) }}" alt="">
-          <img class="col-4" src="{{ url('img/' . $pro->image2) }}" alt="">
-          <img class="col-4" src="{{ url('img/' . $pro->image3) }}" alt=""> 
-          </div> <br>
-          <div class="row ">
-          <img class="col-4" src="{{ url('img/' . $pro->image4) }}" alt="">
-          <img class="col-4" src="{{ url('img/' . $pro->image5) }}" alt="">
-          <img class="col-4" src="{{ url('img/' . $pro->image6) }}" alt="">
-          
-          
+
+        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="container">
+              <div class="section-title text-center">
+                <h3>Images for Omar M. previous projects:</h3><br>
+              </div>
+              <div class="owl-carousel image-carousel">
+                  <div class="item">
+                      <img src="{{ url('img/' . $pro->image1) }}" alt="" style="height: 200px;">
+                  </div>
+                  <div class="item">
+                      <img src="{{ url('img/' . $pro->image2) }}" alt="" style="height: 200px;">
+                  </div>
+                  <div class="item">
+                      <img src="{{ url('img/' . $pro->image3) }}" alt="" style="height: 200px;">
+                  </div>
+                  <div class="item">
+                      <img src="{{ url('img/' . $pro->image4) }}" alt="" style="height: 200px;">
+                  </div>
+                  <div class="item">
+                      <img src="{{ url('img/' . $pro->image5) }}" alt="" style="height: 200px;">
+                  </div>
+                  <div class="item">
+                      <img src="{{ url('img/' . $pro->image6) }}" alt="" style="height: 200px;">
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      
       </center>
 </div>
 
@@ -132,11 +170,11 @@
         <div class="rating_input">
             <span class="rating_title" style="font-size:30px;">Rating:</span>
             <ul class="rating_stars" style="color: Green;">
-                <a href="#" data-rating="1"><i id="star1" class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
-                <a href="#" data-rating="2"><i id="star2" class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
-                <a href="#" data-rating="3"><i id="star3" class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
-                <a href="#" data-rating="4"><i id="star4" class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
-                <a href="#" data-rating="5"><i id="star5" class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
+                <a data-rating="1"><i id="star1" class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
+                <a data-rating="2"><i id="star2" class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
+                <a data-rating="3"><i id="star3" class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
+                <a data-rating="4"><i id="star4" class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
+                <a data-rating="5"><i id="star5" class="far fa-star fa-lg" style="color: #f5ac2e;"></i></a>
             </ul>
         </div>
         <div class="form_item m-auto">
@@ -156,7 +194,7 @@
 
                       @foreach ($Reviews as $Review)
                           <li class="review_comment_wrap2">
-                              <h4 class="admin_name">{{$Review->user->name}} <span class="comment_date">{{$Review->created_at}}</span></h4>
+                              <h4 class="admin_name">{{$Review->user->name}} <div class="comment_date " style="margin-left:70%">{{$Review->created_at->format('Y-m-d') }}</div></h4>
                               <div>
                                 @php
                                 $x = $Review->rating; // Get the rating from the review
@@ -226,5 +264,23 @@
               });
           });
       });
+
+      $(document).ready(function(){
+    $('.image-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        dots: false,
+        items: 2, // Number of items to display at once
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 2
+            }
+        }
+    });
+});
   </script>
 @endsection

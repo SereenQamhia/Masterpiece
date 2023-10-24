@@ -50,7 +50,7 @@
                                              method="POST" style="display: inline-block">
                                              @csrf
                                              @method('DELETE')
-                                             <button type="submit" class="bg_orange" >
+                                             <button type="submit" class="bg_orange show_confirm">
                                                  <i class="fas fa-trash-alt" style="color: rgb(238, 224, 224)"></i>
                                              </button>
                                          </form>
@@ -70,4 +70,32 @@
           </div>
        
 @endsection
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        var deleteButtons = document.querySelectorAll('.show_confirm');
+
+        deleteButtons.forEach(function (button) {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                var form = button.closest("form");
+
+                swal({
+                    title: "Are you sure you want to delete this record?",
+                    text: "If you delete this, it will be gone forever.",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                }).then(function (willDelete) {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
+            });
+        });
+    });
+</script>
+
    

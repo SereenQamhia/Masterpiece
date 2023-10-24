@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 use Illuminate\Http\Request;
 use Session;
@@ -51,13 +52,17 @@ class StripePaymentController extends Controller
 
             $booking->save();
 
+            $professionalName = $booking->professional->name;
+
+            alert()->success('Booking Success', 'You have successfully booked a service by ' . $professionalName . ' at ' . $booking->time . ' in ' . $booking->day . '.');
+
              // Unset the session data
              $request->session()->forget('pending_booking');
 
 
             Session::flash('success', 'Payment successful');
 
-            return view("pages.about");
+            return redirect()->route('home');
         } else {
             return redirect()->route('login');
         }

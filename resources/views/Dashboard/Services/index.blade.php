@@ -51,7 +51,7 @@
                                              method="POST" style="display: inline-block">
                                              @csrf
                                              @method('DELETE')
-                                             <button type="submit" class="bg_orange" >
+                                             <button type="submit" class="bg_orange "  >
                                                  <i class="fas fa-trash-alt" style="color: rgb(238, 224, 224)"></i>
                                              </button>
                                          </form>
@@ -72,3 +72,5 @@
        
 @endsection
    
+
+

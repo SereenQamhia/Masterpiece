@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 use App\Models\Professional;
 use App\Models\Provider;
 use Illuminate\Http\Request;
+use DB;
 
 class ProfessionalController extends Controller
 {
    
     public function index()
-    {
-        $Professionals = Professional::all();
-        return view('Dashboard.Professionals.index', compact('Professionals'));
-    }
+{
+    $Professionals = Professional::select('*', DB::raw('LEFT(description, 50) as truncated_description'), DB::raw('SUBSTRING(description, 50, 1000) as showmore_description'))->get();
+
+    return view('Dashboard.Professionals.index', compact('Professionals'));
+}
+
+   
 
     public function create()
     {
@@ -106,6 +110,7 @@ class ProfessionalController extends Controller
 
     public function destroy($id)
     {
+        
         Professional::destroy($id);
         return redirect()->route('Professionals.index');
     }

@@ -30,7 +30,7 @@
                             <th>Age</th>
                             <th>Gender</th>
                             <th>Price</th>
-                            <th>Profission</th>
+                            <th>Profession</th>
                             <th>Completed_jobs</th>
                             <th>Days of work</th>
                             <th>Hours of work</th>
@@ -44,13 +44,21 @@
                             <th>Action</th>
                          </tr>
                       </thead>
-                         <tbody >
+                         <tbody style="text-align:center" >
                             @foreach ($Professionals as $Professional)
                           <tr>
                             <td><a href="#"><img src="{{ url('/img/' . $Professional->image) }}" width="100px"
                               height="100px" alt="image"></a></td>
                             <td>{{$Professional->name}}</td>
-                            <td>{{$Professional->description}}</td>
+                            <td>
+                                <span class="truncated-description">
+                                    {{ $Professional->truncated_description }}
+                                </span>
+                                <span class="full-description" style="display: none;">
+                                    {{ $Professional->showmore_description }}
+                                </span>
+                                <a href="#" class="read-more">Read More</a>
+                            </td>
                             <td>{{$Professional->email}}</td>
                             <td><a style="color: rgb(1, 90, 255);" href="{{ url('cv/' . $Professional->cv) }}">Show file</a></td>
                             <td>{{$Professional->location}}</td>
@@ -91,7 +99,7 @@
                                              method="POST" style="display: inline-block">
                                              @csrf
                                              @method('DELETE')
-                                             <button type="submit" class="bg_orange" >
+                                             <button type="submit" class="bg_orange show_confirm">
                                                  <i class="fas fa-trash-alt" style="color: rgb(238, 224, 224)"></i>
                                              </button>
                                          </form>
@@ -109,4 +117,36 @@
           </div>
        
 @endsection
-   
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Handle "Read More" click
+        $('.read-more').on('click', function (e) {
+            e.preventDefault();
+            $(this).prev('.truncated-description').hide();
+            $(this).prev('.full-description').show();
+        });
+
+        // Handle delete confirmation (if needed)
+        $('.show_confirm').on('click', function (e) {
+            e.preventDefault();
+            var form = $(this).closest("form");
+
+            swal({
+                title: "Are you sure you want to delete this record?",
+                text: "If you delete this, it will be gone forever.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then(function (willDelete) {
+                if (willDelete) {
+                    form.submit();
+                }
+            });
+        });
+    });
+</script>

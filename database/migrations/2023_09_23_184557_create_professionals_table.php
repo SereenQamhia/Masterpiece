@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('professionals', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
+            $table->longText('description');
             $table->string('email');
             $table->string('image');
             $table->string('cv');

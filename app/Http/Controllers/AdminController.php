@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminController extends Controller
 {
@@ -40,6 +41,7 @@ class AdminController extends Controller
             'image' => $imageName, 
         ]);
     
+        Alert::success('Created Successfuly', ' ');
         return redirect()->route('Admins.index')->with(['success' => 'created successfully
         ']);
     }
@@ -62,6 +64,7 @@ class AdminController extends Controller
         $data['description'] = $request->description;
 
         Admin::where(['id' => $id])->update($data);
+        Alert::success('Added Successfuly', ' ');
         return redirect()->route('Admins.index')->with(['success' => 'Updated successfully
         ']);
     }
@@ -69,7 +72,9 @@ class AdminController extends Controller
 
     public function destroy($id)
     {
+        alert()->warning('WarningAlert','Lorem ipsum dolor sit amet.');
         Admin::destroy($id);
+
         return redirect()->route('Admins.index');
     }
 }

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 use App\Models\Provider;
 use App\Models\Service;
+use App\Models\Professional;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class ProviderController extends Controller
 {
@@ -41,6 +44,7 @@ class ProviderController extends Controller
             'image' => $imageName, 
         ]);
     
+        Alert::success('Added Successfuly', ' ');
         return redirect()->route('Providers.index')->with(['success' => 'created successfully
         ']);
     }
@@ -75,14 +79,34 @@ class ProviderController extends Controller
             }
         }
         Provider::where(['id' => $id])->update($data);
+        Alert::success('Updated Successfuly', ' ');
         return redirect()->route('Providers.index')->with(['success' => 'Updated successfully
         ']);
     }
 
   
+    // public function destroy($id)
+    // {
+        
+        
+    //     Provider::destroy($id);
+    //     return redirect()->route('Providers.index');
+    // }
+
     public function destroy($id)
     {
-        Provider::destroy($id);
+        $pro = Professional::select('*')
+        ->where('provider_id', $id)
+        ->get();
+        if ($pro->count()!= 0) {
+          ;
+          alert()->warning('You can\'t delete it','There are Professionals under this provider.');
+            // Redirect to the 'category.index' route
+            return redirect()->route('Providers.index');
+
+        }
+        Service::where('name', $id)->delete();
+        Alert::success('Deleted Successfuly', ' ');
         return redirect()->route('Providers.index');
     }
 }

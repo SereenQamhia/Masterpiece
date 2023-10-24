@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Service;
+use App\Models\Provider;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 use Illuminate\Http\Request;
 
@@ -38,6 +41,7 @@ class ServiceController extends Controller
             'image' => $imageName, 
         ]);
     
+        Alert::success('Added Successfuly', ' ');
         return redirect()->route('Services.index')->with(['success' => 'created successfully
         ']);
     }
@@ -73,15 +77,27 @@ class ServiceController extends Controller
         }
 
         Service::where(['name' => $name])->update($data);
+
+        Alert::success('Updated Successfuly', ' ');
         return redirect()->route('Services.index')->with(['success' => 'Updated successfully
         ']);
     }
 
-  
     public function destroy($name)
     {
+        $pro = Provider::select('*')
+        ->where('service_name', $name)
+        ->get();
+        if ($pro->count()!= 0) {
+          ;
+          alert()->warning('You can\'t delete this item','There are providers under this service.');
+            // Redirect to the 'category.index' route
+              return redirect()->route('Services.index');
+
+        }
         Service::where('name', $name)->delete();
-        return redirect()->route('Services.index');
+        Alert::success('Deleted Successfuly', ' ');
+          return redirect()->route('Services.index');
     }
 
 }
