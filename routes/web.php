@@ -64,6 +64,7 @@ Route::post('/professional',  [ReviewController::class, 'store'])->middleware('a
 Route::post('/checkout',  [BookingController::class, 'store'])->name('Bookings');
 Route::get('/join',  [JoinUsController::class, 'show'])->name('join');
 Route::post('/join',  [JoinUsController::class, 'store'])->name('join.store');
+Route::post('/accept-join-request/{id}',  [JoinUsController::class, 'acceptJoinRequest'])->name('accept.joinRequest');
 
 
 // Route::get('/carpenter', function () {return view('pages.carpenter') ;}) -> name('Carpenter');

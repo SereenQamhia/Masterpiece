@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('join_us', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
+            $table->longText('description');
             $table->string('email');
             $table->string('image');
             $table->string('cv');
@@ -27,8 +27,8 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->string('profission');
             $table->unsignedBigInteger('completed_jobs');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('provider_id');
+            $table->foreign('provider_id')->references('id')->on('providers');
             $table->string('image1')->nullable();
             $table->string('image2')->nullable();
             $table->string('image3')->nullable();

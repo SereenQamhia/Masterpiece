@@ -43,58 +43,63 @@
                          </tr>
                       </thead>
                          <tbody >
-                            @foreach ($Professionals as $Professional)
+                            @foreach ($JoinRequests as $JoinReq)
                           <tr>
-                            <td><a href="#"><img src="{{ url('/img/' . $Professional->image) }}" width="100px"
+                            <td><a href="#"><img src="{{ url('/img/' . $JoinReq->image) }}" width="100px"
                               height="100px" alt="image"></a></td>
-                            <td>{{$Professional->name}}</td>
-                            <td>{{$Professional->description}}</td>
-                            <td>{{$Professional->email}}</td>
-                            <td><a href="{{ url('cv/' . $Professional->cv) }}">Show file</a></td>
-                            <td>{{$Professional->location}}</td>
-                            <td>{{$Professional->experience}}</td>
-                            <td>{{$Professional->age}}</td>
-                            <td>{{$Professional->gender}}</td>
-                            <td>{{$Professional->price}}</td>
-                            <td>{{$Professional->profission}}</td>
-                            <td>{{$Professional->completed_jobs}}</td>
-                            <td>{{$Professional->daysofwork}}</td>
-                            <td>{{$Professional->hoursofwork}}</td>
-                            <td>{{$Professional->provider_id}}</td>
-                            <td><img src="{{ url('/img/' . $Professional->image1) }}" width="100px"
+                            <td>{{$JoinReq->name}}</td>
+                            <td>{{$JoinReq->description}}</td>
+                            <td>{{$JoinReq->email}}</td>
+                            <td><a href="{{ url('cv/' . $JoinReq->cv) }}">Show file</a></td>
+                            <td>{{$JoinReq->location}}</td>
+                            <td>{{$JoinReq->experience}}</td>
+                            <td>{{$JoinReq->age}}</td>
+                            <td>{{$JoinReq->gender}}</td>
+                            <td>{{$JoinReq->price}}</td>
+                            <td>{{$JoinReq->profission}}</td>
+                            <td>{{$JoinReq->completed_jobs}}</td>
+                            <td>{{$JoinReq->daysofwork}}</td>
+                            <td>{{$JoinReq->hoursofwork}}</td>
+                            <td>{{$JoinReq->provider_id}}</td>
+                            <td><img src="{{ url('/img/' . $JoinReq->image1) }}" width="100px"
                                 height="100px" alt="image"></td>
-                            <td><img src="{{ url('/img/' . $Professional->image2) }}" width="100px"
+                            <td><img src="{{ url('/img/' . $JoinReq->image2) }}" width="100px"
                                 height="100px" alt="image"></td>
-                            <td><img src="{{ url('/img/' . $Professional->image3) }}" width="100px"
+                            <td><img src="{{ url('/img/' . $JoinReq->image3) }}" width="100px"
                                 height="100px" alt="image"></td>
-                            <td><img src="{{ url('/img/' . $Professional->image4) }}" width="100px"
+                            <td><img src="{{ url('/img/' . $JoinReq->image4) }}" width="100px"
                                 height="100px" alt="image"></td>
-                            <td><img src="{{ url('/img/' . $Professional->image5) }}" width="100px"
+                            <td><img src="{{ url('/img/' . $JoinReq->image5) }}" width="100px"
                                 height="100px" alt="image"></td>
-                            <td><img src="{{ url('/img/' . $Professional->image6) }}" width="100px"
+                            <td><img src="{{ url('/img/' . $JoinReq->image6) }}" width="100px"
                                 height="100px" alt="image"></td>
                           
                          
                          
                            
                               <td>
-                                 <ul class="btns_group ul_li" >
-                                     <li style="display: inline-block">
-                                         {{-- <a href="{{ route('Professionals.edit' , $Professional->id) }}" ><button type="submit"
-                                                 class="bg_green" >
-                                                 <i class="fas fa-edit" style="color: rgb(238, 224, 224)"></i>
-                                             </button></a> --}}
-                                   
-                                         <form action="{{ route('Professionals.destroy',$Professional->id) }}"
-                                             method="POST" style="display: inline-block">
-                                             @csrf
-                                             @method('DELETE')
-                                             <button type="submit" class="bg_orange" >
-                                                 <i class="fas fa-trash-alt" style="color: rgb(238, 224, 224)"></i>
-                                             </button>
-                                         </form>
-                                     </li>
-                                 </ul>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li style="display: inline-block; margin-right: 10px;">
+                                        <form action="{{ route('accept.joinRequest', $JoinReq->id) }}" method="POST">
+                                            @csrf
+                                            @method('POST')
+                                            <button type="submit" class="bg_green" style="color: white; border: 1px solid; padding: 10px; min-width: 80px; border-radius: 5px;">
+                                                Accept
+                                            </button>
+                                        </form>
+                                    </li>
+                                
+                                    <li style="display: inline-block;">
+                                        <form action="{{ route('JoinUs.destroy', $JoinReq->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="bg_orange" style="color: white; border: 1px solid; padding: 10px; min-width: 80px; border-radius: 5px;">
+                                                Reject
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                                
                              </td>
                         
                           </tr>
