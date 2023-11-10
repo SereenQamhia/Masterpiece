@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\JoinUs;
+use App\Models\Provider;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class JoinUsController extends Controller
 {
@@ -55,7 +58,7 @@ class JoinUsController extends Controller
             'description' => $request->description,
             'email' => $request->email,
             'location' => $request->location,
-            'experience' => $request->experience,
+            'years of experience' => $request->experience,
             'age' => $request->age,
             'gender' => $request->gender,
             'image' => $imageName,
@@ -74,15 +77,16 @@ class JoinUsController extends Controller
             'image6' => $imageNames[6],
         ]);
         
+        Alert::success('Aplied Successfuly', 'We will review your application and contaact with you soon ');
     
-        return redirect()->route('Professionals.index')->with(['success' => 'created successfully
-        ']);
+        return redirect()->route('home');
     }
 
     
-    public function show($id)
+    public function show()
     {
-        //
+        $Providers=Provider::all();
+        return view('pages.join', compact('Providers'));
     }
 
     public function edit($id)

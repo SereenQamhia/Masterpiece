@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('cv');
             $table->string('location');
-            $table->unsignedBigInteger('years of experience');
+            $table->unsignedBigInteger('experience');
             $table->unsignedBigInteger('age');
             $table->string('gender');
             $table->decimal('price', 10, 2);

@@ -73,7 +73,7 @@
                     <a href="" class="nav-link">Courses</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">Join us</a>
+                    <a href="{{ route('join') }}" class="nav-link {{ request()->is('join*') ? 'active' : '' }}">Join us</a>
                 </li>
             
                     @if (Auth::check())
