@@ -62,9 +62,10 @@ Route::get('/choose-pro/{id}',  [HomeController::class, 'showoptions']) -> name(
 Route::get('/professional/{id}',  [HomeController::class, 'showpro']) -> name('pro');
 Route::post('/professional',  [ReviewController::class, 'store'])->middleware('auth')->name('review');
 Route::post('/checkout',  [BookingController::class, 'store'])->name('Bookings');
-Route::get('/join',  [JoinUsController::class, 'show'])->name('join');
+Route::get('/join',  [JoinUsController::class, 'show'])->middleware('auth')->name('join');
 Route::post('/join',  [JoinUsController::class, 'store'])->name('join.store');
 Route::post('/accept-join-request/{id}',  [JoinUsController::class, 'acceptJoinRequest'])->name('accept.joinRequest');
+Route::post('/pp',  [ProfessionalController::class, 'professionalUpdate'])->name('ProfessionalUpdate');
 
 
 // Route::get('/carpenter', function () {return view('pages.carpenter') ;}) -> name('Carpenter');

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Models\JoinUs;
+use App\Models\User;
 use App\Models\Provider;
 use App\Models\Professional;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Auth;
 
 
 class JoinUsController extends Controller
@@ -52,10 +54,11 @@ class JoinUsController extends Controller
             }
         }
          
-      
+        $user = Auth::user();
         // Create a new Professional with the image filename
         JoinUs::create([
             'name' => $request->name,
+            'user_id' => $user->id,
             'description' => $request->description,
             'email' => $request->email,
             'location' => $request->location,
@@ -119,6 +122,9 @@ class JoinUsController extends Controller
                 $projectImages["image{$i}"] = $projectImageName;
             }
         }
+
+        $user = User::findOrFail($joinRequest->user_id);
+        $user->update(['user_type' => 'service_provider']);
     
         // Create a new Professional with data from the join request
         Professional::create([
@@ -143,12 +149,14 @@ class JoinUsController extends Controller
             'image4' => $projectImages['image4'] ?? null,
             'image5' => $projectImages['image5'] ?? null,
             'image6' => $projectImages['image6'] ?? null,
+            'user_id' => $joinRequest->user_id,
         ]);
     
         // Delete the join request
         $joinRequest->delete();
 
-        return redirect()->route('JoinUs');
+        $JoinRequests = JoinUs::all();
+        return view('Dashboard.JoinUs.index', compact('JoinRequests'));
     }
 
     public function update(Request $request, $id)

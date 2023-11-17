@@ -76,7 +76,7 @@
             <x-input-error class="mt-2" :messages="$errors->get('address')" />
         </div>
 
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-4 mt-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')

@@ -19,6 +19,7 @@ class ProfessionalsSeeder extends Seeder
         DB::table('professionals')->insert([
             [
                 'name' => 'Ali Mohammad',
+                'user_id'=> 1,
                 'description' => 'I\'m a specialist in attention to detail in every aspect of my business, and believe in great customer service, and because I understand the adage "home is where the heart is" I strive to be careful, and I endeavor to afford my clients with a truly professional, competitive service.',
                 'email' => 'Ali@gmail.com',
                 'image' => 'team-1.jpg',

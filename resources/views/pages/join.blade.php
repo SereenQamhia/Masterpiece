@@ -30,8 +30,8 @@
         margin-bottom: 8px;
     }
   </style>
-    <div class="row" style="margin:100px;">
-   <div class="col-6" style="margin-right:30px; border: solid rgb(187, 121, 0) 3px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);">
+    <div class="row" style="margin:3%;">
+   <div class="col-md-12 col-lg-6 " style="margin-right:30px; border: solid rgb(187, 121, 0) 3px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);">
 
       <div style="margin: 10px ">
          <h2 class="text-center form-group" >Join Us as a Professional</h2>
@@ -162,7 +162,7 @@
            </div>
 
 
-        <div class="col-5"  style="max-height: 1200px; border: solid rgb(187, 121, 0) 3px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);">
+        <div class="col-md-12 col-lg-5"  style=" border: solid rgb(187, 121, 0) 3px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);">
             <div class="instructions-container">
                 <h3 class="instructions-heading">Instructions for Joining HomeFix as a Professional:</h3>
     

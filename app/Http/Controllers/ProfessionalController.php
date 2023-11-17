@@ -97,14 +97,42 @@ class ProfessionalController extends Controller
         return view('Dashboard.Professionals.edit', compact('data'));
     }
 
-    public function update(Request $request, $id)
+    public function professionalUpdate(Request $request)
     {
-        $data['name'] = $request->name;
-        $data['description'] = $request->description;
+        // Assuming you have a user_id associated with the professional info
+        $user = $request->user();
+        $professional = $user->professional; // Assuming a one-to-one relationship, adjust if needed
+    
+        if (!$professional) {
+            // Handle the case where professional info doesn't exist for the user
+            return redirect()->route('profile.edit')->with('status','Professional info not found');
+        }
+        if ($request->hasFile('image')) {
+            // Validate and store the uploaded image
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('img/'), $imageName);
 
-        Professional::where(['id' => $id])->update($data);
-        return redirect()->route('Professionals.index')->with(['success' => 'Updated successfully
-        ']);
+            $professional->image =  $imageName;
+        }
+        // Update the fields
+        $professional->name = $request->name;
+        $professional->description = $request->description;
+        $professional->profission = $request->profission;
+        $professional->email = $request->email;
+        $professional->location = $request->location;
+        $professional->cv = $request->cv;
+        $professional->experience = $request->experience;
+        $professional->age = $request->age;
+        $professional->price = $request->price;
+        $professional->completed_jobs = $request->completed_jobs;
+        $professional->hoursofwork = $request->hoursofwork;
+        $professional->daysofwork = $request->daysofwork;
+    
+        // Save the changes
+        $professional->save();
+    
+        return redirect()->route('profile.edit')->with('status', 'professional-info-updated');
     }
 
 

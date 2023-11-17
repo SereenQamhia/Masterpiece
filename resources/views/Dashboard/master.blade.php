@@ -24,15 +24,16 @@
   <script src="https://kit.fontawesome.com/d6692547f6.js" crossorigin="anonymous"></script>
 
   <!-- Libraries Stylesheet -->
-  <link href="lib/animate/animate.min.css" rel="stylesheet" />
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+ <!-- Libraries Stylesheet -->
+<link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet" />
+<link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet" />
+<link href="{{ asset('lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet" />
 
-  <!-- Customized Bootstrap Stylesheet -->
-  <link href="css/bootstrap.min.css" rel="stylesheet" />
+<!-- Customized Bootstrap Stylesheet -->
+<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
 
-  <!-- Template Stylesheet -->
-  <link href="css/style.css" rel="stylesheet" />
+<!-- Template Stylesheet -->
+<link href="{{ asset('css/style.css') }}" rel="stylesheet" />
 
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
@@ -40,14 +41,7 @@
 </head>
 
 <body>
-  <!-- Spinner Start -->
-  <div id="spinner"
-    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-    <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div>
-  <!-- Spinner End -->
+ 
 
 
 
@@ -58,7 +52,8 @@
          <!-- Breadcrumb section start -->
          <section class="breadcrumb_sec_1 position-relative">
             <div class="breadcrumb_wrap sec_space_mid_small"
-               style="background-image: url(./img/funfact_bg_1.png); height: 300px; padding: 90px;">
+            style="background-image: url('{{ asset('img/funfact_bg_1.png') }}'); height: 300px; padding: 90px;">
+       
                <div class="breadcrumb_cont text-center">
                   <div class="breadcrumb_title">
                      <h2 class="text-white " style="font-family: Georgia, 'Times New Roman', Times, serif">HomeFix</h2>
@@ -191,14 +186,14 @@
  <!-- JavaScript Libraries -->
  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
- <script src="lib/wow/wow.min.js"></script>
- <script src="lib/purecounter/purecounter_vanilla.js"></script>
- <script src="lib/easing/easing.min.js"></script>
- <script src="lib/waypoints/waypoints.min.js"></script>
- <script src="lib/counterup/counterup.min.js"></script>
- <script src="lib/owlcarousel/owl.carousel.min.js"></script>
- <script src="lib/isotope/isotope.pkgd.min.js"></script>
- <script src="lib/lightbox/js/lightbox.min.js"></script>
+ <script src="{{ asset('lib/wow/wow.min.js') }}"></script>
+<script src="{{ asset('lib/purecounter/purecounter_vanilla.js') }}"></script>
+<script src="{{ asset('lib/easing/easing.min.js') }}"></script>
+<script src="{{ asset('lib/waypoints/waypoints.min.js') }}"></script>
+<script src="{{ asset('lib/counterup/counterup.min.js') }}"></script>
+<script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('lib/isotope/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('lib/lightbox/js/lightbox.min.js') }}"></script>
 
  <!-- Template Javascript -->
  <script src="js/main.js"></script>

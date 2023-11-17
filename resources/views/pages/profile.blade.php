@@ -47,6 +47,12 @@
                         {{-- <li class="nav-item">
                             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Membership</a>
                         </li> --}}
+                        @if ($professionalInfo)
+                        <li class="nav-item">
+                            <a class="nav-link" id="Schedule-tab" data-toggle="tab" href="#Profession" role="tab" aria-controls="Profession" aria-selected="false">Profession Info</a>
+                        </li>
+                        @endif
+
                         <li class="nav-item">
                             <a class="nav-link" id="Schedule-tab" data-toggle="tab" href="#Schedule" role="tab" aria-controls="Schedule" aria-selected="false">Schedule</a>
                         </li>
@@ -102,6 +108,8 @@
                               
                               
                     </div>
+                  
+
                     {{-- <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -145,6 +153,101 @@
                                 </div>
                   
                     </div> --}}
+
+                  
+                    @if ($professionalInfo)    
+                    <div class="tab-pane fade" id="Profession" role="tabpanel" aria-labelledby="Profession-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Your Description</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{ $professionalInfo->description }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Your Profession</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{ $professionalInfo->profission }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Work Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{ $professionalInfo->email }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Work Location</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{ $professionalInfo->location }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>CV</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{ $professionalInfo->cv }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Years of experience</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{ $professionalInfo->experience }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Your age</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{ $professionalInfo->age }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Price per hour</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{ $professionalInfo->price }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Completed jobs</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{ $professionalInfo->completed_jobs }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Hours of work</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{ $professionalInfo->hoursofwork }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Days of work</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{ $professionalInfo->daysofwork }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                    @endif
 
 
                     <div class="tab-pane fade" id="Schedule" role="tabpanel" aria-labelledby="Schedule-tab">

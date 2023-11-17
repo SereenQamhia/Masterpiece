@@ -9,22 +9,31 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\Booking;
+use App\Models\Professional;
 
 class ProfileController extends Controller
 {
    
     public function show()
     { $id= auth()->user()->id;
-       $bookings=Booking::where('user_id', $id)->with([ 'professional'])->get();
-       return view('pages.profile' , compact('bookings'));
+      $userRole = auth()->user()->user_type;
+      $bookings=Booking::where('user_id', $id)->with([ 'professional'])->get();
+
+      $professionalInfo = null;
+      if ($userRole === 'service_provider') {
+          $professionalInfo = Professional::where('user_id', $id)->first();
+      }
+
+      
+       return view('pages.profile' , compact('bookings' , 'professionalInfo'));
     }
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+        $user = $request->user();
+        $professionalInfo = Professional::where('user_id', $user->id)->first(); // Adjust this based on your actual relationship
+    
+        return view('profile.edit', compact('user', 'professionalInfo'));
     }
-
     /**
      * Update the user's profile information.
      */

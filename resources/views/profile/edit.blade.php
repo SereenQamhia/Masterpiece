@@ -15,6 +15,13 @@
                 </div>
             </div>
 
+           @if (Auth::user()->user_type == 'service_provider')
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                <div>
+                    @include('profile.partials.update-Profession-information-form')
+                </div>
+            </div>
+            @endif
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div>
                     @include('profile.partials.update-password-form')
