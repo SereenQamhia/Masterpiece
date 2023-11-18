@@ -82,7 +82,7 @@
         <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
           <div class="container">
               <div class="section-title text-center">
-                <h3>Images for Omar M. previous projects:</h3><br>
+                <h3>Images for {{$pro->name}} previous projects:</h3><br>
               </div>
               <div class="owl-carousel image-carousel">
                   <div class="item">
@@ -120,17 +120,27 @@
         <input type="hidden" name="professional_id" value="{{ $pro->id }}">
    
         <div>When would you like him to come?</div>
+       
+  
+        <select style="width: 90%; height: 35px;" name="selected_days" id="selected_days">
+            @for ($week = 0; $week < 3; $week++)
+                @foreach($workDays as $day)
+                    @php
+                        $date = \Carbon\Carbon::now()->next($day)->addWeeks($week)->format('Y-m-d'); // Adjust the date as needed
+                        $displayText = $day . ' - ' . \Carbon\Carbon::parse($date)->format('F d, Y');
+                    @endphp
+        
+                    <option value="{{ $date }}" @if(session('pending_booking.selected_days') == $date) selected @endif>{{ $displayText }}</option>
+                @endforeach
+            @endfor
+        </select>
+
         <select style="width: 90%; height: 35px;" name="selected_hours" id="selected_hours">
             @foreach($workHours as $hour)
                 <option value="{{ $hour }}" @if(session('pending_booking.selected_hours') == $hour) selected @endif>{{ $hour }}</option>
             @endforeach
         </select>
-  
-        <select style="width: 90%; height: 35px;" name="selected_days" id="selected_days">
-            @foreach($workDays as $day)
-                <option value="{{ $day }}" @if(session('pending_booking.selected_days') == $day) selected @endif>{{ $day }}</option>
-            @endforeach
-        </select>
+        
   
         <br><br>
         <div>Will you provide tools e.g., a paintbrush?</div>

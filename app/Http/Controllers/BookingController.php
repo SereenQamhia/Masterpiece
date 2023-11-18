@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Booking;
+use App\Models\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Professional;
@@ -29,6 +30,18 @@ class BookingController extends Controller
             'tools' => $request->input('tools'),
             'description' => $request->input('description'),
         ]);
+
+        $isHourAvailable = $this->isHourAvailable(
+            $request->input('professional_id'),
+            $request->input('selected_days'),
+            $request->input('selected_hours')
+        );
+
+        if (!$isHourAvailable) {
+            alert()->error('Booking Failed', 'The selected hour is not available. Please choose another time.');
+            return redirect()->back();
+        }
+
         // dd(session()->get('pending_booking')); 
         
         return view("pages.checkout", compact('pro'));
@@ -43,11 +56,20 @@ class BookingController extends Controller
             'description' => $request->input('description'),
         ]);
 
+ 
         // dd(session()->get('pending_booking')); 
 
         // Redirect the user to the login or registration page
         return redirect()->route('login'); // You can replace 'login' with the actual route name for your login page.
     }
+}
+
+private function isHourAvailable($professionalId, $selectedDay, $selectedHour)
+{
+    return !Schedule::where('professional_id', $professionalId)
+        ->where('day', $selectedDay)
+        ->where('hour', $selectedHour)
+        ->exists();
 }
 
 public function destroy($id){

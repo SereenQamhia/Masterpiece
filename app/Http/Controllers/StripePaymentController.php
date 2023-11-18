@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
   
 use App\Models\Booking;
+use App\Models\Schedule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -52,6 +53,8 @@ class StripePaymentController extends Controller
 
             $booking->save();
 
+            $this->markHourAsBooked($sessionData['professional_id'], $sessionData['selected_days'], $sessionData['selected_hours']);
+
             $professionalName = $booking->professional->name;
 
             alert()->success('Booking Success', 'You have successfully booked a service by ' . $professionalName . ' at ' . $booking->time . ' in ' . $booking->day . '.');
@@ -67,6 +70,14 @@ class StripePaymentController extends Controller
             return redirect()->route('login');
         }
     }
+    private function markHourAsBooked($professionalId, $selectedDay, $selectedHour)
+{
+    $bookedHour = new Schedule();
+    $bookedHour->professional_id = $professionalId;
+    $bookedHour->day = $selectedDay;
+    $bookedHour->hour = $selectedHour;
+    $bookedHour->save();
+}
 }
 
 
