@@ -21,6 +21,7 @@
                          <tr>
                             <th>Course Image</th>
                             <th>Course Title</th>
+                            <th>Course Description</th>
                             <th>Course Time</th>
                             <th>Course Day</th>
                             <th>Course Location</th>
@@ -35,6 +36,7 @@
                             <td><a href="#"><img src="{{ url('img/' . $Course->image) }}" width="100px"
                               height="100px" alt="image"></a></td>
                             <td>{{$Course->title}}</td>
+                            <td>{{$Course->description}}</td>
                             <td>{{$Course->time}}</td>
                             <td>{{$Course->day}}</td>
                             <td>{{$Course->location}}</td>

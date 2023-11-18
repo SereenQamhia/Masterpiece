@@ -65,7 +65,8 @@ Route::post('/checkout',  [BookingController::class, 'store'])->name('Bookings')
 Route::get('/join',  [JoinUsController::class, 'show'])->middleware('auth')->name('join');
 Route::post('/join',  [JoinUsController::class, 'store'])->name('join.store');
 Route::post('/accept-join-request/{id}',  [JoinUsController::class, 'acceptJoinRequest'])->name('accept.joinRequest');
-Route::post('/pp',  [ProfessionalController::class, 'professionalUpdate'])->name('ProfessionalUpdate');
+Route::post('/professionalUpdate',  [ProfessionalController::class, 'professionalUpdate'])->name('ProfessionalUpdate');
+Route::get('/Course/{id}',  [CourseController::class, 'show'])->name('course');
 
 
 // Route::get('/carpenter', function () {return view('pages.carpenter') ;}) -> name('Carpenter');

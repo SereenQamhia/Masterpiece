@@ -12,8 +12,9 @@ class HomeController extends Controller
     {
          
           $services = DB::table('services')->get();
+          $courses = DB::table('courses')->get();
           $Reviews = Review::with(['user', 'professional'])->orderBy('created_at', 'desc')->take(6)->get();
-          return view('pages.index', compact('services' , 'Reviews'));
+          return view('pages.index', compact('services' , 'Reviews' , 'courses'));
      
     }
 
