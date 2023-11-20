@@ -98,8 +98,12 @@
             <div class="container quote px-lg-0 ">
           <div class=" quote-text py-5 wow fadeIn" data-wow-delay="0.5s">
             <div class="p-lg-5 ">
-         
-          <form method="POST" action="">
+              @if(session('success'))
+              <div class="alert alert-success">
+                  {{ session('success') }}
+              </div>
+          @endif
+          <form method="POST" action="{{ route('enroll.submit') }}">
             @csrf
             <div class="row g-3">
                 <div class="col-12 col-sm-6">
@@ -112,7 +116,7 @@
                     <input type="text" class="form-control border-0" placeholder="Contact Number" style="height: 55px;" name="phone">
                 </div>
                 <div class="col-12 col-sm-6">
-                  <select name="subject" class="form-select border-0" style="height: 55px;">
+                  <select name="course_name" class="form-select border-0" style="height: 55px;">
                     <option selected>Select A Course</option>
                     @foreach ($Courses as $course)
                         <option value="{{ $course->title }}">{{ $course->title }}</option>
@@ -121,7 +125,7 @@
                 
                 </div>
                 <div class="col-12">
-                    <textarea class="form-control border-0" placeholder="Previous DIY Experience (if any)" name="message"></textarea>
+                    <textarea class="form-control border-0" placeholder="Previous DIY Experience (if any)" name="experience"></textarea>
                 </div>
                 <div class="col-12">
                     <button class="btn btn-primary w-100 py-3" type="submit">Enroll Now</button>

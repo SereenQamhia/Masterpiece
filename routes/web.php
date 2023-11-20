@@ -14,6 +14,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\EnrollController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -67,6 +68,7 @@ Route::post('/join',  [JoinUsController::class, 'store'])->name('join.store');
 Route::post('/accept-join-request/{id}',  [JoinUsController::class, 'acceptJoinRequest'])->name('accept.joinRequest');
 Route::post('/professionalUpdate',  [ProfessionalController::class, 'professionalUpdate'])->name('ProfessionalUpdate');
 Route::get('/Course/{id}',  [CourseController::class, 'show'])->name('course');
+Route::post('/enroll-submit', [EnrollController::class, 'submit'])->name('enroll.submit');
 
 
 // Route::get('/carpenter', function () {return view('pages.carpenter') ;}) -> name('Carpenter');
