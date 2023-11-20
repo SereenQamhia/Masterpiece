@@ -48,7 +48,8 @@ class CourseController extends Controller
     public function show($id)
     {
         $courseinfo = Course::where('id', $id)->get();
-        return view('pages.courses' , compact('courseinfo'));
+        $Courses = Course::all();
+        return view('pages.courses' , compact('courseinfo','Courses'));
     }
 
     public function edit($id)

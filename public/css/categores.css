@@ -1,7 +1,7 @@
 .page-header2 {
-  background: linear-gradient(rgba(53, 53, 53, .5), rgba(53, 53, 53, .4)), url(../img/11.jpg) center center no-repeat;
+  background: linear-gradient(rgba(53, 53, 53, .2), rgba(53, 53, 53, .2)), url(../img/bg11.png) center center no-repeat;
   background-size: cover;
-  min-height: 68vh;
+  min-height: 20vh;
   display: flex; 
 }
 /*--------------------------------------------------------------

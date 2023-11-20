@@ -278,7 +278,7 @@
 
     background: linear-gradient(rgba(53, 53, 53, 0.25), rgba(53, 53, 53, 0.08)), url(../img/bg11.png) center center no-repeat;
     background-size: cover;
-  height: 55vh;
+    height: 55vh;
     display: flex; 
     font-family: Georgia, 'Times New Roman', Times, serif;
 
@@ -297,6 +297,16 @@ height: 70vh;
   background: linear-gradient(rgba(53, 53, 53, 0.05), rgba(53, 53, 53, 0.08)), url(../img/plum.jpeg) center center no-repeat;
   background-size: cover;
  height: 70vh;
+  display: flex; 
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.page-header5 {
+
+  background: linear-gradient(rgba(53, 53, 53, 0.5), rgba(53, 53, 53, 0.08)), url(../img/11.jpg) center center no-repeat;
+  background-size: cover;
+height: 70vh;
   display: flex; 
   font-family: Georgia, 'Times New Roman', Times, serif;
 
