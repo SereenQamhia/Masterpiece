@@ -162,6 +162,15 @@
                                 <output for="experience">0</output> years
                             </ul>
                         </div>
+
+                        <div class="col learts-mb-30">
+                            <h3 class="widget-title product-filter-widget-title">Rating filter</h3>
+                            <ul class="widget-list product-filter-widget customScroll">
+                                <label for="rating">Rating Range:</label>
+                                <input type="range" id="rating" name="rating" min="0" max="5" step="1" value="{{ request('rating', 0) }}">
+                                <output for="rating" id="ratingOutput">{{ request('rating', 0) }}</output>
+                            </ul>
+                        </div>
                         
                     </div>
         
@@ -194,9 +203,14 @@
                                     </div>
                                     <div class="product-info">
                                         <h5><a href="profissionalPage.html">{{$pro->name}}</a></h5>
-                                        <span class="rating">4.5</span>
-                                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                                       
+                                        <div> @for ($i = 0; $i < $pro->rating ; $i++)
+                                            <span class="stars">&#9733;</span>
+                                             @endfor
+                                            
+                                             @for ($i = $pro->rating; $i < 5; $i++)
+                                             <span class="stars">&#9734;</span>
+                                             @endfor
+                                           </div>
                                         <p class="expert-location">
                                             <i class="fas fa-map-marker-alt" style="color: #ffa411;"></i> Location: {{$pro->location}} , price {{$pro->price}}JD per meter
                                         </p>         
@@ -213,10 +227,24 @@
                             @endforeach
 
 
-                            
+                         
                         </div>
                         <!-- Products End -->
-                        <div class="pages mt-5">
+                        <div class="pagination justify-content-center mt-5">
+                            @if ($professionals->currentPage() > 1)
+                                <a href="{{ $professionals->previousPageUrl() }}"  class="page-link">&laquo; Previous</a>
+                            @endif
+                        
+                            @for ($i = max(1, $professionals->currentPage() - 2); $i <= min($professionals->currentPage() + 2, $professionals->lastPage()); $i++)
+                                <a href="{{ $professionals->url($i) }}"  class="page-link {{ $i == $professionals->currentPage() ? 'active' : '' }}">{{ $i }}</a>
+                            @endfor
+                        
+                            @if ($professionals->currentPage() < $professionals->lastPage())
+                                <a href="{{ $professionals->nextPageUrl() }}"  class="page-link">Next &raquo;</a>
+                            @endif
+                        </div>
+                      
+                        {{-- <div class="pages mt-5">
                             <center>
                                 <i class="fa-solid fa-chevron-left fa-2xl" style="color: #672905;"></i>
                                 <button type="button"  class="btn pagebtn ">1</button>
@@ -225,7 +253,7 @@
                                 <button type="button" class="btn pagebtn">15</button>
                                 <i class="fa-solid fa-chevron-right fa-2xl" style="color: #682904;"></i>
                             </center>
-                              </div>
+                              </div> --}}
                     </div>
                 </div>
         
@@ -283,6 +311,16 @@
     experienceInput.addEventListener("input", function () {
         experienceOutput.textContent = experienceInput.value ;
     });
+
+   
+    const ratingInput = document.getElementById("rating");
+    const ratingOutput = document.getElementById("ratingOutput");
+
+    // Add an event listener to the rating input
+    ratingInput.addEventListener("input", function () {
+        ratingOutput.textContent = ratingInput.value;
+    });
+
 
 </script>
 

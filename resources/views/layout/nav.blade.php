@@ -70,9 +70,9 @@
                         <a href="{{ route('Service','Plumbing') }}" class="dropdown-item {{ request()->is('plumbing*') ? 'active' : '' }}">Plumbing</a>
                     </div>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="" class="nav-link">Courses</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="{{ route('join') }}" class="nav-link {{ request()->is('join*') ? 'active' : '' }}">Join us</a>
                 </li>

@@ -65,9 +65,16 @@ class HomeController extends Controller
             // Apply experience filter
             $query->where('experience', '>=', $filters['experience']);
         }
+
+        if (isset($filters['rating'])) {
+            // Apply rating filter
+            $query->where('rating', '>=', $filters['rating']);
+        }
     
         // Execute the final query and paginate the results
         $professionals = $query->paginate(6);
+
+        $professionals->appends($filters);
     
         return view("pages.choose-pro", compact('professionals'));
     }

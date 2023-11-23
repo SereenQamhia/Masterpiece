@@ -57,18 +57,17 @@
     <img style="border-radius: 500px; width: 200px;height: 200px;" src="{{ url('img/' . $pro->image) }}" ></div>
     <div  class="col-6" style="padding-top: 25px;"> 
         <h2 style="font-size: 40px;">{{$pro->name}}</h2>
-        <div><i class="fa-solid fa-star " style="color: #f5ed05;"></i>
-            <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
-            <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
-            <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
-            <i class="fa-solid fa-star " style="color: #f5ed05;"></i></div> 
+        <div>  @for ($i = 0; $i < $pro->rating ; $i++)
+        <i class="fa-solid fa-star " style="color: #f5ed05;"></i>
+         @endfor
+        
+         @for ($i = $pro->rating; $i < 5; $i++)
+         <i class="far fa-star" style="color: #f5ed05;"></i>
+         @endfor
+        </div> 
             <img style=" width: 35px;" src="..\.\img\complited.svg">{{$pro->completed_jobs}} job complited<br>
         <i class="fa-solid fa-location-dot fa-lg" style="color: #ffba1a; padding: 10px;"></i>{{$pro->location}}
          </div> 
-         <!-- <div  class="col-2">
-            <button style="background-color: rgb(255, 214, 78); color: white;margin-top: 50px;" type="submit" class="btn btn-lg">Chat with Omar</button>
-
-         </div> -->
          <center>
          <p style="text-align: left; padding-right: 100px;"><br>{{$pro->description}}</p>
          <ul style="text-align: left;">

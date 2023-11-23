@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('gender');
             $table->decimal('price', 10, 2);
             $table->string('profission');
+            $table->unsignedTinyInteger('rating')->default(5);
             $table->unsignedBigInteger('completed_jobs');
             $table->unsignedBigInteger('provider_id');
             $table->foreign('provider_id')->references('id')->on('providers');
