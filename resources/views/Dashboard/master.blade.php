@@ -79,11 +79,10 @@
                            <div class="vd_info_wrap text-center">
                               <div class="vd_image">
                                  <div class="image_wrap" >
-                                    <img src="{{ url('img/' . Auth::guard('admin')->user()->image) }}" alt="image_not_found" >
+                                    <img src="{{ url('img/' . Auth::guard('admin')->user()->image) }}" alt="image_not_found" style="width: 100%;
+                                    height: auto;" >
                                  </div>
-                                 <button type="button" class="edit_btn">
-                                    <i class="fas fa-camera-retro"></i>
-                                 </button>
+                              
                               </div>
                               <h2 class="vd_mane">{{ Auth::guard('admin')->user()->name}}</h2>
                             
@@ -96,6 +95,12 @@
                                    <a href="{{ route('Dashboard.index') }}" style="color: rgb(25, 24, 24) ; ">Dashboard</a>
                                </button>
                            </li>
+
+                           <li>
+                            <button class="{{ request()->is('adminProfile*') ? 'active' : '' }}" >
+                                <a href="{{ route('adminProfile.index') }}" style="color: rgb(25, 24, 24) ; ">Profile</a>
+                            </button>
+                         </li>
                            
                            <li>
                                <button class="{{ request()->is('Admins*') ? 'active' : '' }}" >

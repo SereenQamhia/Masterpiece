@@ -15,6 +15,9 @@ use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EnrollController;
+use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\DashController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,7 +28,8 @@ Route::get('login_admin', [App\Http\Controllers\LoginAdmin::class, 'show'])->nam
 Route::post('check', [App\Http\Controllers\LoginAdmin::class, 'store'])->name('check_admin');
 
 Route::middleware(['is_admin'])->group(function () {
-Route::get('/Dash', function () {return view('Dashboard.index') ; }) -> name('Dashboard.index');
+Route::get('/Dash',[DashController::class, 'index']) -> name('Dashboard.index');
+Route::resource('adminProfile',AdminProfileController::class)->only(['index', 'update']);
 Route::resource('Services', ServiceController::class);
 Route::resource('Providers', ProviderController::class);
 Route::resource('Users', UserController::class);
@@ -53,6 +57,11 @@ Route::middleware('auth')->group(function () {
 });
 
 
+Route::controller(GoogleController::class)->group(function(){
+    Route::get('auth/google', 'redirectToGoogle')->name('auth.google');
+    Route::get('auth/google/callback', 'handleGoogleCallback');
+});
+
 //nav routes
 
 Route::get('/', [HomeController::class, 'showhome'])->name('home');
@@ -62,8 +71,8 @@ Route::get('/service/{name}',  [HomeController::class, 'showprovider']) -> name(
 Route::get('/choose-pro/{id}',  [HomeController::class, 'showoptions']) -> name('choosepro');
 Route::get('/professional/{id}',  [HomeController::class, 'showpro']) -> name('pro');
 Route::post('/professional',  [ReviewController::class, 'store'])->middleware('auth')->name('review');
-Route::post('/checkout',  [BookingController::class, 'store'])->name('Bookings');
-Route::get('/join',  [JoinUsController::class, 'show'])->middleware('auth')->name('join');
+Route::post('/checkout',  [BookingController::class, 'store'])->middleware('auth')->name('Bookings');
+Route::get('/join',  [JoinUsController::class, 'show'])->middleware(['auth', 'auth.check'])->name('join');
 Route::post('/join',  [JoinUsController::class, 'store'])->name('join.store');
 Route::post('/accept-join-request/{id}',  [JoinUsController::class, 'acceptJoinRequest'])->name('accept.joinRequest');
 Route::post('/professionalUpdate',  [ProfessionalController::class, 'professionalUpdate'])->name('ProfessionalUpdate');

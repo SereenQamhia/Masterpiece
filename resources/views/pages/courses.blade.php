@@ -103,6 +103,7 @@
                   {{ session('success') }}
               </div>
           @endif
+          <h4>Ready to get started? Provide us with some details to enhance your experience.</h4>
           <form method="POST" action="{{ route('enroll.submit') }}">
             @csrf
             <div class="row g-3">

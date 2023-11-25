@@ -6,6 +6,7 @@ use App\Models\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Professional;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BookingController extends Controller
 {

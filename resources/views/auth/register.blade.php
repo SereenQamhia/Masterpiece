@@ -64,9 +64,9 @@
             <button >
                 {{ __('Register') }}
             </button>
-            
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
+            <hr/>
+            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}" style="color: gray">
+                {{ __('Already registered?Sign in now') }}
             </a>
         </div>
     </form>
@@ -78,9 +78,12 @@
     <div class="col-5 align-items-center ">
  
         <div class="text sign-up">
-            <h2>
-                Join with us
-            </h2>
+            <a href="{{ route('home') }}">
+                <img src="{{ asset('img/logo2.png') }}" style="width: 60%" >
+            </a> <br /> <br/>
+            <h3>
+                Join HomeFix today to unlock a realm of home services and DIY courses. Sign up now and connect with skilled professionals for all your household needs.
+            </h3>
 
         </div>
     </div>
@@ -104,4 +107,3 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
-

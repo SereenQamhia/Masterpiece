@@ -81,7 +81,7 @@ class JoinUsController extends Controller
             'image6' => $imageNames[6],
         ]);
         
-        Alert::success('Aplied Successfuly', 'We will review your application and contaact with you soon ');
+        Alert::success('Aplied Successfuly', 'We will review your application and contact with you soon ');
     
         return redirect()->route('home');
     }
