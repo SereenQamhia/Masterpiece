@@ -1,9 +1,7 @@
 <x-app-layout>
     <script src="https://kit.fontawesome.com/d6692547f6.js" crossorigin="anonymous"></script>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
+       
         <a href="{{route('profile')}}"><button style="padding:15px 20px; background-color:rgb(162, 90, 41); color:white; font-size:20px" ><i class="fa-solid fa-arrow-left " style="color: #ffffff;">  </i>          Go Back</button></a>
     </x-slot>
 

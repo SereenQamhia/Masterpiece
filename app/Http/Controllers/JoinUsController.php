@@ -14,7 +14,7 @@ class JoinUsController extends Controller
 {
     public function index()
     {
-        $JoinRequests = JoinUs::all();
+        $JoinRequests = JoinUs::with('provider')->get();
         return view('Dashboard.JoinUs.index', compact('JoinRequests'));
     }
 
@@ -89,8 +89,14 @@ class JoinUsController extends Controller
     
     public function show()
     {
+        if(Auth::check()){
         $Providers=Provider::all();
-        return view('pages.join', compact('Providers'));
+        return view('pages.join', compact('Providers'));}
+        else {
+            alert()->html('You have to login first'," Log in now <a href='http://localhost:8000/login'>Click here</a>. If you don't have an account, <a href='http://localhost:8000/register'>Register now</a> ",'warning');
+
+            return redirect()->route('home');
+        }
     }
 
     public function acceptJoinRequest($id)

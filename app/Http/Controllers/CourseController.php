@@ -22,7 +22,12 @@ class CourseController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required',
-       ]);
+            'time' => 'required',
+            'location' => 'required',
+            'day' => 'required',
+            'price' => 'required|numeric',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
     
         // Upload and store the image
         $image = $request->file('image');

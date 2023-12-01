@@ -22,10 +22,22 @@ class HomeController extends Controller
 
     function showprovider($name)
     {  
+        // Get providers with the specified service_name
         $providers = Provider::where('service_name', $name)->get();
-        $professionals = Professional::where('profission', $name)->inRandomOrder()->limit(6)->get();
-        return view("pages.$name", compact('providers' , 'professionals'));
+    
+        // Get the ids of the providers
+        $ids = $providers->pluck('id');
+    
+        // Get random professionals associated with those provider ids
+        $professionals = Professional::whereIn('provider_id', $ids)
+            ->inRandomOrder()
+            ->limit(6)
+            ->get();
+    
+        // Pass the data to the view
+        return view("pages.$name", compact('providers', 'professionals'));
     }
+    
 
  
     public function showoptions(Request $request, $id)

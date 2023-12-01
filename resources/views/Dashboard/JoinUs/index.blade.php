@@ -60,7 +60,7 @@
                             <td>{{$JoinReq->completed_jobs}}</td>
                             <td>{{$JoinReq->daysofwork}}</td>
                             <td>{{$JoinReq->hoursofwork}}</td>
-                            <td>{{$JoinReq->provider_id}}</td>
+                            <td>{{$JoinReq->provider->name}}</td>
                             <td><img src="{{ url('/img/' . $JoinReq->image1) }}" width="100px"
                                 height="100px" alt="image"></td>
                             <td><img src="{{ url('/img/' . $JoinReq->image2) }}" width="100px"
