@@ -55,7 +55,7 @@
 <div class="col-7 row"  style="text-align: left;font-size: 20px">
     <div class="col-4">
     <img style="border-radius: 500px; width: 200px;height: 200px;" src="{{ url('img/' . $pro->image) }}" ></div>
-    <div  class="col-6" style="padding-top: 25px;"> 
+    <div  class="col-lg-6 col-md-12" style="padding-top: 25px;"> 
         <h2 style="font-size: 40px;">{{$pro->name}}</h2>
         <div>  @for ($i = 0; $i < $pro->rating ; $i++)
         <i class="fa-solid fa-star " style="color: #f5ed05;"></i>

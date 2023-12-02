@@ -83,21 +83,21 @@
                         <ul class="shop-toolbar-controls">
 
                             <li>
-                                <div class="product-sorting">
+                                {{-- <div class="product-sorting">
                                     <select class="nice-select">
                                         <option value="menu_order" selected="selected">Default sorting</option>
                                         <option value="popularity">Sort by popularity</option>
                                         <option value="price">Sort by price: low to high</option>
                                         <option value="price-desc">Sort by price: high to low</option>
                                     </select>
-                                </div>
+                                </div> --}}
                             </li>
                             <li>
-                                <div class="product-column-toggle d-none d-xl-flex">
+                                {{-- <div class="product-column-toggle d-none d-xl-flex">
                                     <button class="toggle active hintT-top" data-hint="5 Column" data-column="5"><i class="ti-layout-grid4-alt"></i></button>
                                     <button class="toggle hintT-top" data-hint="4 Column" data-column="4"><i class="ti-layout-grid3-alt"></i></button>
                                     <button class="toggle hintT-top" data-hint="3 Column" data-column="3"><i class="ti-layout-grid2-alt"></i></button>
-                                </div>
+                                </div> --}}
                             </li>
                             <li>
                                 <a class="product-filter-toggle" href="javascript:void(0);" onclick="toggleFilterSection()">Filters</a>
@@ -111,7 +111,7 @@
         </div>
         <!-- Shop Toolbar End -->
 
-        <div id="product-filter" class="product-filter bg-light" style="display: none; height: 450px">
+        <div id="product-filter" class="product-filter bg-light" style="display: none; min-height: 180px">
             <div class="container">
                 <form action="{{ route('choosepro', ['id' => request()->route('id')]) }}" method="GET">
                     @csrf
@@ -197,12 +197,12 @@
                                 <div class="expert-card">
                                 <div class="product">
                                     <div class="product-thumb">
-                                        <a href="profissionalPage.html" class="image">
+                                        <a href="{{ route('pro' ,$pro->id) }}" class="image">
                                             <img src="{{ url('img/' . $pro->image) }}"  style="height: 300px;border-radius: 10px;">
                                         </a>
                                     </div>
                                     <div class="product-info">
-                                        <h5><a href="profissionalPage.html">{{$pro->name}}</a></h5>
+                                        <h5><a href="{{ route('pro' ,$pro->id) }}">{{$pro->name}}</a></h5>
                                         <div> @for ($i = 0; $i < $pro->rating ; $i++)
                                             <span class="stars">&#9733;</span>
                                              @endfor

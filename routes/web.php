@@ -67,6 +67,7 @@ Route::controller(GoogleController::class)->group(function(){
 Route::get('/', [HomeController::class, 'showhome'])->name('home');
 Route::get('/about', function () {return view('pages.about') ;}) -> name('about');
 Route::get('/contact', function () {return view('pages.contact') ;}) -> name('contact');
+Route::get('/FAQ', function () {return view('pages.FAQs') ;}) -> name('FAQ');
 Route::get('/service/{name}',  [HomeController::class, 'showprovider']) -> name('Service');
 Route::get('/choose-pro/{id}',  [HomeController::class, 'showoptions']) -> name('choosepro');
 Route::get('/professional/{id}',  [HomeController::class, 'showpro']) -> name('pro');
@@ -79,13 +80,6 @@ Route::post('/professionalUpdate',  [ProfessionalController::class, 'professiona
 Route::get('/Course/{id}',  [CourseController::class, 'show'])->name('course');
 Route::post('/enroll-submit', [EnrollController::class, 'submit'])->name('enroll.submit');
 
-
-// Route::get('/carpenter', function () {return view('pages.carpenter') ;}) -> name('Carpenter');
-// Route::get('/electrical', function () {return view('pages.electrical') ;}) -> name('Electrical');
-// Route::get('/painting', function () {return view('pages.painting') ;}) -> name('Painting');
-// Route::get('/plumbing', function () {return view('pages.plumbing') ;}) -> name('Plumbing');
-
-// Route::post('Checkout', [StripePaymentController::class, 'payment'])->middleware('auth', 'verified')->name('stripe_single'); // Use 'store' method for POST
 
 Route::controller(StripePaymentController::class)->group(function(){
     Route::post('Checkout', 'stripe');

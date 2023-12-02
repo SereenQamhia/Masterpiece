@@ -93,7 +93,7 @@
                                         <form action="{{ route('JoinUs.destroy', $JoinReq->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="bg_orange" style="color: white; border: 1px solid; padding: 10px; min-width: 80px; border-radius: 5px;">
+                                            <button type="submit" class="bg_orange show_confirm" style="color: white; border: 1px solid; padding: 10px; min-width: 80px; border-radius: 5px;">
                                                 Reject
                                             </button>
                                         </form>
@@ -113,3 +113,31 @@
        
 @endsection
    
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script>
+   $(document).ready(function () {
+
+
+       // Handle delete confirmation (if needed)
+       $('.show_confirm').on('click', function (e) {
+           e.preventDefault();
+           var form = $(this).closest("form");
+
+           swal({
+               title: "Are you sure you want to delete this record?",
+               text: "If you delete this, it will be gone forever.",
+               icon: "warning",
+               buttons: true,
+               dangerMode: true,
+           }).then(function (willDelete) {
+               if (willDelete) {
+                   form.submit();
+               }
+           });
+       });
+   });
+</script>

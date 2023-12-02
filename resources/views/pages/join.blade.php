@@ -30,6 +30,24 @@
         margin-bottom: 8px;
     }
   </style>
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header2 py-5 mb-5">
+        <div class="container py-5">
+          <h1 class="display-3 text-white mb-3 animated slideInDown" style="font-family: Georgia, 'Times New Roman', Times, serif" >Join Us</h1>
+          <nav aria-label="breadcrumb animated slideInDown">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a class="text-white" href="#">Home</a>
+              </li>
+              <li class="breadcrumb-item text-white active" aria-current="page">
+                Join Us
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+      <!-- Page Header End -->
     <div class="row" style="margin:3%;">
    <div class="col-md-12 col-lg-6 " style="margin-right:30px; border: solid rgb(187, 121, 0) 3px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);">
 

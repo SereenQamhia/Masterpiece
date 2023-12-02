@@ -29,8 +29,7 @@
                     <a class="btn btn-link" href="{{ route('about') }}">About Us</a>
                     <a class="btn btn-link" href="{{ route('contact') }}">Contact Us</a>
                     <a class="btn btn-link" href="">Join Us</a>
-                    <a class="btn btn-link" href="FAQs.html">FAQs</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="{{ route('FAQ') }}">FAQs</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Newsletter</h4>

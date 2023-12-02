@@ -12,7 +12,6 @@ class ProfessionalController extends Controller
     public function index()
 {
     $Professionals = Professional::select('*', DB::raw('LEFT(description, 50) as truncated_description'), DB::raw('SUBSTRING(description, 50, 1000) as showmore_description'))->get();
-
     return view('Dashboard.Professionals.index', compact('Professionals'));
 }
 

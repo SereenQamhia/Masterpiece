@@ -105,7 +105,7 @@ class ProviderController extends Controller
             return redirect()->route('Providers.index');
 
         }
-        Service::where('name', $id)->delete();
+        Provider::where('id', $id)->delete();
         Alert::success('Deleted Successfuly', ' ');
         return redirect()->route('Providers.index');
     }

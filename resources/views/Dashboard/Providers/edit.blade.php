@@ -10,7 +10,8 @@
     <h2 class="text-center">Update {{ $data['name']}} Provider</h2>
 
     <form action="{{ route('Providers.update', $data['id']) }}" method="POST" class="needs-validation" enctype="multipart/form-data">
-       
+        @csrf
+        @method('PUT')
         <div class="form-group">
             <label for="name">Provider Name:</label>
             <input type="text" class="form-control" id="name" placeholder="Enter name"

@@ -91,6 +91,7 @@ public function destroy($id)
         ->where('hour', $selectedHour)
         ->delete();
 
+        Alert::success('Your Booking canceled Successfuly', ' ');
     return redirect()->route('profile');
 }
 

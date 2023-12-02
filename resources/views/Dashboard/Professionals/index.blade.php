@@ -122,6 +122,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+
+
+
+
 <script>
     $(document).ready(function () {
         // Handle "Read More" click
@@ -129,7 +133,7 @@
             e.preventDefault();
             $(this).prev('.truncated-description').hide();
             $(this).prev('.full-description').show();
-        });
+ });
 
         // Handle delete confirmation (if needed)
         $('.show_confirm').on('click', function (e) {

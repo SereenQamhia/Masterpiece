@@ -39,10 +39,10 @@
                               {{ auth()->user()->name }}
                             </h5>
                           
-                            <p class="proile-rating">RANKINGS : <span>9.5/10</span></p>
+                        
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Your Info</a>
                         </li>
                         {{-- <li class="nav-item">
                             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Membership</a>
@@ -108,51 +108,6 @@
                               
                               
                     </div>
-                  
-
-                    {{-- <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Membership Status:</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>active</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Membership Expiry Date:</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>15/12/2023</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Your Offer Code:</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>S23V</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Membership Benefits:</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>priority scheduling, exclusive offers, workshops</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Availability:</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>3 months</p>
-                                    </div>
-                                </div>
-                  
-                    </div> --}}
 
                   
                     @if ($professionalInfo)    
@@ -279,7 +234,7 @@
                                 <form method="POST" action="{{ route('cancel.booking', $booking->id) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn-danger">Cancel</button>
+                                    <button type="submit" class="btn-danger show_confirm">Cancel</button>
                                 </form>
                                 
                             </td>
@@ -307,3 +262,29 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    
+    <script>
+       $(document).ready(function () {
+    
+    
+           // Handle delete confirmation (if needed)
+           $('.show_confirm').on('click', function (e) {
+               e.preventDefault();
+               var form = $(this).closest("form");
+    
+               swal({
+                   title: "Are you sure you want to cancel your booked service?",
+                   icon: "warning",
+                   buttons: true,
+                   dangerMode: true,
+               }).then(function (willDelete) {
+                   if (willDelete) {
+                       form.submit();
+                   }
+               });
+           });
+       });
+    </script>

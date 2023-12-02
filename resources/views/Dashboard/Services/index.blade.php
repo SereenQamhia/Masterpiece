@@ -51,7 +51,7 @@
                                              method="POST" style="display: inline-block">
                                              @csrf
                                              @method('DELETE')
-                                             <button type="submit" class="bg_orange "  >
+                                             <button type="submit" class="bg_orange show_confirm"  >
                                                  <i class="fas fa-trash-alt" style="color: rgb(238, 224, 224)"></i>
                                              </button>
                                          </form>
@@ -74,3 +74,30 @@
    
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script>
+   $(document).ready(function () {
+
+
+       // Handle delete confirmation (if needed)
+       $('.show_confirm').on('click', function (e) {
+           e.preventDefault();
+           var form = $(this).closest("form");
+
+           swal({
+               title: "Are you sure you want to delete this record?",
+               text: "If you delete this, it will be gone forever.",
+               icon: "warning",
+               buttons: true,
+               dangerMode: true,
+           }).then(function (willDelete) {
+               if (willDelete) {
+                   form.submit();
+               }
+           });
+       });
+   });
+</script>

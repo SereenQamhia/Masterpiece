@@ -34,7 +34,7 @@
                               </div>
                            </div>
 
-                           <div class="total_revenue" data-aos="fade-up" data-aos-duration="2000">
+                           {{-- <div class="total_revenue" data-aos="fade-up" data-aos-duration="2000">
                               <div class="vd_title_wrap">
                                  <h3>Total Revenue</h3>
                                  <form action="#">
@@ -51,6 +51,13 @@
                               </div>
                               <div class="image-container">
                                <img src="./img/chart.png" >
+                              </div>
+                           </div> --}}
+
+                           <div class="total_revenue mt-3" data-aos="fade-up" data-aos-duration="2000">
+                             
+                              <div class="image-container">
+                               <img src="img/feature.jpg" >
                               </div>
                            </div>
 
