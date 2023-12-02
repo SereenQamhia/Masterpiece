@@ -73,10 +73,26 @@ private function isHourAvailable($professionalId, $selectedDay, $selectedHour)
         ->exists();
 }
 
-public function destroy($id){
+public function destroy($id)
+{
+    $booking = Booking::findOrFail($id);
 
-    Booking::where('id', $id)->delete();
+    // Retrieve the booked time details
+    $professionalId = $booking->professional_id;
+    $selectedDay = $booking->day;
+    $selectedHour = $booking->time;
+
+    // Delete the booking
+    $booking->delete();
+
+    // Delete the related schedule entry
+    Schedule::where('professional_id', $professionalId)
+        ->where('day', $selectedDay)
+        ->where('hour', $selectedHour)
+        ->delete();
+
     return redirect()->route('profile');
 }
+
 
 }

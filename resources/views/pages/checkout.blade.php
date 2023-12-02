@@ -36,7 +36,7 @@
             <div class="row">
               <div class="form_item col-lg-6">
                 <span class="input_title">Full Name<sup>*</sup></span>
-                <input type="text" name="name" required>
+                <input type="text" name="name" value="{{ auth()->user()->name}}" required>
             </div>
 
             <div class="form_item col-lg-6">
@@ -88,9 +88,9 @@
 
           <div class="row">
 
-            <div class="col-md-7">
+            <div class="col-md-8">
 
-
+{{-- 
               <div class="card p-3" style="font-family: Georgia, 'Times New Roman', Times, serif; border: 2px solid #83b0a1;">
 
                 <h5 class="text-uppercase">Payment details</h5>
@@ -132,35 +132,26 @@
                         type='text' required="required"> <span>CVV</span> </div>
 
                     </div>
-                    {{-- <div class='col-xs-12 col-md-4 form-group expiration required'>
-                      <label class='control-label'>Expiration Year</label> <input
-                          class='form-control card-expiry-year' placeholder='YYYY' size='4'
-                          type='text'>
-                  </div> --}}
+            
                   </div>
-                </div>
-              </div>
+                </div> --}}
+           
 
 
-
-
-            </div>
-
-
-            <div class="col-md-5" >
-              <div class="card p-2" style="font-family: Georgia, 'Times New Roman', Times, serif ; border: 2px solid #83b0a1; height: 100%;">
-                <h5 class="text-uppercase p-2" >Service details</h5>
-              <h5 class=" p-2 ">{{$pro->profission}} - {{$pro->name}}</h5>
-              <h6 class=" px-2"> {{ session('pending_booking.selected_days') }} at {{ session('pending_booking.selected_hours') }} -  Price {{$pro->price}} JD </h6>
-              <h6 class=" px-2">  <hr> The payment confirms your booking and covers the first-hour fee, refundable upon cancellation.  </h6>
               
- 
-
+                  <div class="card p-2" style="font-family: Georgia, 'Times New Roman', Times, serif ; border: 2px solid #83b0a1; height: 100%;">
+                    <h5 class="text-uppercase p-2" >Service details</h5>
+                  <h5 class=" p-2 ">{{$pro->profission}} - {{$pro->name}}</h5>
+                  <h6 class=" px-2"> {{ session('pending_booking.selected_days') }} at {{ session('pending_booking.selected_hours') }} -  Price {{$pro->price}} JD </h6>
+                  <h6 class=" px-2">  <hr> Your booking is confirmed upon payment, which includes our service fee.</h6>
+    
+              </div>
             </div>
-          </div>
-          <button class="btn btn-lg p-2 mt-5 mx-auto placeOrder" type="submit" >Place Order</button>
 
-          </div>
+
+            <div class="col-md-4">
+            <button class="btn btn-lg mx-auto placeOrder w-100 " type="submit" style="margin-top:20% ">Pay Now</button>
+            </div>
 
 
         </div>

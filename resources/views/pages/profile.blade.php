@@ -276,11 +276,12 @@
                               <td>{{$booking->time}}</td>
                               <td>{{$booking->payment}}</td>
                               <td>
-                                <form action="{{ route('cancel.booking', $booking->id) }}" >
+                                <form method="POST" action="{{ route('cancel.booking', $booking->id) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn-danger">Cancel</button>
                                 </form>
+                                
                             </td>
                         </tr>
                               @endforeach
