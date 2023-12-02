@@ -143,7 +143,7 @@
                     <h5 class="text-uppercase p-2" >Service details</h5>
                   <h5 class=" p-2 ">{{$pro->profission}} - {{$pro->name}}</h5>
                   <h6 class=" px-2"> {{ session('pending_booking.selected_days') }} at {{ session('pending_booking.selected_hours') }} -  Price {{$pro->price}} JD </h6>
-                  <h6 class=" px-2">  <hr> Your booking is confirmed upon payment, which includes our service fee.</h6>
+                  <h6 class=" px-2">  <hr> Your booking is confirmed upon pay 3 JD, which is our service fee.</h6>
     
               </div>
             </div>

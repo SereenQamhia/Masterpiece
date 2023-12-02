@@ -72,7 +72,7 @@ class AdminController extends Controller
 
     public function destroy($id)
     {
-        alert()->warning('WarningAlert','Lorem ipsum dolor sit amet.');
+        
         Admin::destroy($id);
 
         return redirect()->route('Admins.index');

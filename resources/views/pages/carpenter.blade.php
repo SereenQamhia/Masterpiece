@@ -147,7 +147,7 @@
               <div class="p-4 text-center border border-5 border-light border-top-0">
                   <h4 class="mb-3">{{$provider->name}}</h4>
                   <p>{{$provider->description}}</p>
-                  <a class="fw-medium" href="{{ route('choosepro' ,$provider->id) }}">View Companies<i class="fa fa-arrow-right ms-2"></i></a>
+                  <a class="fw-medium" href="{{ route('choosepro' ,$provider->id) }}">View <i class="fa fa-arrow-right ms-2"></i></a>
                 
                 </div>
           </div>
